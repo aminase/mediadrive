@@ -1,0 +1,15 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@variants color {
+  .navgray {
+    color: #364156;
+  }
+
+  .linkgray {
+    color: #598392;
+  }
+}
