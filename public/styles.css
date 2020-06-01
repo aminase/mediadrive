@@ -1796,8 +1796,8 @@ video {
   background-color: transparent;
 }
 
-.bg-current {
-  background-color: currentColor;
+.bg-plus {
+  background-color: #4b5f6e !important;
 }
 
 .bg-navgray {
@@ -1825,26 +1825,30 @@ video {
   border-style: none !important;
 }
 
-.bg-hover {
-  background-color: #375b6c !important;
+.bg-btn-login {
+  background-color: #959595 !important;
 }
 
-.bg-gray-600 {
-  --bg-opacity: 1;
-  background-color: #718096;
-  background-color: rgba(113, 128, 150, var(--bg-opacity));
+.hover\:bg-gray-800:hover {
+  background-color: #598392;
 }
 
-.bg-gray-700 {
-  --bg-opacity: 1;
-  background-color: #4a5568;
-  background-color: rgba(74, 85, 104, var(--bg-opacity));
+.focus\:shadow-none:focus {
+  box-shadow: none !important;
+  border-bottom-width: 0 !important;
 }
 
-.bg-gray-800 {
-  --bg-opacity: 1;
-  background-color: #2d3748;
-  background-color: rgba(45, 55, 72, var(--bg-opacity));
+.login-field {
+  background-color: #598392;
+}
+
+.hover\:bg-current-gray:hover {
+  background-color: #354a64;
+}
+
+.bg-checkbox-white {
+  color: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 .bg-gray-900 {
@@ -1853,10 +1857,8 @@ video {
   background-color: rgba(26, 32, 44, var(--bg-opacity));
 }
 
-.bg-red-100 {
-  --bg-opacity: 1;
-  background-color: #fff5f5;
-  background-color: rgba(255, 245, 245, var(--bg-opacity));
+.bg-progress {
+  background-color: #0b2940 !important;
 }
 
 .bg-red-200 {
@@ -2402,9 +2404,7 @@ video {
 }
 
 .hover\:bg-gray-800:hover {
-  --bg-opacity: 1;
-  background-color: #2d3748;
-  background-color: rgba(45, 55, 72, var(--bg-opacity));
+  background-color: #598392;
 }
 
 .hover\:bg-gray-900:hover {
@@ -13146,6 +13146,7 @@ video {
 
 .shadow-none {
   box-shadow: none;
+  border-bottom: 0 !important;
 }
 
 .hover\:shadow-xs:hover {

@@ -9,9 +9,9 @@ export const Send: React.FC = () => {
           <span className="text-sm text-white">Select Files</span>
         </label>
 
-        <label className="md:w-2/3 block">
+        <label className="md:w-2/3 bloc active:bg-checkbox-white">
           <input
-            className="mr-1 bg-checkbox active:bg-white-500"
+            className="mr-1 bg-checkbox active:bg-checkbox-white "
             type="checkbox"
           />
           <span className="text-sm text-white">Select Contacts</span>
@@ -20,8 +20,11 @@ export const Send: React.FC = () => {
       <div className="flex mb-4 mt-4">
         {' '}
         <label className="w-1/3 bg-field h-12 text-center text-white py-3">
-          <div className="flex  ml-2 justify-between">
-            <input className="bg-checkbox " type="checkbox" />
+          <div className="flex  ml-2 justify-between active:bg-checkbox-white">
+            <input
+              className="bg-checkbox active:bg-checkbox-white "
+              type="checkbox"
+            />
             <span className="w-2/3 bg-field h-12 text-center text-white ">
               {' '}
               File_01.mov
