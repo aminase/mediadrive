@@ -14,7 +14,7 @@ export const Upload: React.FC = () => {
             File_01.mv
           </div>
           <div className="w-3/5 h-12 pt-3 flex justify-around bg-field">
-            <div>progres progress progress</div>
+            <div></div>
             <div className="pl-48 text-white">60%</div>
           </div>
         </div>

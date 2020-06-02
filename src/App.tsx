@@ -16,6 +16,7 @@ import invite from './commons/invite-icon.svg'
 import profile from './commons/profile-icon.svg'
 import notification from './commons/notification-icon.svg'
 import { SignIn } from './components/SignIn'
+import uploadicon from './commons/upload.svg'
 
 const App: React.FC = () => {
   return (
@@ -39,42 +40,34 @@ const App: React.FC = () => {
           </button>
         </div>
       </div>
-      <div className="flex mb-4 bg-navgray bg-navgray-400 justify-center active:bg-current-gray">
+      <div className="flex mb-4 bg-navgray bg-navgray-400 active:bg-current-gray">
         <NavLink
           to="/"
-          className="w-1/4 border-r-2 border-white-500 p-8 hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 border-r-2 border-white-500 p-5 flex flex-col justify-center hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={upload} height="70" width="120" className="ml-32 m-3" />
-          <div className="text-white pt-2 text-center pb-5 text-lg pr-3">
-            Upload
-          </div>
+          <img src={upload} className="h-12 md:w-22 lg:w-30" />
+          <div className="text-white p-2 text-center text-base">Upload</div>
         </NavLink>
         <NavLink
           to="/contacts"
-          className="w-1/4 border-r-2 border-white-600 p-8 hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 border-r-2  flex flex-col justify-center border-white-500 p-5 hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={contacts} height="100" width="70" className="ml-32 m-3" />
-          <div className="text-white pt-2 text-center pb-5 text-lg pr-16">
-            Contacts
-          </div>
+          <img src={contacts} className="h-12 md:w-22 lg:w-30 justify-center" />
+          <div className="text-white p-2 text-center text-base">Contacts</div>
         </NavLink>
         <NavLink
           to="/invite"
-          className="w-1/4 border-r-2 border-white-600 p-8 hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 border-r-2  flex flex-col justify-center border-white-500 p-5 hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={invite} height="" width="80" className="ml-32 m-3" />
-          <div className="text-white pt-6 text-center text-lg pr-16">
-            Invite
-          </div>
+          <img src={invite} className="h-12 md:w-22 lg:w-30 justify-center" />
+          <div className="text-white p-2 text-center text-base">Invite</div>
         </NavLink>
         <NavLink
           to="/profile"
-          className="w-1/4 pt-5 p-8 hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 flex flex-col justify-center p-5 hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={profile} height="70" width="100" className="ml-32 m-3" />
-          <div className="text-white pt-2 text-center pb-5 text-lg pr-4">
-            Profile
-          </div>
+          <img src={profile} className="h-12 md:w-22 lg:w-30 justify-center" />
+          <div className="text-white p-2 text-center text-base">Profile</div>
         </NavLink>
       </div>
       <div className="flex bg-options mr-12 ml-12 rounded-md text-white text-center h-12 hover:bg-gray-800 active:bg-gary-800">
