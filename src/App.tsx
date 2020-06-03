@@ -15,8 +15,7 @@ import contacts from './commons/contacts-icon.svg'
 import invite from './commons/invite-icon.svg'
 import profile from './commons/profile-icon.svg'
 import notification from './commons/notification-icon.svg'
-import { SignIn } from './components/SignIn'
-import uploadicon from './commons/upload.svg'
+import { SignUp } from './components/SignUp'
 
 const App: React.FC = () => {
   return (
@@ -26,6 +25,7 @@ const App: React.FC = () => {
         <NavLink to="/" className="focus:outline-none lg">
           <img
             src={mediadrive}
+            alt="mediadrive"
             width="100"
             height="120"
             className="pt-0.5 ml-4"
@@ -33,10 +33,10 @@ const App: React.FC = () => {
         </NavLink>
         <div className="pt-1 pr-8">
           <button className="focus:outline-gray active:outline-gray mr-4">
-            <img src={notification} width="14" height="20" />
+            <img src={notification} alt="notification" width="14" height="20" />
           </button>
           <button className="focus:outline-none active:outline-none">
-            <img src={settings} width="14" height="20" />
+            <img src={settings} alt="settings" width="14" height="20" />
           </button>
         </div>
       </div>
@@ -45,49 +45,65 @@ const App: React.FC = () => {
           to="/"
           className="w-1/4 border-r-2 border-white-500 p-5 flex flex-col justify-center hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={upload} className="h-12 md:w-22 lg:w-30" />
-          <div className="text-white p-2 text-center text-base">Upload</div>
+          <img
+            src={upload}
+            alt="upload"
+            className="h-8 lg:w-30 justify-center sm:h-10"
+          />
+          <div className="text-white pt-2 text-center text-xs">Upload</div>
         </NavLink>
         <NavLink
           to="/contacts"
           className="w-1/4 border-r-2  flex flex-col justify-center border-white-500 p-5 hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={contacts} className="h-12 md:w-22 lg:w-30 justify-center" />
-          <div className="text-white p-2 text-center text-base">Contacts</div>
+          <img
+            src={contacts}
+            alt="contacts"
+            className="h-8 lg:w-30 justify-center sm:h-10"
+          />
+          <div className="text-white pt-2 text-center text-xs">Contacts</div>
         </NavLink>
         <NavLink
           to="/invite"
           className="w-1/4 border-r-2  flex flex-col justify-center border-white-500 p-5 hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={invite} className="h-12 md:w-22 lg:w-30 justify-center" />
-          <div className="text-white p-2 text-center text-base">Invite</div>
+          <img
+            src={invite}
+            alt="invite"
+            className="h-8 lg:w-30 justify-center sm:h-10"
+          />
+          <div className="text-white pt-2 text-center text-xs">Invite</div>
         </NavLink>
         <NavLink
           to="/profile"
           className="w-1/4 flex flex-col justify-center p-5 hover:bg-current-gray active:bg-current-gray"
         >
-          <img src={profile} className="h-12 md:w-22 lg:w-30 justify-center" />
-          <div className="text-white p-2 text-center text-base">Profile</div>
+          <img
+            src={profile}
+            alt="profile"
+            className="h-8 lg:w-30 justify-center sm:h-10"
+          />
+          <div className="text-white pt-2 text-center text-xs">Profile</div>
         </NavLink>
       </div>
-      <div className="flex bg-options mr-12 ml-12 rounded-md text-white text-center h-12 hover:bg-gray-800 active:bg-gary-800">
+      <div className="flex bg-options mr-10 ml-10 rounded-md text-white text-center h-10 hover:bg-gray-800 active:bg-gary-800">
         <NavLink
           to="/files"
-          className="w-1/3 pt-3 border-r-2 border-gray-500 hover:bg-gray-800 active:bg-gray-800"
+          className="w-1/3 pt-2 border-r-2 border-gray-500 hover:bg-gray-800 active:bg-gray-800"
         >
-          Files
+          <div className="text-white text-center text-sm pt-1">Files</div>
         </NavLink>
         <NavLink
           to="/send"
-          className="w-1/3 pt-3 border-r-2 border-gray-500 hover:bg-gray-800 active:bg-gray-800"
+          className="w-1/3 pt-2 border-r-2 border-gray-500 hover:bg-gray-800 active:bg-gray-800"
         >
-          Send
+          <div className="text-white text-center text-sm pt-1">Send</div>
         </NavLink>
         <NavLink
           to="/progress"
-          className="w-1/3 flex-1 pt-3 hover:bg-gray-800 active:bg-gray-800"
+          className="w-1/3 flex-1 pt-2 hover:bg-gray-800 active:bg-gray-800"
         >
-          Progress
+          <div className="text-white text-center text-sm pt-1">Progress</div>
         </NavLink>
       </div>
       <Switch>
@@ -98,7 +114,7 @@ const App: React.FC = () => {
         <Route path="/files" component={Files} />
         <Route path="/send" component={Send} />
         <Route path="/progress" component={Progress} />
-        <Route path="/login" component={SignIn} />
+        <Route path="/login" component={SignUp} />
       </Switch>
       {/* <footer className="flex flex-col w-full text-center mr-12 ml-12">
         <button className="relative inset-x-0 bottom-0 h-8 bg-gray-700 text-white text-center	rounded">
