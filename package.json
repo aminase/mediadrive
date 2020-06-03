@@ -1,5 +1,5 @@
 {
-  "name": "cra-template-typescript-redux",
+  "name": "mediadrive-react",
   "version": "0.2.17",
   "engines": {
     "node": ">=10"
@@ -69,6 +69,7 @@
   "scripts": {
     "start": "react-scripts start",
     "test": "react-scripts test",
+    "build": "react-scripts build",
     "eject": "react-scripts eject",
     "clean-files": "rm -rf ./template/public ./template/src && rm -f ./template/.eslintignore ./template/.eslintrc  ./template/.prettierrc ./template/README.md ./template/README_CRA.md ./template/tsconfig.json",
     "copy-files": "cp -a ./src/. template/src && cp -a ./public/. template/public && cp .eslintignore .eslintrc .prettierrc tsconfig.json README.md README_CRA.md template/",
