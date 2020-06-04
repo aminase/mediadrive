@@ -28,12 +28,12 @@ export const Progress: React.FC = () => {
           <div className="flex tems-center text-white mr-6 ml-6 bg-navgray h-12">
             <div className="text-white ml-8 mt-3"> To:</div>
 
-            <div className="w-2/5 h-12 text-base text-white pl-4 border-b-0">
+            <div className="w-2/5 h-12 text-base text-white pl-4 border-b-0 bg-navgray">
               <input
                 type="text"
                 placeholder="mark@mediadrive"
                 value=""
-                className="w-full py-2 px-4 focus:shadow-none active:shadow-none shadow-none  "
+                className="w-full bg-navgray pt-3 focus:shadow-none active:shadow-none shadow-none  "
               />
             </div>
             <div className="w-3/5">

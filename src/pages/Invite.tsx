@@ -17,7 +17,7 @@ export const Invite: React.FC = () => {
             <input
               type="text"
               placeholder="jane@mediadrive"
-              className="text-white text-xs focus:shadow-none active:shadow-none border-b-0 shadow-none  "
+              className="text-white text-sm bg-field pt-4 pl-4 focus:shadow-none active:shadow-none border-b-0 shadow-none  "
             />
           </div>
           <div className="w-1/3">
@@ -32,7 +32,7 @@ export const Invite: React.FC = () => {
             <input
               type="text"
               placeholder="Email Address"
-              className="text-white text-xs focus:shadow-none active:shadow-none border-b-0 shadow-none  "
+              className="text-white text-sm bg-field pt-4 pl-4 focus:shadow-none active:shadow-none border-b-0 shadow-none  "
             />
           </div>
           <div className="w-1/3">

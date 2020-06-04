@@ -33,9 +33,9 @@ export const SignUp: React.FC = () => {
               Username
             </label>
           </div>
-          <div className="w-2/3 pt-3">
+          <div className="w-2/3 pt-2">
             <input
-              className="w-full w-1/2 text-white text-base focus:shadow-none active:shadow-none shadow-none  "
+              className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
               type="text"
               placeholder="damian@mediadrive"
               value={loginUsername}
@@ -44,14 +44,14 @@ export const SignUp: React.FC = () => {
           </div>
         </div>
         <div className="flex items-center mb-5 login-field h-12 ">
-          <div className="w-1/3">
+          <div className="w-1/3 text-bg-btn-login ">
             <label className="block text-bg-btn-login ml-5 text-base">
               Email
             </label>
           </div>
           <div className="w-2/3 pt-3">
             <input
-              className="w-full text-white text-base focus:shadow-none active:shadow-none shadow-none  "
+              className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
               type="text"
               placeholder="damian@mediadrive"
               value={loginEmail}
@@ -60,14 +60,14 @@ export const SignUp: React.FC = () => {
           </div>
         </div>
         <div className="flex items-center mb-6 login-field h-12">
-          <div className="w-1/3">
+          <div className="w-1/3 pt-3">
             <label className="block text-bg-btn-login ml-5 text-base">
               Password
             </label>
           </div>
-          <div className="w-2/3 h-12">
+          <div className="w-2/3 pt-3">
             <input
-              className="w-full text-white text-base focus:shadow-none active:shadow-none shadow-none  "
+              className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
               type="text"
               placeholder="***********"
               value={loginPassword}

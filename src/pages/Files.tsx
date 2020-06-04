@@ -12,7 +12,7 @@ export const Files: React.FC = () => {
             type="checkbox"
             onChange={() => setFiles(true)}
           />
-          <span className="text-sm text-white">My Files</span>
+          <span className="text-sm text-white pl-2">My Files</span>
         </label>
 
         <label className="md:w-1/2 bloc active:bg-checkbox-white ml-12">
@@ -21,7 +21,7 @@ export const Files: React.FC = () => {
             type="checkbox"
             onChange={() => setShare(true)}
           />
-          <span className="text-sm text-white">Shared With Me</span>
+          <span className="text-sm text-white pl-2">Shared With Me</span>
         </label>
       </div>
       {share && (
@@ -33,7 +33,7 @@ export const Files: React.FC = () => {
                 className="bg-checkbox active:bg-checkbox-white "
                 type="checkbox"
               />
-              <span className="w-1/3 bg-field h-12 text-center text-white text-sm">
+              <span className="w-1/3 h-12 text-center text-white text-sm">
                 {' '}
                 File_01.mov
               </span>
@@ -58,7 +58,7 @@ export const Files: React.FC = () => {
                 className="bg-checkbox active:bg-checkbox-white "
                 type="checkbox"
               />
-              <span className="w-1/3 bg-field h-12 text-center text-white text-sm">
+              <span className="w-1/3 bg-field mt-2 text-center text-white text-sm">
                 {' '}
                 File_01.mov
               </span>

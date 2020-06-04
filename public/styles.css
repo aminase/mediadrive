@@ -429,7 +429,7 @@ ul {
 
 html {
   font-family: 'Calibri' !important;
-  font-weight:normal !important;
+  font-weight: normal !important;
 }
 
 /**
@@ -1831,6 +1831,10 @@ video {
 .bg-checkbox {
   background-color: #335c81 !important;
   border-style: none !important;
+}
+
+.bg-form-label {
+  background-color: #4c5763 !important;
 }
 
 .bg-btn-login {

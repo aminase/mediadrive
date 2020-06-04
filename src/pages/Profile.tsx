@@ -19,7 +19,7 @@ export const Profile: React.FC = () => {
           </div>
           <div className="w-2/3 h-12 pl-2">
             <input
-              className="w-full py-2 px-4 text-white text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className="w-full pt-4 pl-4 text-white bg-field text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
               type="text"
               placeholder="John Doe"
               value={name}
@@ -32,9 +32,9 @@ export const Profile: React.FC = () => {
               Username
             </label>
           </div>
-          <div className="w-2/3 h-12 pl-2">
+          <div className="w-2/3 h-12 pl-2 text-white">
             <input
-              className="py-3  px-4 text-white text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className="pt-4 pl-4 text-white bg-field text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
               type="text"
               placeholder="JDmedia"
               value={username}
@@ -49,7 +49,7 @@ export const Profile: React.FC = () => {
           </div>
           <div className="w-2/3 h-12 pl-2">
             <input
-              className="w-full justify-start text-white text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className=" pt-4 pl-4 w-full text-white bg-field text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
               type="text"
               placeholder="john@mediarive"
               value={email}

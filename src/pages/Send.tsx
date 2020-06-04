@@ -6,15 +6,15 @@ export const Send: React.FC = () => {
       <div className="md:w-1/3 flex flex-row">
         <label className="md:w-2/3 block">
           <input className="bg-checkbox " type="checkbox" />
-          <span className="text-sm text-white">Select Files</span>
+          <span className="text-sm text-white pl-2">Select Files</span>
         </label>
 
-        <label className="md:w-2/3 bloc active:bg-checkbox-white ml-12">
+        <label className="md:w-2/3 block active:bg-checkbox-white ml-12">
           <input
             className="g-checkbox active:bg-checkbox-white "
             type="checkbox"
           />
-          <span className="text-sm text-white">Select Contacts</span>
+          <span className="text-sm text-white pl-2">Select Contacts</span>
         </label>
       </div>
       <div className="flex mb-4 mt-4">
@@ -25,7 +25,7 @@ export const Send: React.FC = () => {
               className="bg-checkbox active:bg-checkbox-white "
               type="checkbox"
             />
-            <span className="w-1/3 bg-field h-12 text-center text-white text-sm">
+            <span className="w-1/3 h-12 text-center text-white text-sm">
               {' '}
               File_01.mov
             </span>
@@ -45,7 +45,7 @@ export const Send: React.FC = () => {
         <label className="w-1/3 bg-field h-12 text-center text-white py-3">
           <div className="ml-2 flex justify-between">
             <input className="bg-checkbox " type="checkbox" />
-            <span className="w-1/3 bg-field h-12 text-center text-white text-sm ">
+            <span className="w-1/3 h-12 text-center text-white text-sm ">
               {' '}
               File_01.mov
             </span>
