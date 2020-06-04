@@ -21,7 +21,7 @@ export const Invite: React.FC = () => {
             />
           </div>
           <div className="w-1/3">
-            <button className="text-right flex justify-start ml-2 border-gray-500 ">
+            <button className="text-right flex justify-start ml-2 border-gray-500 focus:bg-transparent">
               <img src={sign} className="h-3 ml-2 mt-4" />
               <div className="text-white text-sm p-3">Sent</div>
             </button>
@@ -36,7 +36,7 @@ export const Invite: React.FC = () => {
             />
           </div>
           <div className="w-1/3">
-            <button className="text-right flex justify-start ml-2 border-gray-500 ">
+            <button className="text-right flex justify-start ml-2 border-gray-500 focus:bg-transparent">
               <img src={plus} className="h-3 ml-2 mt-4" />
               <div className="text-white text-sm p-3">Invite</div>
             </button>

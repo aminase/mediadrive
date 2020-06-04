@@ -1,5 +1,5 @@
 import { StoreState } from '../store'
 
-const userLoginCredentialsData = (state: StoreState) => state.login
+const getUser = (state: StoreState) => state.login.user
 
-export { userLoginCredentialsData }
+export { getUser }

@@ -13,19 +13,21 @@ interface ISetUserSignUpCredentials {
 const doSignUpUser = (signUpCredentials: IUserSignUpData) => {
   return {
     type: MEDIA_ACTIONS.DO_SIGN_UP_USER,
-    payload: {
-      signUpCredentials,
-    },
+    payload: signUpCredentials,
   }
 }
 
 interface ISetSignUpUser {
   type: typeof MEDIA_ACTIONS.SET_SIGN_UP_USER
+  payload: IUserSignUpData
 }
 
-const setSignUpUser = () => {
+const setSignUpUser = (signUpCredentials: IUserSignUpData) => {
   return {
     type: MEDIA_ACTIONS.SET_SIGN_UP_USER,
+    payload: {
+      signUpCredentials,
+    },
   }
 }
 

@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { doSignUpUser } from '../actions/LoginActions'
-//import { push } from 'react-router-redux'
+import { getUser } from '../selectors/LoginSelector'
+import { useHistory } from 'react-router'
 
 export const SignUp: React.FC = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
 
   const [loginUsername, setLoginUsername] = useState('')
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
 
+  // const user = useSelector(getUser)
+  // if (user) {
+  //   history.push('/')
+  // }
+
   const onSignUp = () => {
-    //dispatch(doSignUpUser(signUpCredentials))
+    dispatch(doSignUpUser)
+    console.log('let')
   }
 
   return (

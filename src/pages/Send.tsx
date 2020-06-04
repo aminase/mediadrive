@@ -35,7 +35,7 @@ export const Send: React.FC = () => {
           {' '}
           12 GB
         </div>
-        <button className="w-1/3 bg-field-remove h-12 text-center text-white text-xs ">
+        <button className="w-1/3 bg-field-remove h-12 text-center text-white text-xs focus:bg-current">
           {' '}
           Send{' '}
         </button>
@@ -55,7 +55,7 @@ export const Send: React.FC = () => {
           {' '}
           12 GB
         </div>
-        <button className="w-1/3 bg-field-remove h-12 text-center text-white py-3 text-xs ">
+        <button className="w-1/3 bg-field-remove h-12 text-center text-white py-3 text-xs focus:bg-current">
           {' '}
           Send{' '}
         </button>
