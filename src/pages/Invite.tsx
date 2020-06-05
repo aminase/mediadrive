@@ -9,7 +9,7 @@ export const Invite: React.FC = () => {
   const [emailAdress, setEmailAddress] = useState()
 
   return (
-    <div className="mr-10 ml-10 mt-8">
+    <div className="mr-8 ml-8 mt-6">
       <div className="text-white mb-4 ml-4 text-base">Invite Users</div>
       <form>
         <div className="flex items-center mb-2 bg-field text-white text-sm">
@@ -17,7 +17,7 @@ export const Invite: React.FC = () => {
             <input
               type="text"
               placeholder="jane@mediadrive"
-              className="text-white text-sm bg-field pt-4 pl-4 focus:shadow-none active:shadow-none border-b-0 shadow-none  "
+              className="text-white text-xs bg-field pt-4 pl-4 focus:shadow-none active:shadow-none border-b-0 shadow-none  "
             />
           </div>
           <div className="w-1/3">
@@ -27,12 +27,12 @@ export const Invite: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="flex items-center mb-2 bg-field text-white text-xs">
-          <div className="w-2/3 border-r-2 h-12 text-xs pl-4">
+        <div className="flex items-center mb-2 bg-field text-white">
+          <div className="w-2/3 border-r-2 h-12 pl-4">
             <input
               type="text"
               placeholder="Email Address"
-              className="text-white text-sm bg-field pt-4 pl-4 focus:shadow-none active:shadow-none border-b-0 shadow-none  "
+              className="text-white text-xs bg-field pt-4 pl-4 focus:shadow-none active:shadow-none border-b-0 shadow-none  "
             />
           </div>
           <div className="w-1/3">

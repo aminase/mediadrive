@@ -10,7 +10,7 @@ import { Send } from './pages/Send'
 import { Progress } from './pages/Progress'
 import settings from './commons/settings-icon.svg'
 import upload from './commons/upload.svg'
-import mediadrive from './commons/mediadrive-icon.svg'
+import mediadrive from './commons/logo.svg'
 import contacts from './commons/contact.svg'
 import invite from './commons/invite.svg'
 import profile from './commons/profile.svg'
@@ -87,7 +87,7 @@ const App: React.FC = () => {
         </NavLink>
         <NavLink
           to="/send"
-          className="w-1/3 border-r border-main divide-opacity-400 hover:bg-gray-800 active:bg-gray-800"
+          className="w-1/3 border-r border-main divide-opacity-400 hover:bg-gray-800 active:bg-gray-800 focus:login-field"
         >
           <div className="text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
             Send
@@ -113,7 +113,7 @@ const App: React.FC = () => {
         <Route path="/login" component={SignUp} />
       </Switch>
       <div className="absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
-        <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
+        <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter pt-4 focus:bg-update">
           Update Available
         </button>{' '}
       </div>

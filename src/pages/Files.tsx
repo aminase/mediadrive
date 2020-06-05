@@ -4,7 +4,7 @@ export const Files: React.FC = () => {
   const [files, setFiles] = useState(false)
   const [share, setShare] = useState(false)
   return (
-    <div className="mr-12 ml-12  mt-6">
+    <div className="mr-8 ml-8  mt-5">
       <div className="md:w-1/2 flex flex-row">
         <label className="md:w-1/2 block">
           <input
@@ -15,9 +15,9 @@ export const Files: React.FC = () => {
           <span className="text-sm text-white pl-2">My Files</span>
         </label>
 
-        <label className="md:w-1/2 bloc active:bg-checkbox-white ml-12">
+        <label className="md:w-1/2 block ml-12">
           <input
-            className="bg-checkbox active:bg-checkbox-white "
+            className="bg-checkbox"
             type="checkbox"
             onChange={() => setShare(true)}
           />
@@ -25,50 +25,34 @@ export const Files: React.FC = () => {
         </label>
       </div>
       {share && (
-        <div className="flex mb-4 mt-4">
+        <div className="flex mt-3 h-10">
           {' '}
-          <label className="w-1/3 bg-field h-12 text-center text-white py-3">
-            <div className="flex  ml-2 justify-between">
-              <input
-                className="bg-checkbox active:bg-checkbox-white "
-                type="checkbox"
-              />
-              <span className="w-1/3 h-12 text-center text-white text-sm">
-                {' '}
-                File_01.mov
-              </span>
-            </div>
-          </label>
-          <div className="w-1/3 bg-field h-12 text-center text-white text-xs pt-4">
+          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
+            {' '}
+            File_01.mov
+          </div>
+          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
             {' '}
             12 GB
           </div>
-          <button className="w-1/3 bg-field-remove h-12 text-center text-white text-xs focus:bg-current">
+          <button className="w-1/3 bg-field-remove  text-center text-white text-xs focus:bg-current">
             {' '}
             Accept{' '}
           </button>
         </div>
       )}
       {!files && (
-        <div className="flex mb-4 mt-4">
+        <div className="flex mt-2 h-10">
           {' '}
-          <label className="w-1/3 bg-field h-12 text-center text-white py-3">
-            <div className="flex  ml-2 justify-between">
-              <input
-                className="bg-checkbox active:bg-checkbox-white "
-                type="checkbox"
-              />
-              <span className="w-1/3 bg-field mt-2 text-center text-white text-sm">
-                {' '}
-                File_01.mov
-              </span>
-            </div>
-          </label>
-          <div className="w-1/3 bg-field h-12 text-center text-white text-xs pt-4">
+          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
+            {' '}
+            File_01.mov
+          </div>
+          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
             {' '}
             12 GB
           </div>
-          <button className="w-1/3 bg-field-remove h-12 text-center text-white text-xs focus:bg-current">
+          <button className="w-1/3 bg-field-remove text-center text-white text-xs focus:bg-current">
             {' '}
             Remove{' '}
           </button>

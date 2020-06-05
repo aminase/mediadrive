@@ -20,6 +20,7 @@
 }
 
 html {
+  font-family: @font-face;
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
@@ -1804,6 +1805,7 @@ video {
   background-color: transparent;
 }
 
+/* custome style used in components */
 .bg-plus {
   background-color: #4b5f6e !important;
 }
@@ -1855,6 +1857,11 @@ video {
   border-bottom-width: 0 !important;
 }
 
+.bg-progress-file {
+  background-color: #598392 !important;
+  opacity: 1!important;
+}
+
 .login-field {
   background-color: #598392;
 }
@@ -1868,9 +1875,13 @@ video {
   outline: none !important;
 }
 
-.bg-checkbox-white {
+.bg-white-file {
   color: #ffffff !important;
-  background-color: #ffffff !important;
+}
+
+.focus\:bg-update:focus {
+  background-color: #335c81 !important;
+  outline: none !important;
 }
 
 .bg-gray-900 {
@@ -2923,12 +2934,6 @@ video {
 .focus\:bg-transparent:focus {
   background-color: inherit !important;
   outline: none !important;
-}
-
-.focus\:bg-black:focus {
-  --bg-opacity: 1;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, var(--bg-opacity));
 }
 
 .focus\:bg-white:focus {
@@ -8427,6 +8432,7 @@ video {
   --placeholder-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--placeholder-opacity));
+  font-size:14px !important;
 }
 
 .placeholder-white:-ms-input-placeholder {

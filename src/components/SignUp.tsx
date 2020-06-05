@@ -8,19 +8,17 @@ export const SignUp: React.FC = () => {
   const dispatch = useDispatch()
   const history = useHistory()
 
-  const [loginUsername, setLoginUsername] = useState('')
-  const [loginEmail, setLoginEmail] = useState('')
-  const [loginPassword, setLoginPassword] = useState('')
+  const [nickname, setNickname] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   // const user = useSelector(getUser)
   // if (user) {
   //   history.push('/')
   // }
 
-  const onSignUp = () => {
-    dispatch(doSignUpUser)
-    console.log('let')
-  }
+  const onSignUp = () => dispatch(doSignUpUser({ nickname, email, password }))
+  console.log('let')
 
   return (
     <div className="flex justify-center bg-field ml-10 mr-10 mt-5">
@@ -38,8 +36,8 @@ export const SignUp: React.FC = () => {
               className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
               type="text"
               placeholder="damian@mediadrive"
-              value={loginUsername}
-              onChange={e => setLoginUsername(e.target.value)}
+              value={nickname}
+              onChange={e => setNickname(e.target.value)}
             />
           </div>
         </div>
@@ -54,8 +52,8 @@ export const SignUp: React.FC = () => {
               className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
               type="text"
               placeholder="damian@mediadrive"
-              value={loginEmail}
-              onChange={e => setLoginEmail(e.target.value)}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
         </div>
@@ -70,8 +68,8 @@ export const SignUp: React.FC = () => {
               className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
               type="text"
               placeholder="***********"
-              value={loginPassword}
-              onChange={e => setLoginPassword(e.target.value)}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
           </div>
         </div>

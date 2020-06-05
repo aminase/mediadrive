@@ -13,9 +13,9 @@ export const Upload: React.FC = () => {
   //   history.push('/login')
   // }
   return (
-    <div className="mt-5">
+    <div className="mt-5 mr-8 ml-8">
       <div>
-        <img src={drop} className="m-auto mt-20" />
+        <img src={drop} className="m-auto mt-20" width="250" />
       </div>
 
       {/* <div className="flex m-3">

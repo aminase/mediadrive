@@ -1,65 +1,110 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router'
 
 export const Send: React.FC = () => {
-  return (
-    <div className="mr-12 ml-12  mt-6">
-      <div className="md:w-1/3 flex flex-row">
-        <label className="md:w-2/3 block">
-          <input className="bg-checkbox " type="checkbox" />
-          <span className="text-sm text-white pl-2">Select Files</span>
-        </label>
+  const history = useHistory()
 
-        <label className="md:w-2/3 block active:bg-checkbox-white ml-12">
-          <input
-            className="g-checkbox active:bg-checkbox-white "
-            type="checkbox"
-          />
-          <span className="text-sm text-white pl-2">Select Contacts</span>
-        </label>
-      </div>
-      <div className="flex mb-4 mt-4">
-        {' '}
-        <label className="w-1/3 bg-field h-12 text-center text-white py-3">
-          <div className="flex  ml-2 justify-between">
-            <input
-              className="bg-checkbox active:bg-checkbox-white "
-              type="checkbox"
-            />
-            <span className="w-1/3 h-12 text-center text-white text-sm">
-              {' '}
-              File_01.mov
-            </span>
+  const [contacts, setContacts] = useState(false)
+
+  const onButtonNext = () => {
+    setContacts(true)
+  }
+
+  const onSendButton = () => {
+    history.push('/progress')
+  }
+
+  return (
+    <div className="mr-8 ml-8  mt-6">
+      {!contacts && (
+        <>
+          <div className="md:w-1/3 flex flex-row">
+            <div className="text-sm text-white pl-2">Select Files</div>
           </div>
-        </label>
-        <div className="w-1/3 bg-field h-12 text-center text-white text-xs pt-4">
-          {' '}
-          12 GB
-        </div>
-        <button className="w-1/3 bg-field-remove h-12 text-center text-white text-xs focus:bg-current">
-          {' '}
-          Send{' '}
-        </button>
-      </div>
-      <div className="flex mb-4 mt-4">
-        {' '}
-        <label className="w-1/3 bg-field h-12 text-center text-white py-3">
-          <div className="ml-2 flex justify-between">
-            <input className="bg-checkbox " type="checkbox" />
-            <span className="w-1/3 h-12 text-center text-white text-sm ">
+          <div className="flex mb-4 mt-4 h-12">
+            {' '}
+            <label className="w-2/3 bg-field text-center text-white py-3">
+              <div className="flex  ml-2 justify-between">
+                <input
+                  className="bg-checkbox active:bg-checkbox-white "
+                  type="checkbox"
+                />
+                <span className="w-1/3 text-center text-white text-xs">
+                  {' '}
+                  File_01.mov
+                </span>
+              </div>
+            </label>
+            <div className="w-1/3 bg-field-remove h-12 pt-4 text-center text-white text-xs focus:bg-current">
               {' '}
-              File_01.mov
-            </span>
+              12 GB{' '}
+            </div>
           </div>
-        </label>
-        <div className="w-1/3 bg-field h-12 text-center text-white pt-4 text-xs ">
-          {' '}
-          12 GB
-        </div>
-        <button className="w-1/3 bg-field-remove h-12 text-center text-white py-3 text-xs focus:bg-current">
-          {' '}
-          Send{' '}
-        </button>
-      </div>
+          <div className="flex mb-4 mt-4 h-12">
+            {' '}
+            <label className="w-2/3 bg-field text-center text-white py-3">
+              <div className="flex  ml-2 justify-between">
+                <input
+                  className="bg-checkbox active:bg-checkbox-white "
+                  type="checkbox"
+                />
+                <span className="w-1/3 text-center text-white text-xs">
+                  {' '}
+                  File_01.mov
+                </span>
+              </div>
+            </label>
+            <div className="w-1/3 bg-field-remove h-12 pt-4 text-center text-white text-xs focus:bg-current">
+              {' '}
+              12 GB{' '}
+            </div>
+          </div>
+          <div className="flex mt-8">
+            <div className="w-2/3 bg-gray-400 h-12" />
+            <div className="w-1/3 h-10 text-center bg-options rounded-md mb-4 font-sans-main h-10">
+              <button
+                className="text-white text-center flex-end text-sm font-sans-main leading-none tracking-tighter pt-4 focus:bg-update"
+                onClick={() => onButtonNext()}
+              >
+                Next
+              </button>{' '}
+            </div>
+          </div>
+        </>
+      )}
+      {contacts && (
+        <>
+          <div className="text-sm text-white pl-2">Select Contacts</div>
+          <div className="flex mb-4 mt-4 h-12 bg-field">
+            {' '}
+            <label className="w-2/3 bg-field text-center text-white py-3">
+              <div className="flex  ml-2 justify-between">
+                <input
+                  className="bg-checkbox active:bg-checkbox-white "
+                  type="checkbox"
+                  placeholder="mark@mediadrive"
+                />
+                <span className="w-1/3 text-center text-white text-xs">
+                  {' '}
+                  File_01.mov
+                </span>
+              </div>
+            </label>
+            <div className="w-1/3" />
+          </div>
+          <div className="flex mt-5">
+            <div className="w-2/3 bg-gray-400 h-12" />
+            <div className="w-1/3 h-10 text-center bg-options rounded-md mb-4 font-sans-main h-10">
+              <button
+                className="text-white text-center flex-end text-sm font-sans-main leading-none tracking-tighter pt-4 focus:bg-update"
+                onClick={() => onSendButton()}
+              >
+                Send
+              </button>{' '}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }
