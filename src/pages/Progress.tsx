@@ -4,7 +4,7 @@ import arrow from '../commons/arrow-down.svg'
 import darker from '../commons/darker.svg'
 
 export const Progress: React.FC = () => {
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState(true)
   const [toggleFile, setToggleFile] = useState(false)
 
   return (
@@ -20,7 +20,7 @@ export const Progress: React.FC = () => {
       {toggle && (
         <div className="mr-6 ml-6">
           <button
-            className="flex  mb-2 w-full bg-progress-file pt-2 pl-2 text-white h-10 focus:bg-update"
+            className="flex  mb-2 w-full bg-options pt-2 pl-2 text-white h-10 focus:bg-update"
             onClick={() => setToggleFile(!toggleFile)}
           >
             <img src={darker} className="h-3 mt-1 mr-2 " />
@@ -42,7 +42,7 @@ export const Progress: React.FC = () => {
                     type="text"
                     placeholder="mark@mediadrive"
                     value=""
-                    className="placeholder-white font-sans-main font-xs focus:shadow-none active:shadow-none shadow-none  "
+                    className="placeholder-white font-sans-main font-xs focus:shadow-none active:shadow-none shadow-none"
                   />
                 </div>
                 <div className="w-2/5">

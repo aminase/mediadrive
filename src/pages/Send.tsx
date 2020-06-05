@@ -61,14 +61,12 @@ export const Send: React.FC = () => {
           </div>
           <div className="flex mt-8">
             <div className="w-2/3 bg-gray-400 h-12" />
-            <div className="w-1/3 h-10 text-center bg-options rounded-md mb-4 font-sans-main h-10">
-              <button
-                className="text-white text-center flex-end text-sm font-sans-main leading-none tracking-tighter pt-4 focus:bg-update"
-                onClick={() => onButtonNext()}
-              >
-                Next
-              </button>{' '}
-            </div>
+            <button
+              className="w-1/3 h-10 text-center bg-options rounded-md text-white text-sm font-sans-main leading-none tracking-tighter focus:bg-update"
+              onClick={() => onButtonNext()}
+            >
+              Next
+            </button>{' '}
           </div>
         </>
       )}
@@ -94,14 +92,12 @@ export const Send: React.FC = () => {
           </div>
           <div className="flex mt-5">
             <div className="w-2/3 bg-gray-400 h-12" />
-            <div className="w-1/3 h-10 text-center bg-options rounded-md mb-4 font-sans-main h-10">
-              <button
-                className="text-white text-center flex-end text-sm font-sans-main leading-none tracking-tighter pt-4 focus:bg-update"
-                onClick={() => onSendButton()}
-              >
-                Send
-              </button>{' '}
-            </div>
+            <button
+              className="w-1/3 h-10 text-center bg-options rounded-md text-white text-sm font-sans-main leading-none tracking-tighter focus:bg-update"
+              onClick={() => onSendButton()}
+            >
+              Send
+            </button>{' '}
           </div>
         </>
       )}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Plus Icon</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Screen-5" transform="translate(-328.000000, -306.000000)" stroke="#FFFFFF" stroke-width="2">
+            <g id="Invite-Group" transform="translate(28.000000, 211.000000)">
+                <g id="Invite-2" transform="translate(0.000000, 80.000000)">
+                    <g id="Plus-Icon" transform="translate(301.567039, 16.820513)">
+                        <line x1="4.66340782" y1="0.473076923" x2="4.66340782" y2="9.46153846" id="Line"></line>
+                        <line x1="4.66340782" y1="0.0673614095" x2="4.66340782" y2="9.39417705" id="Line" transform="translate(4.663408, 4.730769) rotate(-90.000000) translate(-4.663408, -4.730769) "></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

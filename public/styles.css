@@ -1859,7 +1859,7 @@ video {
 
 .bg-progress-file {
   background-color: #598392 !important;
-  opacity: 1!important;
+  opacity: 1 !important;
 }
 
 .login-field {
@@ -1898,7 +1898,10 @@ video {
 .border-main {
   border-color: #d1d3d4;
 }
-
+.border-profile {
+  border-right: solid 1px #ffffff !important;
+  opacity: 0.41;
+}
 .bg-red-300 {
   --bg-opacity: 1;
   background-color: #feb2b2;
@@ -8432,7 +8435,7 @@ video {
   --placeholder-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--placeholder-opacity));
-  font-size:14px !important;
+  font-size: 14px !important;
 }
 
 .placeholder-white:-ms-input-placeholder {

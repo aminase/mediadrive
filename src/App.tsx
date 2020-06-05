@@ -103,7 +103,8 @@ const App: React.FC = () => {
         </NavLink>
       </div>
       <Switch>
-        <Route path="/" component={Upload} exact />
+        <Route path="/" component={SignUp} exact />
+        <Route path="/upload" component={Upload} />
         <Route path="/contacts" component={Contacts} />
         <Route path="/invite" component={Invite} />
         <Route path="/profile" component={Profile} />

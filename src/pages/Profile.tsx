@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import avatar from '../commons/avatar.svg'
+import avatar from '../commons/profile-avatar.svg'
 
 export const Profile: React.FC = () => {
   const [name, setName] = useState()
@@ -7,19 +7,19 @@ export const Profile: React.FC = () => {
   const [email, setEmail] = useState()
   return (
     <div className="flex items-center flex-col mt-2 mr-8 ml-8">
-      <div className="flex items-center border-solid h-24 min-h-full rounded my-20 mb-5">
-        <img src={avatar} className="h-20" />
+      <div className="flex items-center border-solid min-h-full rounded mt-12 mb-8">
+        <img src={avatar} className="h-24" />
       </div>
-      <form className="w-full max-w-sm mt-2 ">
+      <form className="w-full max-w-sm">
         <div className="flex items-center bg-field mb-2">
           <div className="w-1/3">
-            <label className="block mr-1 flex justify-start ml-3 bg-gray-600 border-r-2 text-sm">
+            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base">
               Name
             </label>
           </div>
-          <div className="w-2/3 h-12 pl-2">
+          <div className="w-2/3 h-12 pl-5">
             <input
-              className="w-full pt-4 pl-4 placeholder-white  bg-field text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className="pt-4 placeholder-white bg-field text-xs focus:shadow-none active:shadow-none border-b-0 shadow-none"
               type="text"
               placeholder="John Doe"
               value={name}
@@ -28,13 +28,13 @@ export const Profile: React.FC = () => {
         </div>
         <div className="flex items-center bg-field mb-2">
           <div className="w-1/3">
-            <label className="block mr-1 flex justify-start ml-3 bg-gray-600 border-r-2 text-sm">
+            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base">
               Username
             </label>
           </div>
-          <div className="w-2/3 h-12 pl-2 text-white">
+          <div className="w-2/3 h-12 pl-5">
             <input
-              className="pt-4 pl-4 placeholder-white  bg-field text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className="pt-4 placeholder-white bg-field text-xs focus:shadow-none active:shadow-none border-b-0  shadow-none"
               type="text"
               placeholder="JDmedia"
               value={username}
@@ -43,15 +43,15 @@ export const Profile: React.FC = () => {
         </div>
         <div className="flex items-center bg-field">
           <div className="w-1/3">
-            <label className="block mr-1 flex justify-start ml-3 bg-gray-600 border-r-2 text-sm">
+            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base">
               Email
             </label>
           </div>
-          <div className="w-2/3 h-12 pl-2">
+          <div className="w-2/3 h-12 pl-5">
             <input
-              className=" pt-4 pl-4 w-full placeholder-white  bg-field text-sm focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className="pt-4 placeholder-white text-xs focus:shadow-none active:shadow-none shadow-none font-sans-main"
               type="text"
-              placeholder="john@mediarive"
+              placeholder="john@mediadrive"
               value={email}
             />
           </div>

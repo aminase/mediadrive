@@ -17,66 +17,72 @@ export const SignUp: React.FC = () => {
   //   history.push('/')
   // }
 
-  const onSignUp = () => dispatch(doSignUpUser({ nickname, email, password }))
-  console.log('let')
+  // const onSignUp = () => dispatch(doSignUpUser({ nickname, email, password }))
+  // console.log('let')
+
+  const onSignUp = () => {
+    history.push('/upload')
+  }
 
   return (
-    <div className="flex justify-center bg-field ml-10 mr-10 mt-5">
+    <div className="flex justify-center bg-field ml-12 mr-12 mt-6">
       <form className="w-full max-w-sm mt-2">
-        <div className="text-white p-6 text-center">SIGN UP </div>
-
-        <div className="flex items-center mb-5 login-field h-12 ">
-          <div className="w-1/3">
-            <label className="block text-bg-btn-login ml-5 text-base">
-              Username
-            </label>
+        <div className="text-white m-5 text-center leading-none tracking-tight">
+          SIGN UP{' '}
+        </div>
+        <div className="ml-4 mr-4">
+          <div className="flex items-center mb-3 login-field h-12 ">
+            <div className="w-1/3">
+              <label className="block text-bg-btn-login ml-5 text-base leading-none tracking-tight">
+                Username
+              </label>
+            </div>
+            <div className="w-2/3 pt-3">
+              <input
+                className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+                type="text"
+                placeholder="damian@mediadrive"
+                value={nickname}
+                onChange={e => setNickname(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="w-2/3 pt-2">
-            <input
-              className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
-              type="text"
-              placeholder="damian@mediadrive"
-              value={nickname}
-              onChange={e => setNickname(e.target.value)}
-            />
+          <div className="flex items-center mb-3 login-field h-12">
+            <div className="w-1/3">
+              <label className="block text-bg-btn-login ml-5 text-base leading-none tracking-tight">
+                Email
+              </label>
+            </div>
+            <div className="w-2/3 pt-3">
+              <input
+                className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+                type="text"
+                placeholder="damian@mediadrive"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="flex items-center mb-3 login-field h-12">
+            <div className="w-1/3">
+              <label className="block text-bg-btn-login ml-5 text-base leading-none tracking-tight">
+                Password
+              </label>
+            </div>
+            <div className="w-2/3 pt-4">
+              <input
+                className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+                type="text"
+                placeholder="***********"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+            </div>
           </div>
         </div>
-        <div className="flex items-center mb-5 login-field h-12 ">
-          <div className="w-1/3 text-bg-btn-login ">
-            <label className="block text-bg-btn-login ml-5 text-base">
-              Email
-            </label>
-          </div>
-          <div className="w-2/3 pt-3">
-            <input
-              className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
-              type="text"
-              placeholder="damian@mediadrive"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="flex items-center mb-6 login-field h-12">
-          <div className="w-1/3 pt-3">
-            <label className="block text-bg-btn-login ml-5 text-base">
-              Password
-            </label>
-          </div>
-          <div className="w-2/3 pt-3">
-            <input
-              className="w-full login-field text-white text-base focus:shadow-none active:shadow-none shadow-none  "
-              type="text"
-              placeholder="***********"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className="m-5 text-center">
+        <div className="text-center ml-10 mr-10 m-5">
           <button
-            className="bg-options focus:outline-none text-white py-2 px-4 rounded w-3/4 ml-12 mr-20"
-            type="button"
+            className="w-3/4 bg-options focus:outline-none text-white rounded leading-none tracking-tight h-10"
             onClick={() => onSignUp()}
           >
             Sign Up
