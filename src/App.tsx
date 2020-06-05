@@ -40,7 +40,7 @@ const App: React.FC = () => {
       </div>
       <div className="flex mb-3 bg-navgray bg-navgray-400 active:bg-current-gray h-20 font-sans-main">
         <NavLink
-          to="/"
+          to="/upload"
           className="w-1/4 border-r border-main flex flex-col justify-center hover:bg-current-gray active:bg-current-gray"
         >
           <img src={upload} alt="upload" className="justify-center" />
