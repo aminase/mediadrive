@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
 
 import { Upload } from './pages/Upload'
@@ -18,6 +18,7 @@ import notification from './commons/notification-icon.svg'
 import { SignUp } from './components/SignUp'
 
 const App: React.FC = () => {
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
   return (
     <BrowserRouter>
       <div className="flex justify-between m-3">
@@ -29,46 +30,66 @@ const App: React.FC = () => {
             className="ml-5 mt-3 mb-3 h-4"
           />
         </NavLink>
-        <div className="mt-3 mr-5">
-          <button className="focus:outline-gray active:outline-gray mr-6">
-            <img src={notification} alt="notification" className="h-5" />
+        <div className="mt-3 mr-5 flex-shrink-0 position-absolute">
+          <button className="focus:outline-gray focus:bg-current mr-6">
+            <img
+              src={notification}
+              alt="notification"
+              className="h-5"
+              onClick={() => setIsNotificationOpen(!isNotificationOpen)}
+            />
           </button>
-          <button className="focus:outline-none active:outline-none">
+          <button className="focus:outline-none active:bg-current">
             <img src={settings} alt="settings" className="h-5" />
           </button>
         </div>
       </div>
-      <div className="flex mb-3 bg-navgray bg-navgray-400 active:bg-current-gray h-20 font-sans-main">
+      {/* {!isNotificationOpen && (
+        <div
+          className="mt-8 flex-shrink-0 bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3 z-40 opacity-100"
+          role="alert"
+        >
+          <p className="font-bold">Notification </p>
+          <p className="text-sm">
+            Some additional text to explain said message.
+          </p>
+        </div>
+      )} */}
+      <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
         <NavLink
           to="/upload"
-          className="w-1/4 border-r border-main flex flex-col justify-center hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
         >
           <img src={upload} alt="upload" className="justify-center" />
           <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
             Upload
           </div>
         </NavLink>
+        <div className="border-r border-profile mt-2 mb-2" />
         <NavLink
           to="/contacts"
-          className="w-1/4 border-r border-main flex flex-col justify-center hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
         >
           <img src={contacts} alt="contacts" className="justify-center" />
           <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
             Contacts
-          </div>
+          </div>{' '}
         </NavLink>
+        <div className="border-r border-profile mt-2 mb-2" />
+
         <NavLink
           to="/invite"
-          className="w-1/4 border-r border-main flex flex-col justify-center hover:bg-current-gray active:bg-current-gray"
+          className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
         >
           <img src={invite} alt="invite" className="justify-center" />
           <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main ">
             Invite
           </div>
         </NavLink>
+        <div className="border-r border-profile mt-2 mb-2" />
         <NavLink
           to="/profile"
-          className="w-1/4 flex flex-col justify-center hover:bg-current-gray active:bg-current-gray p-4"
+          className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
         >
           <img src={profile} alt="profile" className="justify-center" />
           <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
@@ -76,28 +97,30 @@ const App: React.FC = () => {
           </div>
         </NavLink>
       </div>
-      <div className="flex bg-options mr-8 ml-8 rounded-md text-white text-center h-10 hover:bg-gray-800 active:bg-gary-800 font-sans-main">
+      <div className="flex bg-options mr-8 ml-8 rounded-md text-white text-center h-10 font-sans-main">
         <NavLink
           to="/files"
-          className="w-1/3 border-r border-main divide-opacity-50 hover:bg-gray-800 active:bg-gray-800"
+          className="w-1/3 flex justify-center hover:bg-gray-800 active:bg-gray-800 focus:bg-options rounded-l-md"
         >
-          <div className="text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
+          <div className="flex self-center text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
             Files
           </div>
         </NavLink>
+        <div className="border-r border-profile" />
         <NavLink
           to="/send"
-          className="w-1/3 border-r border-main divide-opacity-400 hover:bg-gray-800 active:bg-gray-800 focus:login-field"
+          className="w-1/3 flex justify-center hover:bg-gray-800 active:bg-gray-800 focus:bg-options"
         >
-          <div className="text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
+          <div className="flex self-center text-white text-center text-sm font-sans-main leading-none tracking-tighter">
             Send
           </div>
-        </NavLink>
+        </NavLink>{' '}
+        <div className="border-r border-profile" />
         <NavLink
           to="/progress"
-          className="w-1/3 hover:bg-gray-800 active:bg-gray-800"
+          className="w-1/3 flex justify-center hover:bg-gray-800 active:bg-gray-800 focus:bg-options rounded-r-md"
         >
-          <div className="text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
+          <div className="flex self-center text-white text-center text-sm font-sans-main leading-none tracking-tighter">
             Progress
           </div>
         </NavLink>
@@ -113,8 +136,8 @@ const App: React.FC = () => {
         <Route path="/progress" component={Progress} />
         <Route path="/login" component={SignUp} />
       </Switch>
-      <div className="absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
-        <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter pt-4 focus:bg-update">
+      <div className="flex justify-center absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
+        <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter self-center focus:bg-update">
           Update Available
         </button>{' '}
       </div>

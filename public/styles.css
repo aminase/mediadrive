@@ -1805,7 +1805,7 @@ video {
   background-color: transparent;
 }
 
-/* custome style used in components */
+/* custome style used in components  -------------------------------------------------------*/
 .bg-plus {
   background-color: #4b5f6e !important;
 }
@@ -1895,13 +1895,27 @@ video {
   outline: none !important;
 }
 
-.border-main {
-  border-color: #d1d3d4;
-}
 .border-profile {
   border-right: solid 1px #ffffff !important;
   opacity: 0.41;
 }
+
+.focus\:bg-options:focus {
+  background-color: #598392 !important;
+}
+
+.focus\:bg-navlink:focus {
+  background-color: #354a64;
+}
+
+/* ------------------------------------------------------------- */
+
+
+
+
+
+
+
 .bg-red-300 {
   --bg-opacity: 1;
   background-color: #feb2b2;
@@ -2466,12 +2480,6 @@ video {
   background-color: rgba(254, 178, 178, var(--bg-opacity));
 }
 
-.hover\:bg-red-400:hover {
-  --bg-opacity: 1;
-  background-color: #fc8181;
-  background-color: rgba(252, 129, 129, var(--bg-opacity));
-}
-
 .hover\:bg-red-500:hover {
   --bg-opacity: 1;
   background-color: #f56565;
@@ -2945,11 +2953,6 @@ video {
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.focus\:bg-gray-100:focus {
-  --bg-opacity: 1;
-  background-color: #f7fafc;
-  background-color: rgba(247, 250, 252, var(--bg-opacity));
-}
 
 .focus\:bg-gray-200:focus {
   --bg-opacity: 1;

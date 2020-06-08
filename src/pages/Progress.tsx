@@ -4,7 +4,7 @@ import arrow from '../commons/arrow-down.svg'
 import darker from '../commons/darker.svg'
 
 export const Progress: React.FC = () => {
-  const [toggle, setToggle] = useState(true)
+  const [toggle, setToggle] = useState(false)
   const [toggleFile, setToggleFile] = useState(false)
 
   return (

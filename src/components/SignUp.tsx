@@ -11,6 +11,7 @@ export const SignUp: React.FC = () => {
   const [nickname, setNickname] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   // const user = useSelector(getUser)
   // if (user) {
@@ -33,11 +34,11 @@ export const SignUp: React.FC = () => {
         <div className="ml-4 mr-4">
           <div className="flex items-center mb-3 login-field h-12 ">
             <div className="w-1/3">
-              <label className="block text-bg-btn-login ml-5 text-base leading-none tracking-tight">
+              <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
                 Username
               </label>
             </div>
-            <div className="w-2/3 pt-3">
+            <div className="w-2/3 pt-3 pl-2">
               <input
                 className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
                 type="text"
@@ -49,11 +50,11 @@ export const SignUp: React.FC = () => {
           </div>
           <div className="flex items-center mb-3 login-field h-12">
             <div className="w-1/3">
-              <label className="block text-bg-btn-login ml-5 text-base leading-none tracking-tight">
+              <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
                 Email
               </label>
             </div>
-            <div className="w-2/3 pt-3">
+            <div className="w-2/3 pt-3 pl-2">
               <input
                 className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
                 type="text"
@@ -65,17 +66,33 @@ export const SignUp: React.FC = () => {
           </div>
           <div className="flex items-center mb-3 login-field h-12">
             <div className="w-1/3">
-              <label className="block text-bg-btn-login ml-5 text-base leading-none tracking-tight">
+              <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
                 Password
               </label>
             </div>
-            <div className="w-2/3 pt-4">
+            <div className="w-2/3 pt-3 pl-2">
               <input
                 className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
                 type="text"
                 placeholder="***********"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="flex items-center mb-3 login-field h-12">
+            <div className="w-1/3">
+              <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+                Confirm Password
+              </label>
+            </div>
+            <div className="w-2/3 pt-3 pl-2">
+              <input
+                className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+                type="text"
+                placeholder="***********"
+                value={confirmPassword}
+                onChange={e => setConfirmPassword(e.target.value)}
               />
             </div>
           </div>

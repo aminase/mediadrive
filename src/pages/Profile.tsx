@@ -12,11 +12,13 @@ export const Profile: React.FC = () => {
       </div>
       <form className="w-full max-w-sm">
         <div className="flex items-center bg-field mb-2">
-          <div className="w-1/3">
-            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base">
+          <div className="w-1/3 border-r border-profile">
+            <label className="flex text-center ml-3 p-2 mt-1 text-base">
               Name
             </label>
           </div>
+          <div className="border-r border-gray-500" />
+
           <div className="w-2/3 h-12 pl-5">
             <input
               className="pt-4 placeholder-white bg-field text-xs focus:shadow-none active:shadow-none border-b-0 shadow-none"
@@ -26,9 +28,10 @@ export const Profile: React.FC = () => {
             />
           </div>
         </div>
+
         <div className="flex items-center bg-field mb-2">
-          <div className="w-1/3">
-            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base">
+          <div className="w-1/3 border-r border-profile">
+            <label className="flex text-center ml-3 p-2 mt-1 text-base">
               Username
             </label>
           </div>

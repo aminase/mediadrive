@@ -4,7 +4,7 @@ export const Files: React.FC = () => {
   const [files, setFiles] = useState(false)
   const [share, setShare] = useState(false)
   return (
-    <div className="mr-8 ml-8  mt-5">
+    <div className="mr-8 ml-8  mt-6">
       <div className="md:w-1/2 flex flex-row">
         <label className="md:w-1/2 block">
           <input
