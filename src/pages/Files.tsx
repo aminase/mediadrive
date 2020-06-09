@@ -12,7 +12,7 @@ export const Files: React.FC = () => {
             type="checkbox"
             onChange={() => setFiles(true)}
           />
-          <span className="text-sm text-white pl-2">My Files</span>
+          <span className="text-xs text-white pl-2">My Files</span>
         </label>
 
         <label className="md:w-1/2 block ml-12">
@@ -21,34 +21,34 @@ export const Files: React.FC = () => {
             type="checkbox"
             onChange={() => setShare(true)}
           />
-          <span className="text-sm text-white pl-2">Shared With Me</span>
+          <span className="text-xs text-white pl-2">Shared With Me</span>
         </label>
       </div>
       {share && (
-        <div className="flex mt-3 h-10">
+        <div className="flex mt-3 h-12">
           {' '}
-          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
+          <div className="w-1/3 bg-field text-center start text-white text-sm pt-4">
             {' '}
             File_01.mov
           </div>
-          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
+          <div className="w-1/3 bg-field text-center text-white text-xs pt-4">
             {' '}
             12 GB
           </div>
-          <button className="w-1/3 bg-field-remove  text-center text-white text-xs focus:bg-current">
+          <button className="w-1/3 bg-field-remove text-center text-white text-xs focus:bg-current">
             {' '}
             Accept{' '}
           </button>
         </div>
       )}
       {!files && (
-        <div className="flex mt-2 h-10">
+        <div className="flex mt-2 h-12">
           {' '}
-          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
+          <div className="w-1/3 bg-field text-center start text-white text-sm pt-4">
             {' '}
             File_01.mov
           </div>
-          <div className="w-1/3 bg-field text-center text-white text-xs p-3">
+          <div className="w-1/3 bg-field text-center text-white text-xs pt-4">
             {' '}
             12 GB
           </div>

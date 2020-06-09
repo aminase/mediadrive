@@ -20,9 +20,117 @@
 }
 
 html {
-  font-family: @font-face;
-  -webkit-text-size-adjust: 100%; /* 2 */
+  font-family: 'Calibri';
+  font-style: normal;
+  font-weight: normal !important;
 }
+
+
+
+/* custome style used in components  -------------------------------------------------------*/
+.bg-plus {
+  background-color: #4b5f6e !important;
+}
+
+.bg-navgray {
+  background-color: #364156 !important;
+}
+
+.bg-options {
+  background-color: #335c81 !important;
+}
+
+.bg-activegray {
+  background-color: #354a64 !important;
+}
+
+.bg-field {
+  background-color: #12283c !important;
+}
+
+.bg-field-remove {
+  background-color: #1e3145;
+}
+
+.bg-checkbox {
+  background-color: #335c81 !important;
+  border-style: none !important;
+}
+
+.bg-form-label {
+  background-color: #4c5763 !important;
+}
+
+.bg-btn-login {
+  background-color: #959595 !important;
+}
+
+.hover\:bg-gray-800:hover {
+  background-color: #598392;
+}
+
+.focus\:bg-current:focus {
+  background-color: #1e3145 !important;
+  outline: none !important;
+}
+
+.focus\:shadow-none:focus {
+  box-shadow: none !important;
+  border-bottom-width: 0 !important;
+}
+
+.bg-progress-file {
+  background-color: #598392 !important;
+  opacity: 1 !important;
+}
+
+.login-field {
+  background-color: #598392;
+}
+
+.hover\:bg-current-gray:hover {
+  background-color: #354a64;
+}
+
+.focus\:bg-transparent:focus {
+  background-color: inherit !important;
+  outline: none !important;
+}
+
+.bg-white-file {
+  color: #ffffff !important;
+}
+
+.focus\:bg-update:focus {
+  background-color: #335c81 !important;
+  outline: none !important;
+}
+
+.bg-gray-900 {
+  --bg-opacity: 1;
+  background-color: #1a202c;
+  background-color: rgba(26, 32, 44, var(--bg-opacity));
+}
+
+.bg-button-focus {
+  background-color: inherit !important;
+  outline: none !important;
+}
+
+.border-profile {
+  border-right: solid 1px #ffffff !important;
+  opacity: 0.41;
+}
+
+.focus\:bg-options:focus {
+  background-color: #598392 !important;
+}
+
+.focus\:bg-navlink:focus {
+  background-color: #354a64;
+}
+
+/* ------------------------------------------------------------- */
 
 /* Sections
    ========================================================================== */
@@ -1804,117 +1912,6 @@ video {
 .bg-transparent {
   background-color: transparent;
 }
-
-/* custome style used in components  -------------------------------------------------------*/
-.bg-plus {
-  background-color: #4b5f6e !important;
-}
-
-.bg-navgray {
-  background-color: #364156 !important;
-}
-
-.bg-options {
-  background-color: #335c81 !important;
-}
-
-.bg-activegray {
-  background-color: #354a64 !important;
-}
-
-.bg-field {
-  background-color: #12283c !important;
-}
-
-.bg-field-remove {
-  background-color: #1e3145;
-}
-
-.bg-checkbox {
-  background-color: #335c81 !important;
-  border-style: none !important;
-}
-
-.bg-form-label {
-  background-color: #4c5763 !important;
-}
-
-.bg-btn-login {
-  background-color: #959595 !important;
-}
-
-.hover\:bg-gray-800:hover {
-  background-color: #598392;
-}
-
-.focus\:bg-current:focus {
-  background-color: #1e3145 !important;
-  outline: none !important;
-}
-
-.focus\:shadow-none:focus {
-  box-shadow: none !important;
-  border-bottom-width: 0 !important;
-}
-
-.bg-progress-file {
-  background-color: #598392 !important;
-  opacity: 1 !important;
-}
-
-.login-field {
-  background-color: #598392;
-}
-
-.hover\:bg-current-gray:hover {
-  background-color: #354a64;
-}
-
-.focus\:bg-transparent:focus {
-  background-color: inherit !important;
-  outline: none !important;
-}
-
-.bg-white-file {
-  color: #ffffff !important;
-}
-
-.focus\:bg-update:focus {
-  background-color: #335c81 !important;
-  outline: none !important;
-}
-
-.bg-gray-900 {
-  --bg-opacity: 1;
-  background-color: #1a202c;
-  background-color: rgba(26, 32, 44, var(--bg-opacity));
-}
-
-.bg-button-focus {
-  background-color: inherit !important;
-  outline: none !important;
-}
-
-.border-profile {
-  border-right: solid 1px #ffffff !important;
-  opacity: 0.41;
-}
-
-.focus\:bg-options:focus {
-  background-color: #598392 !important;
-}
-
-.focus\:bg-navlink:focus {
-  background-color: #354a64;
-}
-
-/* ------------------------------------------------------------- */
-
-
-
-
-
-
 
 .bg-red-300 {
   --bg-opacity: 1;

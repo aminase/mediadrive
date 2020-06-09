@@ -23,27 +23,26 @@ export const Send: React.FC = () => {
           </div>
           <div className="flex mb-4 mt-4 h-12">
             {' '}
-            <label className="w-2/3 bg-field text-center text-white py-3">
-              <div className="flex  ml-2 justify-between">
+            <label className="w-2/3 bg-field text-center text-white p-3">
+              <div className="flex ml-2 justify-between">
                 <input
                   className="bg-checkbox active:bg-checkbox-white "
                   type="checkbox"
                 />
-                <span className="w-1/3 text-center text-white text-xs">
+                <span className="w-1/3 text-center text-white text-xs p3">
                   {' '}
                   File_01.mov
                 </span>
               </div>
             </label>
-            <div className="w-1/3 bg-field-remove h-12 pt-4 text-center text-white text-xs focus:bg-current">
-              {' '}
-              12 GB{' '}
+            <div className="w-1/3 bg-field-remove text-white text-center text-xs pt-4">
+              12 GB
             </div>
           </div>
           <div className="flex mb-4 mt-4 h-12">
             {' '}
-            <label className="w-2/3 bg-field text-center text-white py-3">
-              <div className="flex  ml-2 justify-between">
+            <label className="w-2/3 bg-field text-center text-white p-3">
+              <div className="flex ml-2 justify-between">
                 <input
                   className="bg-checkbox active:bg-checkbox-white "
                   type="checkbox"
@@ -54,9 +53,8 @@ export const Send: React.FC = () => {
                 </span>
               </div>
             </label>
-            <div className="w-1/3 bg-field-remove h-12 pt-4 text-center text-white text-xs focus:bg-current">
-              {' '}
-              12 GB{' '}
+            <div className="w-1/3 bg-field-remove text-white text-center text-xs pt-4">
+              12 GB
             </div>
           </div>
           <div className="flex mt-8">
@@ -75,8 +73,8 @@ export const Send: React.FC = () => {
           <div className="text-sm text-white pl-2">Select Contacts</div>
           <div className="flex mb-4 mt-4 h-12 bg-field">
             {' '}
-            <label className="w-2/3 bg-field text-center text-white py-3">
-              <div className="flex  ml-2 justify-between">
+            <label className="w-2/3 bg-field text-center text-white self-center">
+              <div className="flex ml-2 justify-between">
                 <input
                   className="bg-checkbox active:bg-checkbox-white "
                   type="checkbox"

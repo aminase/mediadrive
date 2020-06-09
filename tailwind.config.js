@@ -1,7 +1,9 @@
 module.exports = {
   purge: [],
   theme: {
-    colors: {},
+    rotate: {
+      '270': '270deg',
+    },
   },
   variants: {
     outline: ['responsive', 'focus'],

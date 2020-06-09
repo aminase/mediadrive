@@ -13,15 +13,13 @@ export const Profile: React.FC = () => {
       <form className="w-full max-w-sm">
         <div className="flex items-center bg-field mb-2">
           <div className="w-1/3 border-r border-profile">
-            <label className="flex text-center ml-3 p-2 mt-1 text-base">
+            <label className="flex text-center ml-3 p-2 mt-1 text-base font-sans-main leading-none tracking-tighter">
               Name
             </label>
           </div>
-          <div className="border-r border-gray-500" />
-
           <div className="w-2/3 h-12 pl-5">
             <input
-              className="pt-4 placeholder-white bg-field text-xs focus:shadow-none active:shadow-none border-b-0 shadow-none"
+              className="pt-4 placeholder-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0 shadow-none"
               type="text"
               placeholder="John Doe"
               value={name}
@@ -31,13 +29,13 @@ export const Profile: React.FC = () => {
 
         <div className="flex items-center bg-field mb-2">
           <div className="w-1/3 border-r border-profile">
-            <label className="flex text-center ml-3 p-2 mt-1 text-base">
+            <label className="flex text-center ml-3 p-2 mt-1 text-base font-sans-main leading-none tracking-tighter">
               Username
             </label>
           </div>
           <div className="w-2/3 h-12 pl-5">
             <input
-              className="pt-4 placeholder-white bg-field text-xs focus:shadow-none active:shadow-none border-b-0  shadow-none"
+              className="pt-4 placeholder-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none"
               type="text"
               placeholder="JDmedia"
               value={username}
@@ -46,13 +44,13 @@ export const Profile: React.FC = () => {
         </div>
         <div className="flex items-center bg-field">
           <div className="w-1/3">
-            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base">
+            <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base font-sans-main leading-none tracking-tighter">
               Email
             </label>
           </div>
           <div className="w-2/3 h-12 pl-5">
             <input
-              className="pt-4 placeholder-white text-xs focus:shadow-none active:shadow-none shadow-none font-sans-main"
+              className="pt-4 placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main"
               type="text"
               placeholder="john@mediadrive"
               value={email}
