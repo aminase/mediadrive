@@ -3,55 +3,54 @@ import user from '../commons/user.svg'
 import avatar from '../commons/avatar.svg'
 
 export const Contacts: React.FC = () => {
-  useEffect(() => {
-    console.log('name set')
-  }, [])
+ useEffect(() => {
+  console.log('name set')
+ }, [])
 
-  return (
-    <div className="mr-8 ml-8 pt-8">
-      <div className="flex items-center mb-2 bg-field h-12">
-        <div className="pr-2 pl-2">
-          <img src={user} className="rounded-full h-8" />
-        </div>
-        <div className="w-2/3 h-12">
-          <div className="mt-1">
-            <input
-              type="text"
-              placeholder="mark@mediadrive"
-              className="placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
-            />{' '}
-          </div>
-        </div>
-        <div className="border-r h-10 border-profile" />
-
-        <div className="w-1/3">
-          <div className="text-right flex block justify-around">
-            <div className="rounded-full bg-green-700 h-2 w-2 m-3" />
-            <div className="mt-2 mr-20 text-white text-xs">Online</div>
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center mb-2 bg-field h-12">
-        <div className="pr-2 pl-2">
-          <img src={avatar} className="rounded-full h-8" />
-        </div>
-        <div className="w-2/3 h-12">
-          <div className="mt-1">
-            <input
-              type="text"
-              placeholder="john@mediadrive"
-              className="placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none  "
-            />
-          </div>
-        </div>{' '}
-        <div className="border-r h-10 border-profile " />
-        <div className="w-1/3">
-          <div className="text-right flex block justify-around">
-            <div className="rounded-full bg-red-700 h-2 w-2 m-3" />
-            <div className="mt-2 mr-20 text-white text-xs">Offline</div>
-          </div>
-        </div>
-      </div>
+ return (
+  <div className="mr-8 ml-8 pt-8">
+   <div className="flex items-center mb-2 bg-field h-12">
+    <div className="pr-2 pl-2">
+     <img src={user} className="rounded-full h-8" />
     </div>
-  )
+    <div className="w-2/3 h-12">
+     <div className="mt-1">
+      <input
+       type="text"
+       placeholder="mark@mediadrive"
+       className="placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
+      />{' '}
+     </div>
+    </div>
+    <div className="border-r h-10 border-profile" />
+    <div className="w-1/3">
+     <div className="text-right flex block justify-around">
+      <div className="rounded-full bg-green-700 h-2 w-2 mt-3 mr-2 ml-3" />
+      <div className="mt-2 mr-20 text-white text-xs">Online</div>
+     </div>
+    </div>
+   </div>
+   <div className="flex items-center mb-2 bg-field h-12">
+    <div className="pr-2 pl-2">
+     <img src={avatar} className="rounded-full h-8" />
+    </div>
+    <div className="w-2/3 h-12">
+     <div className="mt-1">
+      <input
+       type="text"
+       placeholder="john@mediadrive"
+       className="placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none  "
+      />
+     </div>
+    </div>{' '}
+    <div className="border-r h-10 border-profile " />
+    <div className="w-1/3">
+     <div className="text-right flex block justify-around">
+      <span className="rounded-full bg-red-700 h-2 w-2  mt-3 mr-2 ml-3" />
+      <div className="mt-2 mr-20 text-white text-xs">Offline</div>
+     </div>
+    </div>
+   </div>
+  </div>
+ )
 }

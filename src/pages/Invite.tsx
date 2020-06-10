@@ -5,51 +5,82 @@ import plus from '../commons/plus-large.svg'
 import add from '../commons/plus-small.svg'
 
 export const Invite: React.FC = () => {
-  const history = useHistory()
-  const [email, setEmail] = useState()
-  const [emailAdress, setEmailAddress] = useState()
+ const history = useHistory()
+ const [email, setEmail] = useState()
+ const [emailAdress, setEmailAddress] = useState()
+ const [noteList, setNoteList] = useState([
+  {
+   id: 0,
+   text: '',
+   isNew: false,
+  },
+ ])
 
-  return (
-    <div className="mr-8 ml-8 mt-10">
-      <div className="text-white mb-4 ml-4 text-base font-sans-main leading-none tracking-tighter">
-        Invite Users
-      </div>
-      <div className="flex items-center mb-2 bg-field text-white">
-        <div className="w-2/3 h-12 pl-4">
-          <input
-            type="text"
-            placeholder="jane@mediadrive"
-            className="border-profile text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
-          />
-        </div>
-        <div className="border-r h-10 border-profile" />
-        <div className="w-1/3">
-          <button className="text-right flex justify-start ml-2 focus:bg-transparent">
-            <img src={sign} className="h-3 ml-2 mt-4" />
-            <div className="text-white text-sm p-3">Sent</div>
-          </button>
-        </div>
-      </div>
-      <div className="flex items-center mb-2 bg-field text-white">
-        <div className="w-2/3 h-12 pl-4">
-          <input
-            type="text"
-            placeholder="Email Address"
-            className="border-profile text-xs font-sans-main bg-gray-800 leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
-          />
-        </div>
-        <div className="border-r h-10 border-profile" />
-
-        <div className="w-1/3">
-          <div className="text-right flex justify-start ml-2 border-gray-500 focus:bg-transparent">
-            <img src={add} className="h-3 ml-2 mt-4" />
-            <div className="text-white text-sm p-3">Invite</div>
-          </div>
-        </div>
-      </div>
-      <button className="mt-4 focus:bg-transparent active:outline-none shadow-none">
-        <img src={plus} className="h-8" onClick={() => console.log('click')} />
-      </button>
+ const addNote = () => {
+  if (noteList.length !== 0) {
+   const editedNoteList = noteList
+   editedNoteList[editedNoteList.length - 1].isNew = false
+   setNoteList([...editedNoteList])
+  }
+  setNoteList([...noteList, { id: noteList.length, text: '', isNew: true }])
+ }
+ return (
+  <div className="mr-8 ml-8 mt-10">
+   <div className="text-white mb-4 ml-4 text-base font-sans-main leading-none tracking-tighter">
+    Invite Users
+   </div>
+   <div className="flex mb-2 bg-field text-white">
+    <div className="w-2/3 h-12 pl-4 mt-1">
+     <input
+      type="text"
+      placeholder="jane@mediadrive"
+      className="text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
+     />
     </div>
-  )
+    <div className="border-r h-12 border-profile mt-1 mb-1" />
+    <div className="w-1/3">
+     <button
+      className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent"
+      onClick={() => console.log('invite')}
+     >
+      <img src={sign} className="h-4 pr-4 pt-1" />
+      Sent
+     </button>
+    </div>
+   </div>
+   {noteList.map(note => (
+    <>
+     <div className="flex mb-2 bg-field text-white">
+      <div className="w-2/3 h-12 pl-4 mt-1">
+       <input
+        type="text"
+        placeholder="Email Address"
+        key={note.id}
+        autoFocus={note.isNew}
+        value={note.text}
+        className="text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
+        onChange={() => setNoteList}
+       />
+      </div>
+      <div className="border-r h-12 border-profile mt-1 mb-1" />
+      <div className="w-1/3">
+       <button
+        className="text-white flex inline text-sm p-4 focus:bg-transparent focus:outline-none"
+        onClick={() => console.log('invite')}
+       >
+        <img src={add} className="h-4 pr-3 pt-1" />
+        Invite
+       </button>
+      </div>
+     </div>
+    </>
+   ))}
+   <button
+    className="mt-4 focus:bg-transparent active:outline-none shadow-none"
+    onClick={() => addNote()}
+   >
+    <img src={plus} className="h-8" />
+   </button>
+  </div>
+ )
 }

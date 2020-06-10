@@ -20,6 +20,7 @@ import { Notification } from './components/Notification'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
+ const closeModal = () => setIsNotificationOpen(false)
  return (
   <BrowserRouter>
    <div className="flex justify-between m-2">
@@ -42,7 +43,7 @@ const App: React.FC = () => {
      </button>
     </div>
    </div>
-   {isNotificationOpen && <Notification />}
+   {isNotificationOpen && <Notification closeModal={closeModal} />}
 
    <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
     <NavLink
