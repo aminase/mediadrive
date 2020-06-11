@@ -15,22 +15,22 @@ const LoginSaga = function*() {
 }
 
 const doSignUp = function*(action: any) {
- const { nickname, email, password } = action.payload
+ const { user } = action.payload
 
- const saveNicknameResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/api/v0/user/changeNickname/${nickname}`)
+ const saveUserCredentials: IAxiosResponse = yield call(() =>
+  axios.post(`${API_ROOT}/${user}`)
  )
- const saveEmailResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/api/v0/user/addEmail/${email}`)
- )
- const savePasswordResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/api/v0/keys/createPassword/${password}`)
- )
+ //  const saveEmailResponse: IAxiosResponse = yield call(() =>
+ //   axios.post(`${API_ROOT}/api/v0/user/addEmail/${email}`)
+ //  )
+ //  const savePasswordResponse: IAxiosResponse = yield call(() =>
+ //   axios.post(`${API_ROOT}/api/v0/keys/createPassword/${password}`)
+ //  )
 
  //WORKER SAGA
- if (saveNicknameResponse && saveEmailResponse && savePasswordResponse) {
+ if (saveUserCredentials) {
   yield put(setSignUpUser(action.payload))
-  // uradi redirekciju
+  // uraditi redirekciju
   // yield put(push('/'))
  }
 
