@@ -17,16 +17,120 @@ import profile from './commons/profile.svg'
 import notification from './commons/notification-icon.svg'
 import { SignUp } from './components/SignUp'
 import { Notification } from './components/Notification'
-import { Email } from './pages/Email'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
  const closeModal = () => setIsNotificationOpen(false)
  return (
   <BrowserRouter>
+   <div className="flex justify-between m-2">
+    {' '}
+    <NavLink to="/" className="focus:outline-none lg">
+     <img src={mediadrive} alt="mediadrive" className="ml-5 mt-3 mb-3 h-4" />
+    </NavLink>
+    <div className="mt-3 mr-5 flex-shrink-0 position-absolute">
+     <button className="focus:outline-gray focus:bg-current mr-6">
+      <img
+       src={notification}
+       alt="notification"
+       className="h-5"
+       style={{ transition: 'all .15s ease' }}
+       onClick={() => setIsNotificationOpen(true)}
+      />
+     </button>
+     <button className="focus:outline-none focus:bg-current">
+      <img src={settings} alt="settings" className="h-5" />
+     </button>
+    </div>
+   </div>
+   {isNotificationOpen && <Notification closeModal={closeModal} />}
+
+   <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
+    <NavLink
+     to="/upload"
+     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+    >
+     <img src={upload} alt="upload" className="justify-center" />
+     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
+      Upload
+     </div>
+    </NavLink>
+    <div className="border-r border-profile mt-2 mb-2" />
+    <NavLink
+     to="/contacts"
+     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+    >
+     <img src={contacts} alt="contacts" className="justify-center" />
+     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
+      Contacts
+     </div>{' '}
+    </NavLink>
+    <div className="border-r border-profile mt-2 mb-2" />
+
+    <NavLink
+     to="/invite"
+     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+    >
+     <img src={invite} alt="invite" className="justify-center" />
+     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main ">
+      Invite
+     </div>
+    </NavLink>
+    <div className="border-r border-profile mt-2 mb-2" />
+    <NavLink
+     to="/profile"
+     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+    >
+     <img src={profile} alt="profile" className="justify-center" />
+     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
+      Profile
+     </div>
+    </NavLink>
+   </div>
+   <div className="flex bg-options mr-8 ml-8 rounded-md text-white text-center h-10 font-sans-main">
+    <NavLink
+     to="/files"
+     className="w-1/3 flex justify-center hover:bg-gray-800 active:bg-gray-800 focus:bg-options rounded-l-md"
+    >
+     <div className="flex self-center text-white text-center text-sm font-sans-main leading-none tracking-tighter p-4">
+      Files
+     </div>
+    </NavLink>
+    <div className="border-r border-profile" />
+    <NavLink
+     to="/send"
+     className="w-1/3 flex justify-center hover:bg-gray-800 active:bg-gray-800 focus:bg-options"
+    >
+     <div className="flex self-center text-white text-center text-sm font-sans-main leading-none tracking-tighter">
+      Send
+     </div>
+    </NavLink>{' '}
+    <div className="border-r border-profile" />
+    <NavLink
+     to="/progress"
+     className="w-1/3 flex justify-center hover:bg-gray-800 active:bg-gray-800 focus:bg-options rounded-r-md"
+    >
+     <div className="flex self-center text-white text-center text-sm font-sans-main leading-none tracking-tighter">
+      Progress
+     </div>
+    </NavLink>
+   </div>
    <Switch>
-    <Route path="/email" component={Email} />
+    <Route path="/" component={SignUp} exact />
+    <Route path="/upload" component={Upload} />
+    <Route path="/contacts" component={Contacts} />
+    <Route path="/invite" component={Invite} />
+    <Route path="/profile" component={Profile} />
+    <Route path="/files" component={Files} />
+    <Route path="/send" component={Send} />
+    <Route path="/progress" component={Progress} />
+    <Route path="/login" component={SignUp} />
    </Switch>
+   <div className="flex justify-center absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
+    <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter self-center focus:bg-update">
+     Update Available
+    </button>{' '}
+   </div>
   </BrowserRouter>
  )
 }

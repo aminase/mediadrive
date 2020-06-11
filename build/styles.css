@@ -7,11 +7,133 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@font-face {
+  font-family: 'Calibri' !important;
+  font-style: normal;
+  font-weight: normal !important;
+  src: local('Calibri'),
+    url(https://fonts.gstatic.com/l/font?kit=J7afnpV-BGlaFfdAhLEY67FIEjg&skey=a1029226f80653a8&v=v10)
+      format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
 
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  font-family: 'Calibri';
+  font-style: normal;
+  font-weight: normal !important;
 }
+
+
+
+/* custome style used in components  -------------------------------------------------------*/
+.
+.bg-plus {
+  background-color: #4b5f6e !important;
+}
+
+.bg-navgray {
+  background-color: #364156 !important;
+}
+
+.bg-options {
+  background-color: #335c81 !important;
+}
+
+.bg-activegray {
+  background-color: #354a64 !important;
+}
+
+.bg-field {
+  background-color: #12283c !important;
+}
+
+.bg-field-remove {
+  background-color: #1e3145;
+}
+
+.bg-checkbox {
+  background-color: #335c81 !important;
+  border-style: none !important;
+}
+
+.bg-form-label {
+  background-color: #4c5763 !important;
+}
+
+.bg-btn-login {
+  background-color: #959595 !important;
+}
+
+.hover\:bg-gray-800:hover {
+  background-color: #598392;
+}
+
+.focus\:bg-current:focus {
+  background-color: #1e3145 !important;
+  outline: none !important;
+}
+
+.focus\:shadow-none:focus {
+  box-shadow: none !important;
+  border-bottom-width: 0 !important;
+}
+
+.bg-progress-file {
+  background-color: #598392 !important;
+  opacity: 1 !important;
+}
+
+.login-field {
+  background-color: #598392;
+}
+
+.hover\:bg-current-gray:hover {
+  background-color: #354a64;
+}
+
+.focus\:bg-transparent:focus {
+  background-color: inherit !important;
+  outline: none !important;
+}
+
+.bg-white-file {
+  color: #ffffff !important;
+}
+
+.focus\:bg-update:focus {
+  background-color: #335c81 !important;
+  outline: none !important;
+}
+
+.bg-gray-900 {
+  --bg-opacity: 1;
+  background-color: #1a202c;
+  background-color: rgba(26, 32, 44, var(--bg-opacity));
+}
+
+.bg-button-focus {
+  background-color: inherit !important;
+  outline: none !important;
+}
+
+.border-profile {
+  border-right: solid 1px #ffffff !important;
+  opacity: 0.41;
+}
+
+.focus\:bg-options:focus {
+  background-color: #598392 !important;
+}
+
+.focus\:bg-navlink:focus {
+  background-color: #354a64;
+}
+
+
+
+/* ------------------------------------------------------------- */
 
 /* Sections
    ========================================================================== */
@@ -22,7 +144,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #001b2e !important;
+  background-color:#1C1E22 !important;
 }
 
 /**
@@ -63,7 +185,7 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
+  font-family: 'Calibri'; /* 1 */
   font-size: 1em; /* 2 */
 }
 
@@ -418,10 +540,8 @@ ul {
  */
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* 1 */
-  line-height: 1.5; /* 2 */
+  font-family: 'Calibri' !important;
+  font-weight: normal !important;
 }
 
 /**
@@ -1796,77 +1916,6 @@ video {
   background-color: transparent;
 }
 
-.bg-plus {
-  background-color: #4b5f6e !important;
-}
-
-.bg-navgray {
-  background-color: #364156 !important;
-}
-
-.bg-options {
-  background-color: #335c81 !important;
-}
-
-.bg-activegray {
-  background-color: #354a64 !important;
-}
-
-.bg-field {
-  background-color: #12283c !important;
-}
-
-.bg-field-remove {
-  background-color: #1e3145;
-}
-
-.bg-checkbox {
-  background-color: #335c81 !important;
-  border-style: none !important;
-}
-
-.bg-btn-login {
-  background-color: #959595 !important;
-}
-
-.hover\:bg-gray-800:hover {
-  background-color: #598392;
-}
-
-.focus\:shadow-none:focus {
-  box-shadow: none !important;
-  border-bottom-width: 0 !important;
-}
-
-.login-field {
-  background-color: #598392;
-}
-
-.hover\:bg-current-gray:hover {
-  background-color: #354a64;
-}
-
-.bg-checkbox-white {
-  color: #ffffff !important;
-  background-color: #ffffff !important;
-}
-
-.bg-gray-900 {
-  --bg-opacity: 1;
-  background-color: #1a202c;
-  background-color: rgba(26, 32, 44, var(--bg-opacity));
-}
-
-.bg-progress {
-  background-color: #0b2940 !important;
-}
-
-.bg-red-200 {
-  --bg-opacity: 1;
-  background-color: #fed7d7;
-  background-color: rgba(254, 215, 215, var(--bg-opacity));
-}
-
 .bg-red-300 {
   --bg-opacity: 1;
   background-color: #feb2b2;
@@ -2431,12 +2480,6 @@ video {
   background-color: rgba(254, 178, 178, var(--bg-opacity));
 }
 
-.hover\:bg-red-400:hover {
-  --bg-opacity: 1;
-  background-color: #fc8181;
-  background-color: rgba(252, 129, 129, var(--bg-opacity));
-}
-
 .hover\:bg-red-500:hover {
   --bg-opacity: 1;
   background-color: #f56565;
@@ -2900,17 +2943,8 @@ video {
 }
 
 .focus\:bg-transparent:focus {
-  background-color: transparent;
-}
-
-.focus\:bg-current:focus {
-  background-color: currentColor;
-}
-
-.focus\:bg-black:focus {
-  --bg-opacity: 1;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, var(--bg-opacity));
+  background-color: inherit !important;
+  outline: none !important;
 }
 
 .focus\:bg-white:focus {
@@ -2919,11 +2953,6 @@ video {
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.focus\:bg-gray-100:focus {
-  --bg-opacity: 1;
-  background-color: #f7fafc;
-  background-color: rgba(247, 250, 252, var(--bg-opacity));
-}
 
 .focus\:bg-gray-200:focus {
   --bg-opacity: 1;
@@ -6045,10 +6074,9 @@ video {
   clear: none;
 }
 
-.font-sans {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+.font-sans-main {
+  font-family: 'Calibri' !important;
+  font-weight: normal !important;
 }
 
 .font-serif {
@@ -6058,10 +6086,6 @@ video {
 .font-mono {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-}
-
-.font-hairline {
-  font-weight: 100;
 }
 
 .font-thin {
@@ -8414,6 +8438,7 @@ video {
   --placeholder-opacity: 1;
   color: #fff;
   color: rgba(255, 255, 255, var(--placeholder-opacity));
+  font-size: 14px !important;
 }
 
 .placeholder-white:-ms-input-placeholder {
@@ -53624,7 +53649,7 @@ body {
     background-color: rgba(160, 174, 192, var(--bg-opacity));
   }
 
-  .lg\:bg-gray-600 {
+  .bg-gray-600 {
     --bg-opacity: 1;
     background-color: #718096;
     background-color: rgba(113, 128, 150, var(--bg-opacity));

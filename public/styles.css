@@ -36,23 +36,7 @@ font-size: 12px !important;
 line-height: 14px !important;
 
 }
-.border-gray-bottom {
-  border: 1px solid #383B40 !important;
-}
-.bg-red-dark{
-  background-color:#BF381E !important;
-}
 
-.bg-color-red-shiny{
-  color:#EF1B1B !important;
-
-}
-.bg-dark-black-color{
-  background-color:#141618;
-}
-.bg-link-color {
-  color: #0CA7D8;
-}
 .bg-plus {
   background-color: #4b5f6e !important;
 }
