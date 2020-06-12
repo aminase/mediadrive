@@ -1,36 +1,75 @@
-import IUserSignUpData from '../types/UserSignUpData'
+import IUserRegistrationData from '../types/UserRegistrationData'
+import IUserLoginData from '../types/UserLoginData'
 
 enum MEDIA_ACTIONS {
-  DO_SIGN_UP_USER = 'MEDIA_ACTIONS::DO_SIGN_UP_USER',
-  SET_SIGN_UP_USER = 'MEDIA_ACTIONS::SET_SIGN_UP_USER',
+ DO_USER_REGISTRATION = 'MEDIA_ACTIONS::DO_USER_REGISTRATION',
+ SET_USER_REGISTRATION = 'MEDIA_ACTIONS::SET_USER_REGISTRATION',
+ DO_USER_LOGIN = 'MEDIA_ACTIONS::DO_USER_LOGIN',
+ SET_USER_LOGIN = 'MEDIA_ACTIONS::SET_USER_LOGIN',
 }
 
-interface ISetUserSignUpCredentials {
-  type: typeof MEDIA_ACTIONS.DO_SIGN_UP_USER
-  payload: IUserSignUpData
+interface IDoUserRegistration {
+ type: typeof MEDIA_ACTIONS.DO_USER_REGISTRATION
+ payload: IUserRegistrationData
 }
 
-const doSignUpUser = (signUpCredentials: IUserSignUpData) => {
-  return {
-    type: MEDIA_ACTIONS.DO_SIGN_UP_USER,
-    payload: signUpCredentials,
-  }
+const doUserRegistration = (credentials: IUserRegistrationData) => {
+ return {
+  type: MEDIA_ACTIONS.DO_USER_REGISTRATION,
+  payload: credentials,
+ }
 }
 
-interface ISetSignUpUser {
-  type: typeof MEDIA_ACTIONS.SET_SIGN_UP_USER
-  payload: IUserSignUpData
+interface ISetUserRegistration {
+ type: typeof MEDIA_ACTIONS.SET_USER_REGISTRATION
+ payload: IUserRegistrationData
 }
 
-const setSignUpUser = (signUpCredentials: IUserSignUpData) => {
-  return {
-    type: MEDIA_ACTIONS.SET_SIGN_UP_USER,
-    payload: {
-      signUpCredentials,
-    },
-  }
+const setUserAction = (credentials: IUserRegistrationData) => {
+ return {
+  type: MEDIA_ACTIONS.SET_USER_REGISTRATION,
+  payload: {
+   credentials,
+  },
+ }
 }
 
-export type IAllActions = ISetUserSignUpCredentials | ISetSignUpUser
+interface IDoUserLogin {
+ type: typeof MEDIA_ACTIONS.DO_USER_LOGIN
+ payload: IUserLoginData
+}
 
-export { doSignUpUser, setSignUpUser, MEDIA_ACTIONS }
+const doUserLogin = (credentials: IUserLoginData) => {
+ return {
+  type: MEDIA_ACTIONS.DO_USER_LOGIN,
+  payload: credentials,
+ }
+}
+
+interface ISetUserLogin {
+ type: typeof MEDIA_ACTIONS.SET_USER_LOGIN
+ payload: IUserLoginData
+}
+
+const setUserLogin = (credentials: IUserLoginData) => {
+ return {
+  type: MEDIA_ACTIONS.SET_USER_LOGIN,
+  payload: {
+   credentials,
+  },
+ }
+}
+
+export type IAllActions =
+ | IDoUserRegistration
+ | ISetUserRegistration
+ | ISetUserLogin
+ | IDoUserLogin
+
+export {
+ doUserRegistration,
+ setUserAction,
+ doUserLogin,
+ setUserLogin,
+ MEDIA_ACTIONS,
+}

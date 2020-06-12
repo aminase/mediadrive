@@ -1,41 +1,58 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import {
  MEDIA_ACTIONS,
- doSignUpUser,
  IAllActions,
- setSignUpUser,
+ setUserAction,
+ doUserLogin,
+ setUserLogin,
 } from '../actions/LoginActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
+import { push } from 'react-router-redux'
+import { setToken } from '../utils'
 
 const LoginSaga = function*() {
  //WATCHER SAGA
- yield all([takeEvery(MEDIA_ACTIONS.DO_SIGN_UP_USER, doSignUp)])
+ yield all([takeEvery(MEDIA_ACTIONS.DO_USER_REGISTRATION, doRegistration)])
+ yield all([takeEvery(MEDIA_ACTIONS.DO_USER_LOGIN, doLogin)])
 }
 
-const doSignUp = function*(action: any) {
- const { user } = action.payload
+const doRegistration = function*(action: any) {
+ const { email, username, password } = action.payload
 
- const saveUserCredentials: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/${user}`)
+ const saveUserCredentialsResponse: IAxiosResponse = yield call(() =>
+  axios.post(`${API_ROOT}/users`, {
+   email,
+   password,
+   username,
+  })
  )
- //  const saveEmailResponse: IAxiosResponse = yield call(() =>
- //   axios.post(`${API_ROOT}/api/v0/user/addEmail/${email}`)
- //  )
- //  const savePasswordResponse: IAxiosResponse = yield call(() =>
- //   axios.post(`${API_ROOT}/api/v0/keys/createPassword/${password}`)
- //  )
 
- //WORKER SAGA
- if (saveUserCredentials) {
-  yield put(setSignUpUser(action.payload))
-  // uraditi redirekciju
-  // yield put(push('/'))
+ if (saveUserCredentialsResponse.status === 201) {
+  yield put(doUserLogin(action.payload))
  }
+}
 
- //setting store variable userLoginCredentialsData
- //   yield put(doSignUpUser(userCredentialsResponse.data))
+const doLogin = function*(action: any) {
+ const { email, password } = action.payload
+
+ const doAuthenticationResponse: IAxiosResponse = yield call(() =>
+  axios.post(`${API_ROOT}/authentication`, {
+   email,
+   password,
+   strategy: 'local',
+  })
+ )
+
+ if (doAuthenticationResponse.status === 201) {
+  yield put(setUserAction(action.payload))
+
+  setToken(doAuthenticationResponse.data.accessToken)
+
+  // uraditi redirekciju
+  // yield put(push('/'));
+ }
 }
 
 export { LoginSaga }

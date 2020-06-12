@@ -15,8 +15,9 @@ import contacts from './commons/contact.svg'
 import invite from './commons/invite.svg'
 import profile from './commons/profile.svg'
 import notification from './commons/notification-icon.svg'
-import { SignUp } from './components/SignUp'
+import { Registration } from './components/Registration'
 import { Notification } from './components/Notification'
+import { Login } from './components/Login'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
@@ -116,7 +117,9 @@ const App: React.FC = () => {
     </NavLink>
    </div>
    <Switch>
-    <Route path="/" component={SignUp} exact />
+    <Route path="/" component={Registration} exact />
+    <Route path="/login" component={Login} exact />
+
     <Route path="/upload" component={Upload} />
     <Route path="/contacts" component={Contacts} />
     <Route path="/invite" component={Invite} />
@@ -124,7 +127,8 @@ const App: React.FC = () => {
     <Route path="/files" component={Files} />
     <Route path="/send" component={Send} />
     <Route path="/progress" component={Progress} />
-    <Route path="/login" component={SignUp} />
+
+    <Route path="/auth" component={Login} />
    </Switch>
    <div className="flex justify-center absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
     <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter self-center focus:bg-update">
