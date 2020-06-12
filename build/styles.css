@@ -28,7 +28,15 @@ html {
 
 
 /* custome style used in components  -------------------------------------------------------*/
-.
+.font-family-lato{
+  font-family: Lato !important;
+font-style: normal !important;
+font-weight: normal !important;
+font-size: 12px !important;
+line-height: 14px !important;
+
+}
+
 .bg-plus {
   background-color: #4b5f6e !important;
 }

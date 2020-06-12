@@ -1,3 +1,3 @@
-const API_ROOT = 'http://localhost:3030'
+const API_ROOT = 'http://api-staging.mediadrive.io'
 
 export { API_ROOT }
