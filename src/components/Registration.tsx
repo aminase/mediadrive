@@ -15,8 +15,12 @@ export const Registration: React.FC = () => {
 
   const doRegistration = (e: any) => {
     e.preventDefault()
-    dispatch(doUserRegistration({ email, password, username }))
-    console.log('regis', username, email, password)
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+    } else {
+      dispatch(doUserRegistration({ email, password, username }))
+      console.log('regis', username, email, password)
+    }
   }
 
   const credentials = useSelector(getUser)
