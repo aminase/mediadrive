@@ -8,6 +8,7 @@ export const Profile: React.FC = () => {
  const userData = useSelector(getUser)
  if (!userData) {
  }
+
  const [name, setName] = useState('')
  const [email, setEmail] = useState(userData?.email)
  const [username, setUsername] = useState('')
@@ -34,37 +35,34 @@ export const Profile: React.FC = () => {
       />
      </div>
     </div>
-    <>
-     <div className="flex items-center bg-field mb-2">
-      <div className="w-1/3 border-r border-profile">
-       <label className="flex text-center ml-3 p-2 mt-1 text-base font-sans-main leading-none tracking-tighter">
-        Username
-       </label>
-      </div>
-      <div className="w-2/3 h-12 pl-5">
-       <input
-        className="pt-4 placeholder-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none"
-        placeholder="JDmedia"
-        value={username}
-       />
-      </div>
+    <div className="flex items-center bg-field mb-2">
+     <div className="w-1/3 border-r border-profile">
+      <label className="flex text-center ml-3 p-2 mt-1 text-base font-sans-main leading-none tracking-tighter">
+       Username
+      </label>
      </div>
-     <div className="flex items-center bg-field">
-      <div className="w-1/3">
-       <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base font-sans-main leading-none tracking-tighter">
-        Email
-       </label>
-      </div>
-      <div className="w-2/3 h-12 pl-5">
-       <input
-        className="pt-4 placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main"
-        placeholder="john@mediadrive"
-        value={email}
-       />
-      </div>
+     <div className="w-2/3 h-12 pl-5">
+      <input
+       className="pt-4 placeholder-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none"
+       placeholder="JDmedia"
+       value={username}
+      />
      </div>
-    </>
-    ) )}
+    </div>
+    <div className="flex items-center bg-field">
+     <div className="w-1/3">
+      <label className="flex text-center ml-3 p-2 mt-1 border-r-2 border-profile text-base font-sans-main leading-none tracking-tighter">
+       Email
+      </label>
+     </div>
+     <div className="w-2/3 h-12 pl-5">
+      <input
+       className="pt-4 placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main"
+       placeholder="john@mediadrive"
+       value={email}
+      />
+     </div>
+    </div>
    </div>
   </div>
  )
