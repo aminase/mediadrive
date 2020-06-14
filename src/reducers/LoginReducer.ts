@@ -1,12 +1,11 @@
-import IUserLoginData from '../types/UserLoginData'
+import IUser from '../types/UserLoginData'
 import { IAllActions, MEDIA_ACTIONS } from '../actions/LoginActions'
 
 interface ILoginReducer {
- auth: IUserLoginData | null
+ user: IUser | null
 }
-
 const defaultState = {
- auth: null,
+ user: null,
 }
 
 export default (state: ILoginReducer = defaultState, action: IAllActions) => {
@@ -14,7 +13,7 @@ export default (state: ILoginReducer = defaultState, action: IAllActions) => {
   case MEDIA_ACTIONS.SET_USER_LOGIN:
    return {
     ...state,
-    auth: action.payload,
+    user: action.payload,
    }
   default:
    return state

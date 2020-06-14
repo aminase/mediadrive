@@ -12,7 +12,6 @@ export const Registration: React.FC = () => {
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
  const [confirmPassword, setConfirmPassword] = useState('')
-
  const [errorMessage, setErrorMessage] = useState('')
 
  const doRegistration = (e: any) => {
@@ -89,7 +88,7 @@ export const Registration: React.FC = () => {
       </div>
       <div className="w-2/3 pt-3 pl-2">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none login-field  active:shadow-none  shadow-none"
+        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none  active:login-field  active:shadow-none  shadow-none"
         type="password"
         placeholder="***********"
         value={password}
@@ -120,7 +119,7 @@ export const Registration: React.FC = () => {
       className="bg-red-100 text-red-700 px-4 py-3 rounded relative"
       role="alert"
      >
-      <strong className="font-bold">Password does not match!</strong>
+      <strong className="font-bold">Passwords do not match!</strong>
      </div>
     )}
 
