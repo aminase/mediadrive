@@ -39,10 +39,10 @@ interface IDoUserLogin {
  payload: IUserLoginData
 }
 
-const doUserLogin = (credentials: IUserLoginData) => {
+const doUserLogin = (auth: IUserLoginData) => {
  return {
   type: MEDIA_ACTIONS.DO_USER_LOGIN,
-  payload: credentials,
+  payload: auth,
  }
 }
 

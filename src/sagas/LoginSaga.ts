@@ -44,6 +44,7 @@ const doLogin = function*(action: any) {
    strategy: 'local',
   })
  )
+ console.log(email, 'email')
 
  if (doAuthenticationResponse.status === 201) {
   yield put(setUserAction(action.payload))
