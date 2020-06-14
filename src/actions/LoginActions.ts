@@ -1,5 +1,5 @@
 import IUserRegistrationData from '../types/UserRegistrationData'
-import IUserLoginData from '../types/UserLoginData'
+import IUser from '../types/UserLoginData'
 
 enum MEDIA_ACTIONS {
  DO_USER_REGISTRATION = 'MEDIA_ACTIONS::DO_USER_REGISTRATION',
@@ -36,26 +36,26 @@ const setUserAction = (credentials: IUserRegistrationData) => {
 
 interface IDoUserLogin {
  type: typeof MEDIA_ACTIONS.DO_USER_LOGIN
- payload: IUserLoginData
+ payload: IUser
 }
 
-const doUserLogin = (auth: IUserLoginData) => {
+const doUserLogin = (user: IUser) => {
  return {
   type: MEDIA_ACTIONS.DO_USER_LOGIN,
-  payload: auth,
+  payload: user,
  }
 }
 
 interface ISetUserLogin {
  type: typeof MEDIA_ACTIONS.SET_USER_LOGIN
- payload: IUserLoginData
+ payload: IUser
 }
 
-const setUserLogin = (credentials: IUserLoginData) => {
+const setUserLogin = (user: IUser) => {
  return {
   type: MEDIA_ACTIONS.SET_USER_LOGIN,
   payload: {
-   credentials,
+   user,
   },
  }
 }

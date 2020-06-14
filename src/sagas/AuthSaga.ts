@@ -10,9 +10,9 @@ import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
 import { push } from 'react-router-redux'
-import { setToken } from '../utils'
+import { setTokenAction } from '../utils'
 
-const LoginSaga = function*() {
+const AuthSaga = function*() {
  //WATCHER SAGA
  yield all([takeEvery(MEDIA_ACTIONS.DO_USER_REGISTRATION, doRegistration)])
  yield all([takeEvery(MEDIA_ACTIONS.DO_USER_LOGIN, doLogin)])
@@ -48,12 +48,13 @@ const doLogin = function*(action: any) {
 
  if (doAuthenticationResponse.status === 201) {
   yield put(setUserAction(action.payload))
+  console.log(setUserAction, 'user action')
 
-  setToken(doAuthenticationResponse.data.accessToken)
+  setTokenAction(doAuthenticationResponse.data.accessToken)
 
   // uraditi redirekciju
-  yield put(push('/'))
+  //   yield put(push('/'))
  }
 }
 
-export { LoginSaga }
+export { AuthSaga }

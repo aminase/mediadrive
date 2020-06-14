@@ -9,6 +9,7 @@ const sagaMiddleware = createSagaMiddleware()
 /* Create root reducer, containing all features of the application */
 const rootReducer = combineReducers({
  registration: RegistrationReducer,
+ login: LoginReducer,
 })
 
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))

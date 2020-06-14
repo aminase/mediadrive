@@ -2,7 +2,7 @@ import IUserRegistrationData from '../types/UserRegistrationData'
 import { IAllActions, MEDIA_ACTIONS } from '../actions/LoginActions'
 
 interface IRegistrationReducer {
- credentials: IUserRegistrationData | null
+ credentials: null | IUserRegistrationData
 }
 
 const defaultState = {

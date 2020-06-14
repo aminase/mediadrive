@@ -1,3 +1,3 @@
-export function setToken(token: string) {
+export function setTokenAction(token: string) {
  localStorage.setItem('token', token)
 }

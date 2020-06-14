@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin } from '../actions/LoginActions'
 import { useHistory } from 'react-router'
+import { getUser } from '../selectors/LoginSelector'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
@@ -14,6 +15,11 @@ export const Login: React.FC = () => {
   e.preventDefault()
   dispatch(doUserLogin({ email, password }))
   console.log('dispatch')
+ }
+
+ const user = useSelector(getUser)
+ if (user) {
+  history.push('/upload')
  }
 
  return (
