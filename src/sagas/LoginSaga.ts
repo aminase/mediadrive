@@ -51,7 +51,7 @@ const doLogin = function*(action: any) {
   setToken(doAuthenticationResponse.data.accessToken)
 
   // uraditi redirekciju
-  // yield put(push('/'));
+  yield put(push('/'))
  }
 }
 

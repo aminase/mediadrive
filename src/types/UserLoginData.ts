@@ -1,5 +1,5 @@
 interface IUserLoginData {
- username: string
+ email: string
  password: string
 }
 
