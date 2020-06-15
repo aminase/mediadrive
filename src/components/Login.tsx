@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { doUserLogin } from '../actions/LoginActions'
+import { doUserLogin } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
-import { getUser } from '../selectors/LoginSelector'
+import { getUser } from '../selectors/AuthSelector'
+import { fetchProfile } from '../actions/ProfileActions'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
@@ -14,7 +15,6 @@ export const Login: React.FC = () => {
  const doLogin = (e: any) => {
   e.preventDefault()
   dispatch(doUserLogin({ email, password }))
-  console.log('dispatch')
  }
 
  const user = useSelector(getUser)

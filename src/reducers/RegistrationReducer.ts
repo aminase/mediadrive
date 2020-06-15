@@ -1,5 +1,5 @@
 import IUserRegistrationData from '../types/UserRegistrationData'
-import { IAllActions, MEDIA_ACTIONS } from '../actions/LoginActions'
+import { IAllActions, MEDIA_ACTIONS } from '../actions/AuthActions'
 
 interface IRegistrationReducer {
  credentials: null | IUserRegistrationData

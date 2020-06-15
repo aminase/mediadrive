@@ -1,5 +1,5 @@
 import IUser from '../types/UserLoginData'
-import { IAllActions, MEDIA_ACTIONS } from '../actions/LoginActions'
+import { IAllActions, MEDIA_ACTIONS } from '../actions/AuthActions'
 
 interface ILoginReducer {
  user: IUser | null

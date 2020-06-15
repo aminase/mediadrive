@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { doUserRegistration } from '../actions/LoginActions'
-import { getUser } from '../selectors/LoginSelector'
+import { doUserRegistration } from '../actions/AuthActions'
+import { getUser } from '../selectors/AuthSelector'
 import { useHistory } from 'react-router'
 
 export const Registration: React.FC = () => {
@@ -122,7 +122,6 @@ export const Registration: React.FC = () => {
       <strong className="font-bold">Passwords do not match!</strong>
      </div>
     )}
-
     <div className="text-center ml-10 mr-10 m-5">
      <button
       className="w-3/4 bg-options focus:outline-none text-white rounded leading-none tracking-tight h-10"

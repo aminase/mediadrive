@@ -1,19 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import avatar from '../commons/profile-avatar.svg'
 import { useSelector } from 'react-redux'
-import { getUser } from '../selectors/LoginSelector'
-import IUserRegistrationData from '../types/UserRegistrationData'
+import { fetchProfile, setProfile } from '../actions/ProfileActions'
+import { useDispatch } from 'react-redux'
+import { getProfile } from '../selectors/AuthSelector'
 
 export const Profile: React.FC = () => {
- const userData = useSelector(getUser)
- if (!userData) {
- }
+ const dispatch = useDispatch()
 
  const [name, setName] = useState('')
- const [email, setEmail] = useState(userData?.email)
+ const [email, setEmail] = useState('') //(userData?.email)
  const [username, setUsername] = useState('')
 
- console.log(userData, 'userList')
+ const profile = useSelector(getProfile)
+ console.log(profile, 'profile')
 
  return (
   <div className="flex items-center flex-col mt-2 mr-8 ml-8">

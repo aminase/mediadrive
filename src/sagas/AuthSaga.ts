@@ -5,7 +5,7 @@ import {
  setUserAction,
  doUserLogin,
  setUserLogin,
-} from '../actions/LoginActions'
+} from '../actions/AuthActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
@@ -44,16 +44,13 @@ const doLogin = function*(action: any) {
    strategy: 'local',
   })
  )
- console.log(email, 'email')
+ // console.log(email, 'email')
 
  if (doAuthenticationResponse.status === 201) {
   yield put(setUserAction(action.payload))
-  console.log(setUserAction, 'user action')
+  //  console.log(setUserAction, 'user action')
 
   setTokenAction(doAuthenticationResponse.data.accessToken)
-
-  // uraditi redirekciju
-  //   yield put(push('/'))
  }
 }
 
