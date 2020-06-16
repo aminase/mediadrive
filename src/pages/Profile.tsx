@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from 'react'
+import { fetchProfile } from '../actions/ProfileActions'
 import avatar from '../commons/profile-avatar.svg'
-import { useSelector } from 'react-redux'
-import { fetchProfile, setProfile } from '../actions/ProfileActions'
-import { useDispatch } from 'react-redux'
-import { getProfile } from '../selectors/AuthSelector'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUser } from '../selectors/AuthSelector'
+import IProfile from '../types/Profile'
+import IUser from '../types/User'
 
 export const Profile: React.FC = () => {
  const dispatch = useDispatch()
 
- const [name, setName] = useState('')
+ const [id, setId] = useState('')
  const [email, setEmail] = useState('') //(userData?.email)
  const [username, setUsername] = useState('')
 
- const profile = useSelector(getProfile)
+ const profile = useSelector(getUser)
  console.log(profile, 'profile')
+
+ useEffect(() => {
+  dispatch(fetchProfile())
+ }, [])
 
  return (
   <div className="flex items-center flex-col mt-2 mr-8 ml-8">
@@ -27,14 +32,17 @@ export const Profile: React.FC = () => {
        Name
       </label>
      </div>
+     {/* {profile.map((user: IUser) => (
+      <> */}
      <div className="w-2/3 h-12 pl-5">
-      <input
-       className="pt-4 placeholder-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0 shadow-none"
-       placeholder="John Doe"
-       value={name}
-      />
+      <div className="pt-4 text-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0 shadow-none">
+       {/* {user.email} */} John Doe
+      </div>
      </div>
+     {/* </>
+     ))} */}
     </div>
+
     <div className="flex items-center bg-field mb-2">
      <div className="w-1/3 border-r border-profile">
       <label className="flex text-center ml-3 p-2 mt-1 text-base font-sans-main leading-none tracking-tighter">
@@ -42,11 +50,9 @@ export const Profile: React.FC = () => {
       </label>
      </div>
      <div className="w-2/3 h-12 pl-5">
-      <input
-       className="pt-4 placeholder-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none"
-       placeholder="JDmedia"
-       value={username}
-      />
+      <div className="pt-4 text-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none">
+       JDmedia
+      </div>
      </div>
     </div>
     <div className="flex items-center bg-field">
@@ -56,11 +62,9 @@ export const Profile: React.FC = () => {
       </label>
      </div>
      <div className="w-2/3 h-12 pl-5">
-      <input
-       className="pt-4 placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main"
-       placeholder="john@mediadrive"
-       value={email}
-      />
+      <div className="pt-4 text-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main">
+       john@mediadrive
+      </div>
      </div>
     </div>
    </div>

@@ -1,20 +1,27 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux'
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
-import RegistrationReducer from './reducers/RegistrationReducer'
-import LoginReducer from './reducers/LoginReducer'
-import ProfileReducer from './reducers/ProfileReducer'
+import UserReducer from './reducers/UserReducer'
 
 const sagaMiddleware = createSagaMiddleware()
 
 /* Create root reducer, containing all features of the application */
 const rootReducer = combineReducers({
- registration: RegistrationReducer,
- login: LoginReducer,
- profile: ProfileReducer,
+ user: UserReducer,
 })
 
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
+declare global {
+ interface Window {
+  __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
+ }
+}
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+
+const store = createStore(
+ rootReducer,
+ composeEnhancers(applyMiddleware(sagaMiddleware))
+)
 
 sagaMiddleware.run(rootSaga)
 

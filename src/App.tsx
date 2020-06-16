@@ -18,10 +18,12 @@ import notification from './commons/notification-icon.svg'
 import { Registration } from './components/Registration'
 import { Notification } from './components/Notification'
 import { Login } from './components/Login'
+import { useSelector } from 'react-redux'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
  const closeModal = () => setIsNotificationOpen(false)
+
  return (
   <BrowserRouter>
    <div className="flex justify-between m-2">
@@ -119,7 +121,6 @@ const App: React.FC = () => {
    <Switch>
     <Route path="/" component={Registration} exact />
     <Route path="/login" component={Login} exact />
-
     <Route path="/upload" component={Upload} />
     <Route path="/contacts" component={Contacts} />
     <Route path="/invite" component={Invite} />
@@ -127,7 +128,6 @@ const App: React.FC = () => {
     <Route path="/files" component={Files} />
     <Route path="/send" component={Send} />
     <Route path="/progress" component={Progress} />
-
     <Route path="/auth" component={Login} />
    </Switch>
    <div className="flex justify-center absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">

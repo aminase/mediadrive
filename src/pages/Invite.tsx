@@ -56,7 +56,6 @@ export const Invite: React.FC = () => {
         type="text"
         placeholder="Email Address"
         key={note.id}
-        autoFocus={note.isNew}
         value={note.text}
         className="text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
         onChange={() => setNoteList}

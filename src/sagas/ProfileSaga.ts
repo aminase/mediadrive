@@ -9,20 +9,19 @@ import axios from 'axios'
 import { API_ROOT } from '../constants/index'
 import IAxiosResponse from '../types/AxiosResponse'
 
-const ProfileSaga = function*() {
- yield all([takeEvery(PROFILE_ACTIONS.FETCH_PROFILE, makeProfile)])
+const UserSaga = function*() {
+ yield all([takeEvery(PROFILE_ACTIONS.FETCH_PROFILE, fetchProfile)])
 }
 
-const makeProfile = function*(action: any) {
+const fetchProfile = function*(action: any) {
  const { id, username, email } = action.payload
 
+ console.log(id, 'id')
  const saveUserProfile: IAxiosResponse = yield call(() =>
   axios.get(`${API_ROOT}/users/${id}`)
  )
- console.log(action, 'id')
 
  yield put(setProfile(saveUserProfile.data))
- console.log(saveUserProfile, 'id')
 }
 
-export { ProfileSaga }
+export { UserSaga }

@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
 import { getUser } from '../selectors/AuthSelector'
-import { fetchProfile } from '../actions/ProfileActions'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()

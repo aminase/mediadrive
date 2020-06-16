@@ -1,6 +1,5 @@
 import { StoreState } from '../store'
 
-const getUser = (state: StoreState) => state.registration.credentials
-const getProfile = (state: StoreState) => state.profile.profile
+const getUser = (state: StoreState) => state.user.user
 
-export { getUser, getProfile }
+export { getUser }

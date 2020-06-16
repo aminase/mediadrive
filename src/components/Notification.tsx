@@ -29,9 +29,9 @@ export const Notification: React.FC<INotification> = ({ closeModal }) => {
  //  console.log(reviewWord, 'word')
 
  return (
-  <div className="relative mx-auto h-auto opacity-100 z-50 mr-8 ml-8">
-   <div className="flex absolute flex bg-options rounded-lg p-6 w-full">
-    <div className="text-white text-lg leading-none w-full h-screen mb-20">
+  <div className="relative mx-auto h-full opacity-100 z-50 mr-8 ml-8">
+   <div className="flex absolute flex bg-options rounded-notification p-6 w-full">
+    <div className="text-white text-lg leading-none w-full min-h-0 mb-20">
      <div className="flex justify-end w-inherit">
       <button
        className="text-sm focus:bg-navgray focus:bg-transparent"

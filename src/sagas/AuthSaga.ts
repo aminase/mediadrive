@@ -1,21 +1,15 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
-import {
- MEDIA_ACTIONS,
- IAllActions,
- setUserAction,
- doUserLogin,
- setUserLogin,
-} from '../actions/AuthActions'
+import { AUTH_ACTIONS, IAllActions, doUserLogin } from '../actions/AuthActions'
+import { setUser } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
-import { push } from 'react-router-redux'
 import { setTokenAction } from '../utils'
 
 const AuthSaga = function*() {
  //WATCHER SAGA
- yield all([takeEvery(MEDIA_ACTIONS.DO_USER_REGISTRATION, doRegistration)])
- yield all([takeEvery(MEDIA_ACTIONS.DO_USER_LOGIN, doLogin)])
+ yield all([takeEvery(AUTH_ACTIONS.DO_USER_REGISTRATION, doRegistration)])
+ yield all([takeEvery(AUTH_ACTIONS.DO_USER_LOGIN, doLogin)])
 }
 
 const doRegistration = function*(action: any) {
@@ -44,11 +38,14 @@ const doLogin = function*(action: any) {
    strategy: 'local',
   })
  )
- // console.log(email, 'email')
 
  if (doAuthenticationResponse.status === 201) {
-  yield put(setUserAction(action.payload))
-  //  console.log(setUserAction, 'user action')
+  yield put(
+   setUser({
+    ...action.payload,
+    id: doAuthenticationResponse.data.user.id,
+   })
+  )
 
   setTokenAction(doAuthenticationResponse.data.accessToken)
  }

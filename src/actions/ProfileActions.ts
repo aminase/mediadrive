@@ -1,4 +1,4 @@
-import IProfile from '../types/UserProfile'
+import IProfile from '../types/Profile'
 
 enum PROFILE_ACTIONS {
  FETCH_PROFILE = 'PROFILE_ACTIONS::FETCH_PROFILE',
@@ -28,4 +28,5 @@ const setProfile = (profile: IProfile) => {
 }
 
 export type IAllActions = IFetchProfile | ISetProfile
+
 export { fetchProfile, setProfile, PROFILE_ACTIONS }
