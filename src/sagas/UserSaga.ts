@@ -1,27 +1,25 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import {
- PROFILE_ACTIONS,
+ USER_ACTIONS,
  IAllActions,
- setProfile,
-} from '../actions/ProfileActions'
-
+ setUserAction,
+} from '../actions/UserActions'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
 import IAxiosResponse from '../types/AxiosResponse'
 
 const UserSaga = function*() {
- yield all([takeEvery(PROFILE_ACTIONS.FETCH_PROFILE, fetchProfile)])
+ yield all([takeEvery(USER_ACTIONS.GET_USER, fetchUser)])
 }
 
-const fetchProfile = function*(action: any) {
- const { id, username, email } = action.payload
+const fetchUser = function*(action: any) {
+ const { id } = action.payload
 
- console.log(id, 'id')
  const saveUserProfile: IAxiosResponse = yield call(() =>
   axios.get(`${API_ROOT}/users/${id}`)
  )
 
- yield put(setProfile(saveUserProfile.data))
+ yield put(setUserAction(saveUserProfile.data))
 }
 
 export { UserSaga }

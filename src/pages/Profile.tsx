@@ -1,24 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { fetchProfile } from '../actions/ProfileActions'
 import avatar from '../commons/profile-avatar.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUser } from '../selectors/AuthSelector'
-import IProfile from '../types/Profile'
-import IUser from '../types/User'
+import { useSelector } from 'react-redux'
+import { getUser } from '../selectors/UserSelector'
 
 export const Profile: React.FC = () => {
- const dispatch = useDispatch()
-
- const [id, setId] = useState('')
- const [email, setEmail] = useState('') //(userData?.email)
- const [username, setUsername] = useState('')
-
  const profile = useSelector(getUser)
  console.log(profile, 'profile')
-
- useEffect(() => {
-  dispatch(fetchProfile())
- }, [])
 
  return (
   <div className="flex items-center flex-col mt-2 mr-8 ml-8">
@@ -32,15 +19,11 @@ export const Profile: React.FC = () => {
        Name
       </label>
      </div>
-     {/* {profile.map((user: IUser) => (
-      <> */}
-     <div className="w-2/3 h-12 pl-5">
-      <div className="pt-4 text-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0 shadow-none">
-       {/* {user.email} */} John Doe
+     <div className="w-2/3 h-12 pl-5 pt-5">
+      <div className="text-white bg-field text-sm font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0 shadow-none">
+       John Doe
       </div>
      </div>
-     {/* </>
-     ))} */}
     </div>
 
     <div className="flex items-center bg-field mb-2">
@@ -49,9 +32,9 @@ export const Profile: React.FC = () => {
        Username
       </label>
      </div>
-     <div className="w-2/3 h-12 pl-5">
-      <div className="pt-4 text-white bg-field text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none">
-       JDmedia
+     <div className="w-2/3 h-12 pl-5 pt-5">
+      <div className="text-white bg-field text-sm font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none border-b-0  shadow-none">
+       {profile.user.username}
       </div>
      </div>
     </div>
@@ -61,9 +44,9 @@ export const Profile: React.FC = () => {
        Email
       </label>
      </div>
-     <div className="w-2/3 h-12 pl-5">
-      <div className="pt-4 text-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main">
-       john@mediadrive
+     <div className="w-2/3 h-12 pl-5 pt-5">
+      <div className="text-white text-sm font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none font-sans-main">
+       {profile.user.email}
       </div>
      </div>
     </div>

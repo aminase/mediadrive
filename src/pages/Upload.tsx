@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getUser } from '../selectors/AuthSelector'
+import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 import drop from '../commons/drop.svg'
 

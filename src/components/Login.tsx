@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
-import { getUser } from '../selectors/AuthSelector'
+import { getUser } from '../selectors/UserSelector'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
@@ -28,15 +28,15 @@ export const Login: React.FC = () => {
      SIGN IN{' '}
     </div>
     <div className="ml-4 mr-4">
-     <div className="flex items-center mb-3 login-field h-12 ">
+     <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
-       <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+       <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         Email
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-2">
+      <div className="w-2/3 pt-3">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+        className="w-full login-field placeholder-white text-white text-sm focus:shadow-none active:shadow-none shadow-none"
         type="text"
         placeholder="damian@mediadrive"
         value={email}
@@ -46,13 +46,13 @@ export const Login: React.FC = () => {
      </div>
      <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
-       <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+       <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         Password
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-2">
+      <div className="w-2/3 pt-3">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+        className="w-full login-field placeholder-white text-white text-sm focus:shadow-none active:shadow-none shadow-none"
         type="text"
         placeholder="***********"
         value={password}

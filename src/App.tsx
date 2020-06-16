@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
-
 import { Upload } from './pages/Upload'
 import { Contacts } from './pages/Contacts'
 import { Invite } from './pages/Invite'
@@ -18,11 +17,17 @@ import notification from './commons/notification-icon.svg'
 import { Registration } from './components/Registration'
 import { Notification } from './components/Notification'
 import { Login } from './components/Login'
-import { useSelector } from 'react-redux'
+import { getUser } from './actions/UserActions'
+import { useDispatch, useSelector } from 'react-redux'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
  const closeModal = () => setIsNotificationOpen(false)
+ const dispatch = useDispatch()
+
+ useEffect(() => {
+  dispatch(getUser())
+ }, [])
 
  return (
   <BrowserRouter>

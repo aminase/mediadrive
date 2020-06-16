@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserRegistration } from '../actions/AuthActions'
-import { getUser } from '../selectors/AuthSelector'
+import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 
 export const Registration: React.FC = () => {
@@ -50,11 +50,11 @@ export const Registration: React.FC = () => {
     <div className="ml-4 mr-4">
      <div className="flex items-center mb-3 login-field h-12 ">
       <div className="w-1/3">
-       <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+       <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         Username
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-2">
+      <div className="w-2/3 pt-3 pl-5">
        <input
         className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
         type="text"
@@ -66,11 +66,11 @@ export const Registration: React.FC = () => {
      </div>
      <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
-       <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+       <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         Email
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-2">
+      <div className="w-2/3 pt-3 pl-5">
        <input
         className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
         type="text"
@@ -82,11 +82,11 @@ export const Registration: React.FC = () => {
      </div>
      <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
-       <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+       <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         New Password
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-2">
+      <div className="w-2/3 pt-3 pl-5">
        <input
         className="w-full login-field placeholder-white text-white text-xs focus:shadow-none  active:login-field  active:shadow-none  shadow-none"
         type="password"
@@ -99,11 +99,11 @@ export const Registration: React.FC = () => {
 
      <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
-       <label className="block text-bg-btn-login ml-5 text-xs leading-none tracking-tight">
+       <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         Confirm Password
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-2">
+      <div className="w-2/3 pt-3 pl-5">
        <input
         className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none login-field  shadow-none"
         type="password"
