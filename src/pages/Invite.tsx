@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import sign from '../commons/sent-sign.svg'
 import plus from '../commons/plus-large.svg'
 import add from '../commons/plus-small.svg'
 
 export const Invite: React.FC = () => {
- const history = useHistory()
- const [email, setEmail] = useState()
- const [emailAdress, setEmailAddress] = useState()
  const [noteList, setNoteList] = useState([
   {
    id: 0,
@@ -43,7 +39,7 @@ export const Invite: React.FC = () => {
       className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent"
       onClick={() => console.log('invite')}
      >
-      <img src={sign} className="h-4 pr-4 pt-1" />
+      <img src={sign} className="h-4 pr-4 pt-1" alt="sent-sign" />
       Sent
      </button>
     </div>
@@ -67,7 +63,7 @@ export const Invite: React.FC = () => {
         className="text-white flex inline text-sm p-4 focus:bg-transparent focus:outline-none"
         onClick={() => console.log('invite')}
        >
-        <img src={add} className="h-4 pr-3 pt-1" />
+        <img src={add} className="h-4 pr-3 pt-1" alt="invite-sign" />
         Invite
        </button>
       </div>
@@ -78,7 +74,7 @@ export const Invite: React.FC = () => {
     className="mt-4 focus:bg-transparent active:outline-none shadow-none"
     onClick={() => addNote()}
    >
-    <img src={plus} className="h-8" />
+    <img src={plus} className="h-8" alt="add-sing" />
    </button>
   </div>
  )

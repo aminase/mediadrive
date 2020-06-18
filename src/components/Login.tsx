@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
@@ -53,7 +53,7 @@ export const Login: React.FC = () => {
       <div className="w-2/3 pt-3">
        <input
         className="w-full login-field placeholder-white text-white text-sm focus:shadow-none active:shadow-none shadow-none"
-        type="text"
+        type="password"
         placeholder="***********"
         value={password}
         onChange={e => setPassword(e.target.value)}
@@ -63,6 +63,7 @@ export const Login: React.FC = () => {
     </div>
     <div className="text-center ml-10 mr-10 m-5">
      <button
+      type="submit"
       className="w-3/4 bg-options focus:outline-none text-white rounded leading-none tracking-tight h-10"
       onClick={e => doLogin(e)}
      >

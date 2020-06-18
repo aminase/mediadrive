@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
+import {
+ BrowserRouter,
+ Switch,
+ Route,
+ NavLink,
+ Redirect,
+} from 'react-router-dom'
 import { Upload } from './pages/Upload'
 import { Contacts } from './pages/Contacts'
 import { Invite } from './pages/Invite'
@@ -12,13 +18,15 @@ import upload from './commons/upload.svg'
 import mediadrive from './commons/logo.svg'
 import contacts from './commons/contact.svg'
 import invite from './commons/invite.svg'
-import profile from './commons/profile.svg'
+import image from './commons/profile.svg'
 import notification from './commons/notification-icon.svg'
 import { Registration } from './components/Registration'
 import { Notification } from './components/Notification'
 import { Login } from './components/Login'
-import { getUser } from './actions/UserActions'
+import { getUserAction } from './actions/UserActions'
 import { useDispatch, useSelector } from 'react-redux'
+import { getUser } from './selectors/UserSelector'
+import { PrivateRoute } from './components/PrivateRoute'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
@@ -26,7 +34,7 @@ const App: React.FC = () => {
  const dispatch = useDispatch()
 
  useEffect(() => {
-  dispatch(getUser())
+  dispatch(getUserAction())
  }, [])
 
  return (
@@ -89,7 +97,7 @@ const App: React.FC = () => {
      to="/profile"
      className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
     >
-     <img src={profile} alt="profile" className="justify-center" />
+     <img src={image} alt="profile" className="justify-center" />
      <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
       Profile
      </div>
@@ -127,7 +135,7 @@ const App: React.FC = () => {
     <Route path="/" component={Registration} exact />
     <Route path="/login" component={Login} exact />
     <Route path="/upload" component={Upload} />
-    <Route path="/contacts" component={Contacts} />
+    <PrivateRoute path="/contacts" component={Contacts} />
     <Route path="/invite" component={Invite} />
     <Route path="/profile" component={Profile} />
     <Route path="/files" component={Files} />

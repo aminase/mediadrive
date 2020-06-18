@@ -8,6 +8,7 @@ interface IUser {
  facebookId?: string
  createdAt?: string
  updatedAt?: string
+ token?: string
 
  strategy: string
 }

@@ -11,7 +11,7 @@ export const Contacts: React.FC = () => {
   <div className="mr-8 ml-8 pt-8">
    <div className="flex items-center mb-2 bg-field h-12">
     <div className="pr-2 pl-2">
-     <img src={user} className="rounded-full h-8" />
+     <img src={user} className="rounded-full h-8" alt="user" />
     </div>
     <div className="w-2/3 h-12">
      <div className="mt-1">
@@ -32,7 +32,7 @@ export const Contacts: React.FC = () => {
    </div>
    <div className="flex items-center mb-2 bg-field h-12">
     <div className="pr-2 pl-2">
-     <img src={avatar} className="rounded-full h-8" />
+     <img src={avatar} className="rounded-full h-8" alt="avatar" />
     </div>
     <div className="w-2/3 h-12">
      <div className="mt-1">

@@ -12,6 +12,7 @@ export const Upload: React.FC = () => {
  if (!user) {
   history.push('/login')
  }
+
  return (
   <div className="mt-5 mr-8 ml-8">
    {files.length === 0 ? (
@@ -25,7 +26,7 @@ export const Upload: React.FC = () => {
     </div>
    ) : (
     <div>
-     <img src={drop} className="m-auto mt-20" width="250" />
+     <img src={drop} className="m-auto mt-20" width="250" alt="drop-file" />
     </div>
    )}
   </div>

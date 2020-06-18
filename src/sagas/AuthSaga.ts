@@ -4,7 +4,7 @@ import { setUserAction } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
-import { setTokenAction } from '../utils'
+import { setTokenAction } from '../utils/setTokenAction'
 
 const AuthSaga = function*() {
  //WATCHER SAGA
@@ -45,8 +45,10 @@ const doLogin = function*(action: any) {
     ...action.payload,
     id: doAuthenticationResponse.data.user.id,
     username: doAuthenticationResponse.data.user.username,
+    token: doAuthenticationResponse.data.accessToken,
    })
   )
+  console.log(doAuthenticationResponse, 'token auth auth ')
 
   setTokenAction(doAuthenticationResponse.data.accessToken)
  }

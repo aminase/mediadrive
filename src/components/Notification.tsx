@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import notification from '../commons/notification-icon.svg'
-import { useHistory } from 'react-router'
 
 interface INotification {
  closeModal: () => void
@@ -19,10 +18,6 @@ const notifications = [
 ]
 
 export const Notification: React.FC<INotification> = ({ closeModal }) => {
- const history = useHistory()
-
- const [accept, setAccept] = useState('')
-
  //  const reviewWord = notifications.map(item => item.text).includes('accept ')
  //   ? 'true'
  //   : 'false'
