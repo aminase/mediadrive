@@ -28,10 +28,10 @@ export const Registration: React.FC = () => {
   }
  }, [])
 
- //  const credentials = useSelector(getUser)
- //  if (credentials) {
- //   history.push('/upload')
- //  }
+ const credentials = useSelector(getUser)
+ if (credentials) {
+  history.push('/upload')
+ }
 
  const alreadyHasAccount = () => {
   history.push('/login')

@@ -16,6 +16,7 @@ export const Settings: React.FC<ISettings> = ({ closeSettingsModal }) => {
   localStorage.removeItem('token')
   closeSettingsModal()
   history.push('/')
+  window.location.reload(true)
  }
 
  return (
