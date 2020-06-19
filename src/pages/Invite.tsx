@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import sign from '../commons/sent-sign.svg'
 import plus from '../commons/plus-large.svg'
 import add from '../commons/plus-small.svg'
+import { useHistory } from 'react-router'
 
 export const Invite: React.FC = () => {
+ const history = useHistory()
  const [noteList, setNoteList] = useState([
   {
    id: 0,
@@ -20,6 +22,7 @@ export const Invite: React.FC = () => {
   }
   setNoteList([...noteList, { id: noteList.length, text: '', isNew: true }])
  }
+
  return (
   <div className="mr-8 ml-8 mt-10">
    <div className="text-white mb-4 ml-4 text-base font-sans-main leading-none tracking-tighter">
@@ -37,7 +40,7 @@ export const Invite: React.FC = () => {
     <div className="w-1/3">
      <button
       className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent"
-      onClick={() => console.log('invite')}
+      onClick={() => console.log('sent')}
      >
       <img src={sign} className="h-4 pr-4 pt-1" alt="sent-sign" />
       Sent

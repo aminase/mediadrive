@@ -2,7 +2,7 @@ import React from 'react'
 import notification from '../commons/notification-icon.svg'
 
 interface INotification {
- closeModal: () => void
+ closeNotificationModal: () => void
 }
 
 const notifications = [
@@ -17,12 +17,9 @@ const notifications = [
  },
 ]
 
-export const Notification: React.FC<INotification> = ({ closeModal }) => {
- //  const reviewWord = notifications.map(item => item.text).includes('accept ')
- //   ? 'true'
- //   : 'false'
- //  console.log(reviewWord, 'word')
-
+export const Notification: React.FC<INotification> = ({
+ closeNotificationModal,
+}) => {
  return (
   <div className="relative mx-auto h-full opacity-100 z-50 mr-8 ml-8">
    <div className="flex absolute flex bg-options rounded-notification p-6 w-full">
@@ -30,7 +27,7 @@ export const Notification: React.FC<INotification> = ({ closeModal }) => {
      <div className="flex justify-end w-inherit">
       <button
        className="text-sm focus:bg-navgray focus:bg-transparent"
-       onClick={closeModal}
+       onClick={closeNotificationModal}
       >
        &#10005;
       </button>

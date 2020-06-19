@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
+import { useHistory } from 'react-router'
 
 interface IPrivateRoute {
  component: any
@@ -12,21 +13,13 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
  component: Component,
  ...rest
 }) => {
- const profile = useSelector(getUser)
-
- const fakeAuth = {
-  isAuthenticated: !profile,
- }
+ const userToken = localStorage.getItem('token')
 
  return (
   <Route
    {...rest}
    component={(props: any) =>
-    fakeAuth.isAuthenticated === true ? (
-     <Component {...props} />
-    ) : (
-     <Redirect to="/login" />
-    )
+    userToken ? <Component {...props} /> : <Redirect to="/" />
    }
   />
  )

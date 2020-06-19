@@ -1,24 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
-import { useHistory } from 'react-router'
 import { getUser } from '../selectors/UserSelector'
+import { useHistory } from 'react-router'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
-
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
+
+ const token = localStorage.getItem('token')
+
+ //  useEffect(() => {
+ //   if (token) {
+ //    history.push('/upload')
+ //   }
+ //  }, [])
+
+ const user = useSelector(getUser)
+ if (user) {
+  history.push('/upload')
+ }
 
  const doLogin = (e: any) => {
   e.preventDefault()
   dispatch(doUserLogin({ email, password }))
  }
 
- const user = useSelector(getUser)
- if (user) {
-  history.push('/upload')
+ const createAccount = () => {
+  history.push('/')
  }
 
  return (
@@ -69,6 +80,12 @@ export const Login: React.FC = () => {
      >
       Sign In
      </button>
+    </div>
+    <div
+     className="text-white m-5 text-center leading-none tracking-tight cursor-pointer"
+     onClick={() => createAccount()}
+    >
+     Create an account?{' '}
     </div>
    </form>
   </div>

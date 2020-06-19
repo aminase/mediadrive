@@ -3,14 +3,14 @@ import { useSelector } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 import drop from '../commons/drop.svg'
+import Draggable from '../components/Draggabble'
 
 export const Upload: React.FC = () => {
  const [files, setFiles] = useState([0])
- const history = useHistory()
- const user = useSelector(getUser)
 
- if (!user) {
-  history.push('/login')
+ const handleDragDrop = (e: any) => {
+  e.preventDefault()
+  console.log('dropped')
  }
 
  return (
@@ -27,6 +27,12 @@ export const Upload: React.FC = () => {
    ) : (
     <div>
      <img src={drop} className="m-auto mt-20" width="250" alt="drop-file" />
+     <Draggable
+      children={''}
+      id={''}
+      onDrag={(e: any) => handleDragDrop(e)}
+      onDragEnd={(e: any) => handleDragDrop(e)}
+     />
     </div>
    )}
   </div>

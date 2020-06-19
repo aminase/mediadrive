@@ -7619,6 +7619,9 @@ video {
  min-height: 601px;
 }
 
+.min-h-half {
+   min-height: 250px;
+}
 .min-h-full {
  min-height: 100%;
 }

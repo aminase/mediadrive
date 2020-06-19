@@ -22,6 +22,8 @@ import image from './commons/profile.svg'
 import notification from './commons/notification-icon.svg'
 import { Registration } from './components/Registration'
 import { Notification } from './components/Notification'
+import { Settings } from './components/Settings'
+
 import { Login } from './components/Login'
 import { getUserAction } from './actions/UserActions'
 import { useDispatch, useSelector } from 'react-redux'
@@ -30,7 +32,11 @@ import { PrivateRoute } from './components/PrivateRoute'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
- const closeModal = () => setIsNotificationOpen(false)
+ const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+
+ const closeNotificationModal = () => setIsNotificationOpen(false)
+ const closeSettingsModal = () => setIsSettingsOpen(false)
+
  const dispatch = useDispatch()
 
  useEffect(() => {
@@ -55,11 +61,19 @@ const App: React.FC = () => {
       />
      </button>
      <button className="focus:outline-none focus:bg-current">
-      <img src={settings} alt="settings" className="h-5" />
+      <img
+       src={settings}
+       alt="settings"
+       className="h-5"
+       onClick={() => setIsSettingsOpen(true)}
+      />
      </button>
     </div>
    </div>
-   {isNotificationOpen && <Notification closeModal={closeModal} />}
+   {isNotificationOpen && (
+    <Notification closeNotificationModal={closeNotificationModal} />
+   )}
+   {isSettingsOpen && <Settings closeSettingsModal={closeSettingsModal} />}
 
    <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
     <NavLink
@@ -136,12 +150,11 @@ const App: React.FC = () => {
     <Route path="/login" component={Login} exact />
     <Route path="/upload" component={Upload} />
     <PrivateRoute path="/contacts" component={Contacts} />
-    <Route path="/invite" component={Invite} />
-    <Route path="/profile" component={Profile} />
-    <Route path="/files" component={Files} />
-    <Route path="/send" component={Send} />
-    <Route path="/progress" component={Progress} />
-    <Route path="/auth" component={Login} />
+    <PrivateRoute path="/invite" component={Invite} />
+    <PrivateRoute path="/profile" component={Profile} />
+    <PrivateRoute path="/files" component={Files} />
+    <PrivateRoute path="/send" component={Send} />
+    <PrivateRoute path="/progress" component={Progress} />
    </Switch>
    <div className="flex justify-center absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
     <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter self-center focus:bg-update">
