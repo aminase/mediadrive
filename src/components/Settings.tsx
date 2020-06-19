@@ -35,12 +35,9 @@ export const Settings: React.FC<ISettings> = ({ closeSettingsModal }) => {
      </div>
      <div className="border-b-4 border-profile" />
 
-     <div className="flex block m-6">
+     <div className="flex block m-6" onClick={() => doLogOut()}>
       <img src={notification} alt="notification" className="h-4" />
-      <button
-       className="ml-2 m-1 text-base leading-none tracking-tighter focus:bg-transparent"
-       onClick={() => doLogOut()}
-      >
+      <button className="ml-2 m-1 text-base leading-none tracking-tighter focus:bg-transparent">
        SignOut
       </button>
      </div>

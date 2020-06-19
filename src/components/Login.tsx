@@ -12,11 +12,11 @@ export const Login: React.FC = () => {
 
  const token = localStorage.getItem('token')
 
- //  useEffect(() => {
- //   if (token) {
- //    history.push('/upload')
- //   }
- //  }, [])
+ useEffect(() => {
+  if (token) {
+   history.push('/upload')
+  }
+ }, [])
 
  const user = useSelector(getUser)
  if (user) {
