@@ -29,13 +29,18 @@ import { getUserAction } from './actions/UserActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUser } from './selectors/UserSelector'
 import { PrivateRoute } from './components/PrivateRoute'
+import { PrivateModalRoute } from './components/PrivateModalRoute'
+import { open } from 'inspector'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
- const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+ const [isOpenModal, setIsOpenModal] = useState(false)
 
+ const openNotificationModal = () => setIsNotificationOpen(true)
  const closeNotificationModal = () => setIsNotificationOpen(false)
- const closeSettingsModal = () => setIsSettingsOpen(false)
+
+ const openModal = () => setIsOpenModal(true)
+ const closeModal = () => setIsOpenModal(false)
 
  const dispatch = useDispatch()
 
@@ -51,29 +56,28 @@ const App: React.FC = () => {
      <img src={mediadrive} alt="mediadrive" className="ml-5 mt-3 mb-3 h-4" />
     </NavLink>
     <div className="mt-3 mr-5 flex-shrink-0 position-absolute">
-     <button className="focus:outline-gray focus:bg-current mr-6">
-      <img
-       src={notification}
-       alt="notification"
-       className="h-5"
-       style={{ transition: 'all .15s ease' }}
-       onClick={() => setIsNotificationOpen(true)}
-      />
+     <button
+      className="focus:outline-gray focus:bg-current mr-6"
+      onClick={() => openNotificationModal()}
+     >
+      <img src={notification} alt="notification" className="h-5" />
      </button>
-     <button className="focus:outline-none focus:bg-current">
-      <img
-       src={settings}
-       alt="settings"
-       className="h-5"
-       onClick={() => setIsSettingsOpen(true)}
-      />
+
+     <button
+      className="focus:outline-none focus:bg-current"
+      onClick={() => openModal()}
+     >
+      <img src={settings} alt="settings" className="h-5" />
      </button>
     </div>
    </div>
    {isNotificationOpen && (
-    <Notification closeNotificationModal={closeNotificationModal} />
+    <Notification
+     closeNotificationModal={closeNotificationModal}
+     openNotificationModal={openNotificationModal}
+    />
    )}
-   {isSettingsOpen && <Settings closeSettingsModal={closeSettingsModal} />}
+   {isOpenModal && <Settings closeModal={closeModal} openModal={openModal} />}
 
    <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
     <NavLink
@@ -147,8 +151,8 @@ const App: React.FC = () => {
    </div>
    <Switch>
     <Route path="/" component={Registration} exact />
-    <Route path="/login" component={Login} exact />
-    <Route path="/upload" component={Upload} />
+    <Route path="/login" component={Login} />
+    <PrivateRoute path="/upload" component={Upload} />
     <PrivateRoute path="/contacts" component={Contacts} />
     <PrivateRoute path="/invite" component={Invite} />
     <PrivateRoute path="/profile" component={Profile} />

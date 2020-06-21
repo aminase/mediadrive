@@ -71,6 +71,10 @@ html {
  background-color: #959595 !important;
 }
 
+.drop-button-color {
+ color: #001b2d !important;
+}
+
 .hover\:bg-gray-800:hover {
  background-color: #598392;
 }
@@ -137,8 +141,8 @@ html {
 }
 
 .rounded-notification {
-  border-radius:15px;
- }
+ border-radius: 15px;
+}
 
 /* ------------------------------------------------------------- */
 
@@ -5394,7 +5398,6 @@ video {
  border-radius: 0.5rem;
 }
 
-
 .rounded-full {
  border-radius: 9999px;
 }
@@ -7616,11 +7619,11 @@ video {
 }
 
 .min-h-0 {
- min-height: 601px;
+ min-height: 401px;
 }
 
 .min-h-half {
-   min-height: 250px;
+ min-height: 250px;
 }
 .min-h-full {
  min-height: 100%;
@@ -17913,7 +17916,7 @@ video {
 }
 
 body {
- background-color: gray;
+ background-color: #001b2d !important;
 }
 
 @media (min-width: 640px) {

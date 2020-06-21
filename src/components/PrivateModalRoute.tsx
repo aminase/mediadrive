@@ -4,13 +4,15 @@ import { useSelector } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 
-interface IPrivateRoute {
+interface IPrivateModalRoute {
  component: any
  path: any
+ openNotificationModal?: any
 }
 
-export const PrivateRoute: React.FC<IPrivateRoute> = ({
+export const PrivateModalRoute: React.FC<IPrivateModalRoute> = ({
  component: Component,
+ openNotificationModal,
  ...rest
 }) => {
  const userToken = localStorage.getItem('token')
@@ -19,7 +21,11 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
   <Route
    {...rest}
    component={(props: any) =>
-    userToken ? <Component {...props} /> : <Redirect to="/login" />
+    userToken ? (
+     <Component {...props} openNotificationModal={openNotificationModal} />
+    ) : (
+     <Redirect to="/login" />
+    )
    }
   />
  )

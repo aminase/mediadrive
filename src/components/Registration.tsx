@@ -22,11 +22,9 @@ export const Registration: React.FC = () => {
 
  const token = localStorage.getItem('token')
 
- useEffect(() => {
-  if (token) {
-   history.push('/upload')
-  }
- }, [])
+ //  if (token) {
+ //   history.push('/upload')
+ //  }
 
  const credentials = useSelector(getUser)
  if (credentials) {

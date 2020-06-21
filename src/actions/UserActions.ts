@@ -33,6 +33,8 @@ const setUserAction = (user: any) => {
  }
 }
 
+//actions for token fetch
+
 interface IGetUserTokenAction {
  type: typeof USER_ACTIONS.GET_USER_TOKEN
 }
@@ -45,7 +47,7 @@ const getUserTokenAction = () => {
 
 interface ISetUserTokenAction {
  type: typeof USER_ACTIONS.SET_USER_TOKEN
- payload: any
+ payload: IUserToken
 }
 
 const setUserTokenAction = (token: any) => {

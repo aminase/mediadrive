@@ -22,6 +22,7 @@ const fetchUser = function*(action: any) {
  )
 
  yield put(setUserAction(saveUserProfile.data))
+ console.log(saveUserProfile.data, 'data')
 }
 
 //fetchToken saga

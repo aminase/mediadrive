@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 import drop from '../commons/drop.svg'
-import Draggable from '../components/Draggabble'
+import { DragNDrop } from '../components/DragNDrop'
 
 export const Upload: React.FC = () => {
- const [files, setFiles] = useState([0])
+ const [data, setData] = useState(['hey', 'hej', 'hello'])
 
  const handleDragDrop = (e: any) => {
   e.preventDefault()
@@ -15,7 +15,7 @@ export const Upload: React.FC = () => {
 
  return (
   <div className="mt-5 mr-8 ml-8">
-   {files.length === 0 ? (
+   {data.length == 0 ? (
     <div className="flex m-3">
      {' '}
      <div className="w-2/5 pt-3 end text-white bg-field pl-4">File_01.mv</div>
@@ -26,13 +26,7 @@ export const Upload: React.FC = () => {
     </div>
    ) : (
     <div>
-     <img src={drop} className="m-auto mt-20" width="250" alt="drop-file" />
-     <Draggable
-      children={''}
-      id={''}
-      onDrag={(e: any) => handleDragDrop(e)}
-      onDragEnd={(e: any) => handleDragDrop(e)}
-     />
+     <DragNDrop />
     </div>
    )}
   </div>
