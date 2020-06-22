@@ -15,13 +15,13 @@ export const PrivateModalRoute: React.FC<IPrivateModalRoute> = ({
  openNotificationModal,
  ...rest
 }) => {
- const userToken = localStorage.getItem('token')
+ const token = localStorage.getItem('token')
 
  return (
   <Route
    {...rest}
    component={(props: any) =>
-    userToken ? (
+    token ? (
      <Component {...props} openNotificationModal={openNotificationModal} />
     ) : (
      <Redirect to="/login" />

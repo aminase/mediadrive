@@ -10,16 +10,16 @@ export const Login: React.FC = () => {
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
 
+ const user = useSelector(getUser)
+ const token = localStorage.getItem('token')
+
+ if (user && token) {
+  history.push('/upload')
+ }
+
  const doLogin = (e: any) => {
   e.preventDefault()
   dispatch(doUserLogin({ email, password }))
- }
-
- const user = useSelector(getUser)
- const userToken = localStorage.getItem('token')
-
- if (user && userToken) {
-  history.push('/upload')
  }
 
  const createAccount = () => {
