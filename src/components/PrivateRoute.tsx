@@ -14,12 +14,13 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
  ...rest
 }) => {
  const token = localStorage.getItem('token')
+ const user = useSelector(getUser)
 
  return (
   <Route
    {...rest}
    component={(props: any) =>
-    token ? <Component {...props} /> : <Redirect to="/login" />
+    token || user ? <Component {...props} /> : <Redirect to="/login" />
    }
   />
  )

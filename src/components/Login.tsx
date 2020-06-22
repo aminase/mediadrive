@@ -9,11 +9,12 @@ export const Login: React.FC = () => {
  const history = useHistory()
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
+ const [errorMessage, setErrorMessage] = useState('')
 
  const user = useSelector(getUser)
- const token = localStorage.getItem('token')
+ //const token = localStorage.getItem('token')
 
- if (user && token) {
+ if (user) {
   history.push('/upload')
  }
 
@@ -66,6 +67,14 @@ export const Login: React.FC = () => {
       </div>
      </div>
     </div>
+    {errorMessage !== '' && (
+     <div
+      className="bg-red-100 text-red-700 px-4 py-3 rounded relative"
+      role="alert"
+     >
+      <strong className="font-bold">Passwords do not match!</strong>
+     </div>
+    )}
     <div className="text-center ml-10 mr-10 m-5">
      <button
       type="submit"

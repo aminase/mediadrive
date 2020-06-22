@@ -48,7 +48,6 @@ const doLogin = function*(action: any) {
     token: doAuthenticationResponse.data.accessToken,
    })
   )
-  console.log(doAuthenticationResponse, 'token auth auth ')
 
   setTokenAction(doAuthenticationResponse.data.accessToken)
  }
