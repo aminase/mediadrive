@@ -25,6 +25,13 @@ export const Registration: React.FC = () => {
   history.push('/upload')
  }
 
+ const token = localStorage.getItem('token')
+ useEffect(() => {
+  if (token) {
+   history.push('/upload')
+  }
+ }, [])
+
  const alreadyHasAccount = () => {
   history.push('/login')
  }

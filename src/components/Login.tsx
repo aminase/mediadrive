@@ -12,11 +12,17 @@ export const Login: React.FC = () => {
  const [errorMessage, setErrorMessage] = useState('')
 
  const user = useSelector(getUser)
- //const token = localStorage.getItem('token')
 
  if (user) {
   history.push('/upload')
  }
+
+ const token = localStorage.getItem('token')
+ useEffect(() => {
+  if (token) {
+   history.push('/upload')
+  }
+ }, [])
 
  const doLogin = (e: any) => {
   e.preventDefault()
