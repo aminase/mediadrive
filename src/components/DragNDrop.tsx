@@ -31,7 +31,6 @@ export const DragNDrop: React.FC = () => {
     {acceptedFiles.length === 0 ? (
      <>
       <img src={drop} className="m-auto pt-20" width="250" alt="drop-file" />
-      <p className="center drop-button-color">Drop files here</p>
      </>
     ) : (
      <>
