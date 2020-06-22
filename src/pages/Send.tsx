@@ -58,7 +58,7 @@ export const Send: React.FC = () => {
       </div>
      </div>
      <div className="flex mt-8">
-      <div className="w-2/3 bg-gray-400 h-12" />
+      <div className="w-2/3 bg-gray-400 h-10" />
       <button
        className="w-1/3 bg-options rounded-md text-white text-sm font-sans-main leading-none tracking-tighter focus:bg-update"
        onClick={() => onButtonNext()}
@@ -74,7 +74,7 @@ export const Send: React.FC = () => {
      <div className="flex mb-4 mt-4 h-12 bg-field">
       {' '}
       <label className="w-2/3 bg-field text-center text-white self-center ">
-       <div className="flex ml-2 justify-between hover:bg-gray-800 active:bg-gray-800 focus:bg-options">
+       <div className="flex ml-2 justify-between active:bg-gray-800 ">
         <input
          className="bg-checkbox active:bg-checkbox-white "
          type="checkbox"
@@ -89,7 +89,7 @@ export const Send: React.FC = () => {
       <div className="w-1/3" />
      </div>
      <div className="flex mt-5">
-      <div className="w-2/3 bg-gray-400 h-12" />
+      <div className="w-2/3 bg-gray-400 h-10" />
       <button
        className="w-1/3 bg-options rounded-md text-white text-sm font-sans-main leading-none tracking-tighter focus:bg-update"
        onClick={() => onSendButton()}

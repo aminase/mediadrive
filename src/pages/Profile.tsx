@@ -3,19 +3,16 @@ import avatar from '../commons/profile-avatar.svg'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
-import { getUserTokenAction } from '../actions/UserActions'
+import { getUserAction } from '../actions/UserActions'
 
 export const Profile: React.FC = () => {
  const dispatch = useDispatch()
- useEffect(() => {
-  dispatch(getUserTokenAction())
- }, [])
 
  const profile = useSelector(getUser)
 
  useEffect(() => {
-  dispatch(getUserTokenAction())
- }, [profile])
+  dispatch(getUserAction())
+ }, [])
 
  return (
   <div className="flex items-center flex-col mt-2 mr-8 ml-8">
@@ -32,7 +29,7 @@ export const Profile: React.FC = () => {
       </div>
       <div className="w-2/3 h-12 pl-5 pt-5">
        <div className="text-white text-base font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
-        John Doe
+        {profile.user.username}
        </div>
       </div>
      </div>

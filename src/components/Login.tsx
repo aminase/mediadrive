@@ -15,8 +15,8 @@ export const Login: React.FC = () => {
   dispatch(doUserLogin({ email, password }))
  }
 
- const userToken = localStorage.getItem('token')
  const user = useSelector(getUser)
+ const userToken = localStorage.getItem('token')
 
  if (user && userToken) {
   history.push('/upload')

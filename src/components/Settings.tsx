@@ -17,7 +17,7 @@ export const Settings: React.FC<ISettings> = ({ openModal, closeModal }) => {
  const doLogOut = () => {
   localStorage.removeItem('token')
   closeModal()
-  history.push('/')
+  history.push('/login')
   window.location.reload(true)
  }
 

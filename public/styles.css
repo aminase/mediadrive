@@ -144,6 +144,10 @@ html {
  border-radius: 15px;
 }
 
+.drop-border {
+ border-style: none !important;
+}
+
 /* ------------------------------------------------------------- */
 
 /* Sections
@@ -17917,6 +17921,10 @@ video {
 
 body {
  background-color: #001b2d !important;
+}
+
+.bg-body{
+   background-color: #001b2d !important;
 }
 
 @media (min-width: 640px) {

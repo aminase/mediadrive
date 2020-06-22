@@ -52,7 +52,7 @@ const App: React.FC = () => {
   <BrowserRouter>
    <div className="flex justify-between m-2">
     {' '}
-    <NavLink to="/" className="focus:outline-none lg">
+    <NavLink to="/login" className="focus:outline-none lg">
      <img src={mediadrive} alt="mediadrive" className="ml-5 mt-3 mb-3 h-4" />
     </NavLink>
     <div className="mt-3 mr-5 flex-shrink-0 position-absolute">
@@ -82,20 +82,20 @@ const App: React.FC = () => {
    <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
     <NavLink
      to="/upload"
-     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+     className="w-1/4 p-3 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
     >
-     <img src={upload} alt="upload" className="justify-center" />
-     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
+     <img src={upload} alt="upload" className="justify-center h-8" />
+     <div className="text-white pt-1 text-center text-xs leading-tight tracking-tighter font-sans-main">
       Upload
      </div>
     </NavLink>
     <div className="border-r border-profile mt-2 mb-2" />
     <NavLink
      to="/contacts"
-     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+     className="w-1/4 p-3 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
     >
-     <img src={contacts} alt="contacts" className="justify-center" />
-     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
+     <img src={contacts} alt="contacts" className="justify-center h-8" />
+     <div className="text-white pt-1 text-center text-xs leading-tight tracking-tighter font-sans-main">
       Contacts
      </div>{' '}
     </NavLink>
@@ -103,20 +103,20 @@ const App: React.FC = () => {
 
     <NavLink
      to="/invite"
-     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+     className="w-1/4 p-3 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
     >
-     <img src={invite} alt="invite" className="justify-center" />
-     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main ">
+     <img src={invite} alt="invite" className="justify-center h-8" />
+     <div className="text-white pt-1 text-center text-xs leading-tight tracking-tighter font-sans-main ">
       Invite
      </div>
     </NavLink>
     <div className="border-r border-profile mt-2 mb-2" />
     <NavLink
      to="/profile"
-     className="w-1/4 pt-1 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
+     className="w-1/4 p-3 flex flex-col justify-center hover:bg-current-gray focus:bg-navlink"
     >
-     <img src={image} alt="profile" className="justify-center" />
-     <div className="text-white p-2 text-center text-xs leading-tight tracking-tighter font-sans-main">
+     <img src={image} alt="profile" className="justify-center  h-8" />
+     <div className="text-white pt-1 text-center text-xs leading-tight tracking-tighter font-sans-main">
       Profile
      </div>
     </NavLink>

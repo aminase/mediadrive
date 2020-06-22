@@ -9,6 +9,9 @@ interface INotification {
 
 const notifications = [
  {
+  text: 'Your file has been sent to mark@mediadrive',
+ },
+ {
   text: 'Mark has shared a file with you, please accept .',
  },
  {

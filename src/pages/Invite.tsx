@@ -29,14 +29,14 @@ export const Invite: React.FC = () => {
     Invite Users
    </div>
    <div className="flex mb-2 bg-field text-white">
-    <div className="w-2/3 h-12 pl-4 mt-1">
+    <div className="w-2/3 h-10 p-3 mt-1">
      <input
       type="text"
       placeholder="jane@mediadrive"
       className="text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
      />
     </div>
-    <div className="border-r h-12 border-profile mt-1 mb-1" />
+    <div className="border-r h-10 border-profile mt-1 mb-1" />
     <div className="w-1/3">
      <button
       className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent"
