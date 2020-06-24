@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
+import { fetchUser } from '../actions/UserActions'
 
 interface IPrivateRoute {
  component: any
@@ -13,14 +14,27 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
  component: Component,
  ...rest
 }) => {
- const token = localStorage.getItem('token')
+ const dispatch = useDispatch()
+
+ let userLocalStorage: any
+ const userLocalStorageString = localStorage.getItem('user')
+ if (userLocalStorageString) {
+  userLocalStorage = JSON.parse(userLocalStorageString)
+ }
+
  const user = useSelector(getUser)
+
+ useEffect(() => {
+  if (!user && userLocalStorage) {
+   dispatch(fetchUser(userLocalStorage.id))
+  }
+ }, [])
 
  return (
   <Route
    {...rest}
    component={(props: any) =>
-    token || user ? <Component {...props} /> : <Redirect to="/login" />
+    userLocalStorage ? <Component {...props} /> : <Redirect to="/" />
    }
   />
  )

@@ -20,20 +20,20 @@ export const Registration: React.FC = () => {
   console.log('regis', username, email, password)
  }
 
- const user = useSelector(getUser)
- if (user) {
-  history.push('/upload')
- }
+ //  const user = useSelector(getUser)
+ //  if (user) {
+ //   history.push('/upload')
+ //  }
 
- const token = localStorage.getItem('token')
- useEffect(() => {
-  if (token) {
-   history.push('/upload')
-  }
- }, [])
+ //   const token = localStorage.getItem('user')
+ //   useEffect(() => {
+ //    if (token) {
+ //     history.push('/upload')
+ //    }
+ //   }, [])
 
  const alreadyHasAccount = () => {
-  history.push('/login')
+  history.push('/')
  }
 
  useEffect(() => {

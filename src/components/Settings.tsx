@@ -15,10 +15,9 @@ export const Settings: React.FC<ISettings> = ({ openModal, closeModal }) => {
  const history = useHistory()
 
  const doLogOut = () => {
-  localStorage.removeItem('token')
+  localStorage.removeItem('user')
   closeModal()
-  history.push('/login')
-  window.location.reload(true)
+  history.push('/')
  }
 
  return (
@@ -28,12 +27,13 @@ export const Settings: React.FC<ISettings> = ({ openModal, closeModal }) => {
      Settings
     </div>
     <div className="border-b-4 border-profile" />
-    <div className="flex block m-6" onClick={() => doLogOut()}>
-     <img src={notification} alt="notification" className="h-4" />
-     <button className="ml-2 m-1 text-base leading-none tracking-tighter focus:bg-transparent">
-      SignOut
-     </button>
-    </div>
+    <button
+     className="flex justify-start p-6 text-base leading-none tracking-tighter focus:bg-transparent uppercase"
+     onClick={() => doLogOut()}
+    >
+     {' '}
+     Sign out
+    </button>
     <div className="border-b-2 border-profile" />
    </Modal>
   </div>

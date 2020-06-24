@@ -1,10 +1,10 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import { AUTH_ACTIONS, IAllActions, doUserLogin } from '../actions/AuthActions'
-import { setUserAction } from '../actions/UserActions'
+import { setUser } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
-import { setTokenAction } from '../utils/setTokenAction'
+import { setLocalStorageUser } from '../utils/setLocalStorageUser'
 
 const AuthSaga = function*() {
  //WATCHER SAGA
@@ -41,15 +41,21 @@ const doLogin = function*(action: any) {
 
  if (doAuthenticationResponse.status === 201) {
   yield put(
-   setUserAction({
+   setUser({
     ...action.payload,
     id: doAuthenticationResponse.data.user.id,
     username: doAuthenticationResponse.data.user.username,
     token: doAuthenticationResponse.data.accessToken,
    })
   )
+  const localStorageUser = {
+   token: doAuthenticationResponse.data.accessToken,
+   id: doAuthenticationResponse.data.user.id,
+   email: doAuthenticationResponse.data.user.email,
+   username: doAuthenticationResponse.data.user.username,
+  }
 
-  setTokenAction(doAuthenticationResponse.data.accessToken)
+  setLocalStorageUser(localStorageUser)
  }
 }
 

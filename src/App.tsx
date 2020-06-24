@@ -23,14 +23,8 @@ import notification from './commons/notification-icon.svg'
 import { Registration } from './components/Registration'
 import { Notification } from './components/Notification'
 import { Settings } from './components/Settings'
-
 import { Login } from './components/Login'
-import { getUserAction } from './actions/UserActions'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUser } from './selectors/UserSelector'
 import { PrivateRoute } from './components/PrivateRoute'
-import { PrivateModalRoute } from './components/PrivateModalRoute'
-import { open } from 'inspector'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
@@ -41,12 +35,6 @@ const App: React.FC = () => {
 
  const openModal = () => setIsOpenModal(true)
  const closeModal = () => setIsOpenModal(false)
-
- const dispatch = useDispatch()
-
- useEffect(() => {
-  dispatch(getUserAction())
- }, [])
 
  return (
   <BrowserRouter>
@@ -150,8 +138,8 @@ const App: React.FC = () => {
     </NavLink>
    </div>
    <Switch>
-    <Route path="/" component={Registration} exact />
-    <Route path="/login" component={Login} />
+    <Route path="/" component={Login} exact />
+    <Route path="/registration" component={Registration} />
     <PrivateRoute path="/upload" component={Upload} />
     <PrivateRoute path="/contacts" component={Contacts} />
     <PrivateRoute path="/invite" component={Invite} />

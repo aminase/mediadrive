@@ -4,6 +4,7 @@ interface IAxiosResponse {
  headers?: any
  status?: number
  statusCode?: number
+ id?: string
 }
 
 export default IAxiosResponse

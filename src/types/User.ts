@@ -9,7 +9,6 @@ interface IUser {
  createdAt?: string
  updatedAt?: string
  token?: string
-
  strategy: string
 }
 
