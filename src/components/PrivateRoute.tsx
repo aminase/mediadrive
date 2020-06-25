@@ -24,17 +24,15 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
 
  const user = useSelector(getUser)
 
- useEffect(() => {
-  if (!user && userLocalStorage) {
-   dispatch(fetchUser(userLocalStorage.id))
-  }
- }, [])
+ if (!user && userLocalStorage) {
+  dispatch(fetchUser(userLocalStorage.id))
+ }
 
  return (
   <Route
    {...rest}
    component={(props: any) =>
-    userLocalStorage ? <Component {...props} /> : <Redirect to="/" />
+    userLocalStorage || user ? <Component {...props} /> : <Redirect to="/" />
    }
   />
  )

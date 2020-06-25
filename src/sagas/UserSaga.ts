@@ -9,11 +9,19 @@ const UserSaga = function*() {
  yield all([takeEvery(USER_ACTIONS.FETCH_USER, fetchUser)])
 }
 
-const fetchUser = function*(action: any) {
- const { id } = action.payload
+const fetchUser = function*() {
+ let user: any
+ const userLocalStorage = localStorage.getItem('user')
+ if (userLocalStorage) {
+  user = JSON.parse(userLocalStorage)
+ }
 
  const saveUser: IAxiosResponse = yield call(() =>
-  axios.get(`${API_ROOT}/users/${id}`)
+  axios.get(`${API_ROOT}/users/${user.id}`, {
+   headers: {
+    Authorization: `Bearer ${user.token}`,
+   },
+  })
  )
 
  yield put(setUser(saveUser.data))

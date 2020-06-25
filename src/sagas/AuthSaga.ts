@@ -51,8 +51,6 @@ const doLogin = function*(action: any) {
   const localStorageUser = {
    token: doAuthenticationResponse.data.accessToken,
    id: doAuthenticationResponse.data.user.id,
-   email: doAuthenticationResponse.data.user.email,
-   username: doAuthenticationResponse.data.user.username,
   }
 
   setLocalStorageUser(localStorageUser)

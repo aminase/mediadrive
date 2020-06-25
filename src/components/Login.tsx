@@ -14,11 +14,22 @@ export const Login: React.FC = () => {
  const doLogin = (e: any) => {
   e.preventDefault()
   dispatch(doUserLogin({ email, password }))
- }
-
- if (localStorage.getItem('user')) {
   history.push('/upload')
  }
+
+ //  useEffect(() => {
+ //   history.push('/upload')
+ //  }, [])
+
+ //  const user = useSelector(getUser)
+ //  const token = localStorage.getItem('user')
+ //  console.log(user, 'local storage')
+
+ //  useEffect(() => {
+ //   if (user || token) {
+ //    history.push('/upload')
+ //   }
+ //  }, [])
 
  const createAccount = () => {
   history.push('/registration')
