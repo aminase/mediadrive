@@ -1,4 +1,4 @@
-# A quick start Media Drive App
+# A quick start - Media Drive App
 
 In the project directory, you can run:
 
