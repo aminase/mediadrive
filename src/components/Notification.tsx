@@ -35,7 +35,7 @@ export const Notification: React.FC<INotification> = ({
     <div className="border-b-4 border-profile" />
     {notifications.map(message => (
      <>
-      <div className="flex block m-6">
+      <div className="flex block m-6" key={notifications.length}>
        <img src={notification} alt="notification" className="h-4" />
        <p className="ml-2 m-1 text-base leading-none tracking-tighter">
         {message.text}

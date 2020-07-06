@@ -3,10 +3,12 @@ import IUser from '../types/User'
 
 interface IUserData {
  user: IUser | null
+ loading: boolean
 }
 
 const defaultState = {
  user: null,
+ loading: false,
 }
 
 export default (state: IUserData = defaultState, action: IAllActions) => {
@@ -15,6 +17,11 @@ export default (state: IUserData = defaultState, action: IAllActions) => {
    return {
     ...state,
     user: { ...state.user, ...action.payload },
+   }
+  case USER_ACTIONS.TOGGLE_LOADER:
+   return {
+    ...state,
+    loading: !state.loading,
    }
   default:
    return state

@@ -29,7 +29,7 @@ export const Send: React.FC = () => {
          className="bg-checkbox active:bg-checkbox-white "
          type="checkbox"
         />
-        <span className="w-1/3 text-center text-white text-xs p3">
+        <span className="w-1/3 text-center text-white p3 font-14">
          {' '}
          File_01.mov
         </span>
@@ -47,7 +47,7 @@ export const Send: React.FC = () => {
          className="bg-checkbox active:bg-checkbox-white "
          type="checkbox"
         />
-        <span className="w-1/3 text-center text-white text-xs">
+        <span className="w-1/3 text-center text-white font-14">
          {' '}
          File_01.mov
         </span>
@@ -76,11 +76,11 @@ export const Send: React.FC = () => {
       <label className="w-2/3 bg-field text-center text-white self-center ">
        <div className="flex ml-2 justify-between active:bg-gray-800 ">
         <input
-         className="bg-checkbox active:bg-checkbox-white "
+         className="bg-checkbox active:bg-checkbox-white font-14 "
          type="checkbox"
          placeholder="mark@mediadrive"
         />
-        <span className="w-1/3 text-center text-white text-xs">
+        <span className="w-1/3 text-center text-white text-xs font-14">
          {' '}
          File_01.mov
         </span>

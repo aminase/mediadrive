@@ -1,26 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import sign from '../commons/sent-sign.svg'
 import plus from '../commons/plus-large.svg'
 import add from '../commons/plus-small.svg'
-import { useHistory } from 'react-router'
+import _ from 'lodash'
 
 export const Invite: React.FC = () => {
- const history = useHistory()
- const [noteList, setNoteList] = useState([
+ const [newUser, setNewUser] = useState([
   {
-   id: 0,
-   text: '',
-   isNew: false,
+   id: '',
+   text: ' ',
   },
  ])
 
- const addNote = () => {
-  if (noteList.length !== 0) {
-   const editedNoteList = noteList
-   editedNoteList[editedNoteList.length - 1].isNew = false
-   setNoteList([...editedNoteList])
+ const [email, setEmail] = useState()
+
+ const addInvitee = () => {
+  const newInput = {
+   id: _.uniqueId('_id'),
+   text: '',
   }
-  setNoteList([...noteList, { id: noteList.length, text: '', isNew: true }])
+  setNewUser(newUser => [...newUser, newInput])
+ }
+
+ const handleInputValue = (e: any, text: any) => {
+  const userInvite = newUser
+  userInvite[text] = e.target.value
+  setNewUser([...userInvite])
+  console.log(userInvite, 'inivte')
+ }
+
+ const handleUserInvite = (e: any) => {
+  e.preventDefault()
+  const email = e.target.value
+  console.log(email, 'mail')
  }
 
  return (
@@ -29,11 +41,11 @@ export const Invite: React.FC = () => {
     Invite Users
    </div>
    <div className="flex mb-2 bg-field text-white">
-    <div className="w-2/3 h-10 p-3 mt-1">
+    <div className="w-2/3 h-10 pl-4 mt-1">
      <input
       type="text"
       placeholder="jane@mediadrive"
-      className="text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
+      className="font-14 font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
      />
     </div>
     <div className="border-r h-10 border-profile mt-1 mb-1" />
@@ -47,24 +59,23 @@ export const Invite: React.FC = () => {
      </button>
     </div>
    </div>
-   {noteList.map(note => (
+   {newUser.map((user, id: any) => (
     <>
-     <div className="flex mb-2 bg-field text-white">
+     <div className="flex mb-2 bg-field text-white" key={newUser.length}>
       <div className="w-2/3 h-12 pl-4 mt-1">
        <input
         type="text"
+        value={email}
         placeholder="Email Address"
-        key={note.id}
-        value={note.text}
-        className="text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
-        onChange={() => setNoteList}
+        className="font-14 font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
+        onChange={e => handleInputValue(e, email)}
        />
       </div>
       <div className="border-r h-12 border-profile mt-1 mb-1" />
       <div className="w-1/3">
        <button
         className="text-white flex inline text-sm p-4 focus:bg-transparent focus:outline-none"
-        onClick={() => console.log('invite')}
+        onClick={e => handleUserInvite(e)}
        >
         <img src={add} className="h-4 pr-3 pt-1" alt="invite-sign" />
         Invite
@@ -73,12 +84,16 @@ export const Invite: React.FC = () => {
      </div>
     </>
    ))}
-   <button
-    className="mt-4 focus:bg-transparent active:outline-none shadow-none"
-    onClick={() => addNote()}
-   >
-    <img src={plus} className="h-8" alt="add-sing" />
-   </button>
+   {newUser.length == 0 ? (
+    <button> disabled</button>
+   ) : (
+    <button
+     className="mt-4 focus:bg-transparent active:outline-none shadow-none"
+     onClick={() => addInvitee()}
+    >
+     <img src={plus} className="h-8" alt="add-sing" />
+    </button>
+   )}
   </div>
  )
 }

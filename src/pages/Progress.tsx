@@ -46,7 +46,6 @@ export const Progress: React.FC = () => {
          <input
           type="text"
           placeholder="mark@mediadrive"
-          value=""
           className="placeholder-white text-sm font-sans-main leading-none tracking-tighter focus:shadow-none shadow-none"
          />
         </div>
@@ -68,7 +67,6 @@ export const Progress: React.FC = () => {
          <input
           type="text"
           placeholder="mark@mediadrive"
-          value=""
           className="placeholder-white text-sm font-sans-main leading-none tracking-tighter focus:shadow-none shadow-none"
          />
         </div>

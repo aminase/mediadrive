@@ -16,41 +16,44 @@ const doRegistration = function*(action: any) {
  const { email, username, password } = action.payload
 
  const saveUserCredentialsResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/users`, {
+  axios.post(`${API_ROOT}/api/Accounts`, {
    email,
    password,
    username,
   })
  )
+ console.log(saveUserCredentialsResponse, 'credentials')
+ console.log(action.payload, 'action, payload')
 
- if (saveUserCredentialsResponse.status === 201) {
+ if (saveUserCredentialsResponse.status === 200) {
   yield put(doUserLogin(action.payload))
  }
 }
 
 const doLogin = function*(action: any) {
- const { email, password } = action.payload
+ const { username, password } = action.payload
+ console.log(username, password, 'login')
 
  const doAuthenticationResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/authentication`, {
-   email,
+  axios.post(`${API_ROOT}/api/Accounts/login`, {
+   username,
    password,
-   strategy: 'local',
   })
  )
 
- if (doAuthenticationResponse.status === 201) {
+ if (doAuthenticationResponse.status === 200) {
   yield put(
    setUser({
     ...action.payload,
-    id: doAuthenticationResponse.data.user.id,
-    username: doAuthenticationResponse.data.user.username,
-    token: doAuthenticationResponse.data.accessToken,
+    id: doAuthenticationResponse.data.id,
+    userId: doAuthenticationResponse.data.userId,
+    username: doAuthenticationResponse.data.username,
    })
   )
+
   const localStorageUser = {
-   token: doAuthenticationResponse.data.accessToken,
-   id: doAuthenticationResponse.data.user.id,
+   id: doAuthenticationResponse.data.id,
+   userId: doAuthenticationResponse.data.userId,
   }
 
   setLocalStorageUser(localStorageUser)
