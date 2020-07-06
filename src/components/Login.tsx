@@ -1,35 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
-import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
- const [email, setEmail] = useState('')
+ const [username, setUsername] = useState('')
  const [password, setPassword] = useState('')
  const [errorMessage, setErrorMessage] = useState('')
 
  const doLogin = (e: any) => {
   e.preventDefault()
-  dispatch(doUserLogin({ email, password }))
+  dispatch(doUserLogin({ username, password }))
   history.push('/upload')
  }
-
- //  useEffect(() => {
- //   history.push('/upload')
- //  }, [])
-
- //  const user = useSelector(getUser)
- //  const token = localStorage.getItem('user')
- //  console.log(user, 'local storage')
-
- //  useEffect(() => {
- //   if (user || token) {
- //    history.push('/upload')
- //   }
- //  }, [])
 
  const createAccount = () => {
   history.push('/registration')
@@ -45,16 +30,16 @@ export const Login: React.FC = () => {
      <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
        <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
-        Email
+        Username
        </label>
       </div>
-      <div className="w-2/3 pt-3">
+      <div className="w-2/3 px-3 pt-3">
        <input
-        className="w-full login-field placeholder-white text-white text-sm focus:shadow-none active:shadow-none shadow-none"
-        type="text"
+        className="w-full login-field placeholder-white text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
+        type="email"
         placeholder="damian@mediadrive"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
+        value={username}
+        onChange={e => setUsername(e.target.value)}
        />
       </div>
      </div>
@@ -64,9 +49,9 @@ export const Login: React.FC = () => {
         Password
        </label>
       </div>
-      <div className="w-2/3 pt-3">
+      <div className="w-2/3 px-3 pt-3">
        <input
-        className="w-full login-field placeholder-white text-white text-sm focus:shadow-none active:shadow-none shadow-none"
+        className="w-full align-center login-field placeholder-white text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
         type="password"
         placeholder="***********"
         value={password}

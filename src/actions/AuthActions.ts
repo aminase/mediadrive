@@ -7,7 +7,7 @@ enum AUTH_ACTIONS {
 }
 
 type IUserRegistration = Pick<IUser, 'username' | 'email' | 'password'>
-type IUserLogin = Pick<IUser, 'email' | 'password'>
+type IUserLogin = Pick<IUser, 'username' | 'password'>
 
 interface IDoUserRegistration {
  type: typeof AUTH_ACTIONS.DO_USER_REGISTRATION

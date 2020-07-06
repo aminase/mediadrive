@@ -1,5 +1,6 @@
 interface IUser {
- id: number
+ userId: number
+ id: string
  email: string
  password: string
  username: string
@@ -8,7 +9,6 @@ interface IUser {
  facebookId?: string
  createdAt?: string
  updatedAt?: string
- token?: string
  strategy: string
 }
 

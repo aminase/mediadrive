@@ -1,9 +1,5 @@
-import React, { useState } from 'react'
-import notification from '../commons/notification-icon.svg'
+import React from 'react'
 import { useHistory } from 'react-router'
-import { Redirect } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { getUser } from '../selectors/UserSelector'
 import { Modal } from './Modal'
 
 interface ISettings {
@@ -19,7 +15,6 @@ export const Settings: React.FC<ISettings> = ({ openModal, closeModal }) => {
   closeModal()
   history.push('/')
  }
-
  return (
   <div>
    <Modal onClick={closeModal}>

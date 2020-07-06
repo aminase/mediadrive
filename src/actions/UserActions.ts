@@ -1,6 +1,7 @@
 enum USER_ACTIONS {
  FETCH_USER = 'USER_ACTIONS:FETCH_USER',
  SET_USER = 'USER_ACTIONS::SET_USER',
+ TOGGLE_LOADER = 'USER_ACTIONS.TOGGLE_LOADER',
 }
 
 interface IFetchUser {
@@ -29,6 +30,14 @@ const setUser = (user: any) => {
  }
 }
 
-export type IAllActions = IFetchUser | ISetUser
+interface IToggleLoader {
+ type: typeof USER_ACTIONS.TOGGLE_LOADER
+}
 
-export { fetchUser, setUser, USER_ACTIONS }
+const toggleLoader = () => {
+ return { type: USER_ACTIONS.TOGGLE_LOADER }
+}
+
+export type IAllActions = IFetchUser | ISetUser | IToggleLoader
+
+export { fetchUser, setUser, toggleLoader, USER_ACTIONS }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { doUserRegistration } from '../actions/AuthActions'
-import { getUser } from '../selectors/UserSelector'
 import { useHistory } from 'react-router'
 
 export const Registration: React.FC = () => {
@@ -44,15 +43,15 @@ export const Registration: React.FC = () => {
      SIGN UP{' '}
     </div>
     <div className="ml-4 mr-4">
-     <div className="flex items-center mb-3 login-field h-12 ">
+     <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
        <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
         Username
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-5">
+      <div className="w-2/3 pt-3 px-3">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
+        className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none shadow-none"
         type="text"
         placeholder="damian@mediadrive"
         value={username}
@@ -66,10 +65,10 @@ export const Registration: React.FC = () => {
         Email
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-5">
+      <div className="w-2/3 pt-3 px-3">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none shadow-none"
-        type="text"
+        className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none shadow-none"
+        type="email"
         placeholder="damian@mediadrive"
         value={email}
         onChange={e => setEmail(e.target.value)}
@@ -79,12 +78,12 @@ export const Registration: React.FC = () => {
      <div className="flex items-center mb-3 login-field h-12">
       <div className="w-1/3">
        <label className="block text-bg-btn-login ml-5 text-sm leading-none tracking-tight">
-        New Password
+        Password
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-5">
+      <div className="w-2/3 pt-4 px-3">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none  active:login-field  active:shadow-none  shadow-none"
+        className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none  active:login-field  active:shadow-none  shadow-none"
         type="password"
         placeholder="***********"
         value={password}
@@ -99,9 +98,9 @@ export const Registration: React.FC = () => {
         Confirm Password
        </label>
       </div>
-      <div className="w-2/3 pt-3 pl-5">
+      <div className="w-2/3 pt-4 px-3">
        <input
-        className="w-full login-field placeholder-white text-white text-xs focus:shadow-none active:shadow-none login-field  shadow-none"
+        className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none login-field  shadow-none"
         type="password"
         placeholder="***********"
         value={confirmPassword}

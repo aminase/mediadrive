@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Redirect, Route } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
-import { useHistory } from 'react-router'
+import { fetchUser } from '../actions/UserActions'
 
 interface IPrivateModalRoute {
  component: any
@@ -15,16 +15,31 @@ export const PrivateModalRoute: React.FC<IPrivateModalRoute> = ({
  openNotificationModal,
  ...rest
 }) => {
- const token = localStorage.getItem('token')
+ const dispatch = useDispatch()
+ const [isOpenModal, setIsOpenModal] = useState(false)
 
+ let userLocalStorage: any
+ const userLocalStorageString = localStorage.getItem('user')
+ if (userLocalStorageString) {
+  userLocalStorage = JSON.parse(userLocalStorageString)
+ }
+
+ const user = useSelector(getUser)
+
+ if (!user && userLocalStorage) {
+  dispatch(fetchUser(userLocalStorage.id))
+ }
+
+ const openModal = () => setIsOpenModal(true)
+ const closeModal = () => setIsOpenModal(false)
  return (
   <Route
    {...rest}
    component={(props: any) =>
-    token ? (
-     <Component {...props} openNotificationModal={openNotificationModal} />
+    user || userLocalStorage ? (
+     <Component closeModal={closeModal} openModal={openModal} {...props} />
     ) : (
-     <Redirect to="/login" />
+     <Redirect to="/" />
     )
    }
   />

@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
-import { useHistory } from 'react-router'
 import { fetchUser } from '../actions/UserActions'
 
 interface IPrivateRoute {
@@ -32,7 +31,7 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
   <Route
    {...rest}
    component={(props: any) =>
-    userLocalStorage || user ? <Component {...props} /> : <Redirect to="/" />
+    user || userLocalStorage ? <Component {...props} /> : <Redirect to="/" />
    }
   />
  )
