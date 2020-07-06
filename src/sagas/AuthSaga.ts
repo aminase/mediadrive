@@ -57,9 +57,8 @@ const doLogin = function*(action: any) {
   }
   setLocalStorageUser(localStorageUser)
 
-  yield put(fetchUserAction(action.payload))
-
   history.push('/upload')
+  yield put(fetchUserAction(action.payload))
  }
 }
 
