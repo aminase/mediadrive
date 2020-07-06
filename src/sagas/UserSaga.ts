@@ -20,16 +20,15 @@ const fetchUser = function*() {
   user = JSON.parse(userLocalStorage)
  }
 
- console.log(user.id, typeof user, 'lokal')
-
  const saveUser: IAxiosResponse = yield call(() =>
   axios.get(`${API_ROOT}/api/Accounts/${user.userId}?access_token=${user.id}`)
  )
- console.log(saveUser, 'user from user saga')
+ console.log(saveUser, 'user saga')
 
  yield put(toggleLoader())
 
  yield put(setUser(saveUser.data))
+ console.log(saveUser.data, 'data from user saga ')
 }
 
 export { UserSaga }

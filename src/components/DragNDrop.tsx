@@ -12,7 +12,7 @@ export const DragNDrop: React.FC = () => {
   noKeyboard: true,
  })
 
- console.log(acceptedFiles, 'accfiles')
+ //console.log(acceptedFiles, 'accfiles')
  return (
   <div className="mt-5 mr-8 ml-8">
    <div

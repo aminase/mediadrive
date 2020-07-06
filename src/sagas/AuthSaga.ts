@@ -5,6 +5,7 @@ import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
 import { setLocalStorageUser } from '../utils/setLocalStorageUser'
+import { useHistory } from 'react-router'
 
 const AuthSaga = function*() {
  //WATCHER SAGA
@@ -13,7 +14,7 @@ const AuthSaga = function*() {
 }
 
 const doRegistration = function*(action: any) {
- const { email, username, password } = action.payload
+ const { email, username, password, history } = action.payload
 
  const saveUserCredentialsResponse: IAxiosResponse = yield call(() =>
   axios.post(`${API_ROOT}/api/Accounts`, {
@@ -22,16 +23,15 @@ const doRegistration = function*(action: any) {
    username,
   })
  )
- console.log(saveUserCredentialsResponse, 'credentials')
- console.log(action.payload, 'action, payload')
-
  if (saveUserCredentialsResponse.status === 200) {
   yield put(doUserLogin(action.payload))
+
+  history.push('/upload')
  }
 }
 
 const doLogin = function*(action: any) {
- const { username, password } = action.payload
+ const { username, password, history } = action.payload
  console.log(username, password, 'login')
 
  const doAuthenticationResponse: IAxiosResponse = yield call(() =>
@@ -55,8 +55,9 @@ const doLogin = function*(action: any) {
    id: doAuthenticationResponse.data.id,
    userId: doAuthenticationResponse.data.userId,
   }
-
   setLocalStorageUser(localStorageUser)
+
+  history.push('/upload')
  }
 }
 

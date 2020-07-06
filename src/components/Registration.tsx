@@ -15,9 +15,7 @@ export const Registration: React.FC = () => {
 
  const doRegistration = (e: any) => {
   e.preventDefault()
-  dispatch(doUserRegistration({ email, password, username }))
-  history.push('/upload')
-  console.log('regis', username, email, password)
+  dispatch(doUserRegistration({ email, password, username, history }))
  }
 
  const alreadyHasAccount = () => {

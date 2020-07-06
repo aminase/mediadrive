@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
 import { Upload } from './pages/Upload'
 import { Contacts } from './pages/Contacts'
@@ -36,6 +36,7 @@ const App: React.FC = () => {
  const openModal = () => setIsOpenModal(true)
  const closeModal = () => setIsOpenModal(false)
 
+ useEffect(() => {}, [])
  return (
   <BrowserRouter>
    <div className="flex justify-between m-2">

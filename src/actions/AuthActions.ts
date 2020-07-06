@@ -11,10 +11,10 @@ type IUserLogin = Pick<IUser, 'username' | 'password'>
 
 interface IDoUserRegistration {
  type: typeof AUTH_ACTIONS.DO_USER_REGISTRATION
- payload: IUserRegistration
+ payload: IUserRegistration & { history: any }
 }
 
-const doUserRegistration = (user: IUserRegistration) => {
+const doUserRegistration = (user: IUserRegistration & { history: any }) => {
  return {
   type: AUTH_ACTIONS.DO_USER_REGISTRATION,
   payload: user,
@@ -23,10 +23,10 @@ const doUserRegistration = (user: IUserRegistration) => {
 
 interface IDoUserLogin {
  type: typeof AUTH_ACTIONS.DO_USER_LOGIN
- payload: IUserLogin
+ payload: IUserLogin & { history: any }
 }
 
-const doUserLogin = (user: IUserLogin) => {
+const doUserLogin = (user: IUserLogin & { history: any }) => {
  return {
   type: AUTH_ACTIONS.DO_USER_LOGIN,
   payload: user,

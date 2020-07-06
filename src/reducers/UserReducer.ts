@@ -18,6 +18,7 @@ export default (state: IUserData = defaultState, action: IAllActions) => {
     ...state,
     user: { ...state.user, ...action.payload },
    }
+
   case USER_ACTIONS.TOGGLE_LOADER:
    return {
     ...state,

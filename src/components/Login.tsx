@@ -12,8 +12,7 @@ export const Login: React.FC = () => {
 
  const doLogin = (e: any) => {
   e.preventDefault()
-  dispatch(doUserLogin({ username, password }))
-  history.push('/upload')
+  dispatch(doUserLogin({ username, password, history }))
  }
 
  const createAccount = () => {
