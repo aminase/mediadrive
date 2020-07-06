@@ -9,7 +9,7 @@ interface IFetchUser {
  payload: string
 }
 
-const fetchUser = (id: string) => {
+const fetchUserAction = (id: string) => {
  return {
   type: USER_ACTIONS.FETCH_USER,
   payload: id,
@@ -40,4 +40,4 @@ const toggleLoader = () => {
 
 export type IAllActions = IFetchUser | ISetUser | IToggleLoader
 
-export { fetchUser, setUser, toggleLoader, USER_ACTIONS }
+export { fetchUserAction, setUser, toggleLoader, USER_ACTIONS }

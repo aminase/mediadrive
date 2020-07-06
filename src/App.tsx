@@ -36,7 +36,6 @@ const App: React.FC = () => {
  const openModal = () => setIsOpenModal(true)
  const closeModal = () => setIsOpenModal(false)
 
- useEffect(() => {}, [])
  return (
   <BrowserRouter>
    <div className="flex justify-between m-2">

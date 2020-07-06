@@ -13,6 +13,7 @@ export const Login: React.FC = () => {
  const doLogin = (e: any) => {
   e.preventDefault()
   dispatch(doUserLogin({ username, password, history }))
+  console.log(username, password, history, 'login')
  }
 
  const createAccount = () => {

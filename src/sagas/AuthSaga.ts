@@ -1,11 +1,12 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import { AUTH_ACTIONS, IAllActions, doUserLogin } from '../actions/AuthActions'
-import { setUser } from '../actions/UserActions'
+import { setUser, fetchUserAction } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
 import { setLocalStorageUser } from '../utils/setLocalStorageUser'
 import { useHistory } from 'react-router'
+import { createDispatchHook } from 'react-redux'
 
 const AuthSaga = function*() {
  //WATCHER SAGA
@@ -32,7 +33,6 @@ const doRegistration = function*(action: any) {
 
 const doLogin = function*(action: any) {
  const { username, password, history } = action.payload
- console.log(username, password, 'login')
 
  const doAuthenticationResponse: IAxiosResponse = yield call(() =>
   axios.post(`${API_ROOT}/api/Accounts/login`, {
@@ -56,6 +56,8 @@ const doLogin = function*(action: any) {
    userId: doAuthenticationResponse.data.userId,
   }
   setLocalStorageUser(localStorageUser)
+
+  yield put(fetchUserAction(action.payload))
 
   history.push('/upload')
  }

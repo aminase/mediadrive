@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
-import { fetchUser } from '../actions/UserActions'
+import { fetchUserAction } from '../actions/UserActions'
 
 interface IPrivateRoute {
  component: any
@@ -24,7 +24,7 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
  const user = useSelector(getUser)
 
  if (!user && userLocalStorage) {
-  dispatch(fetchUser(userLocalStorage.id))
+  dispatch(fetchUserAction(userLocalStorage.id))
  }
 
  return (

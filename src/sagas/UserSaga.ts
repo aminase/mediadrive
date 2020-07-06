@@ -23,12 +23,10 @@ const fetchUser = function*() {
  const saveUser: IAxiosResponse = yield call(() =>
   axios.get(`${API_ROOT}/api/Accounts/${user.userId}?access_token=${user.id}`)
  )
- console.log(saveUser, 'user saga')
 
- yield put(toggleLoader())
+ //  yield put(toggleLoader())
 
  yield put(setUser(saveUser.data))
- console.log(saveUser.data, 'data from user saga ')
 }
 
 export { UserSaga }

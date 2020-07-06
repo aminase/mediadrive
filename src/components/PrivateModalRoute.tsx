@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Redirect, Route } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { getUser } from '../selectors/UserSelector'
-import { fetchUser } from '../actions/UserActions'
+import { fetchUserAction } from '../actions/UserActions'
 
 interface IPrivateModalRoute {
  component: any
@@ -27,7 +27,7 @@ export const PrivateModalRoute: React.FC<IPrivateModalRoute> = ({
  const user = useSelector(getUser)
 
  if (!user && userLocalStorage) {
-  dispatch(fetchUser(userLocalStorage.id))
+  dispatch(fetchUserAction(userLocalStorage.id))
  }
 
  const openModal = () => setIsOpenModal(true)

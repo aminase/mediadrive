@@ -23,7 +23,7 @@ export const Profile: React.FC = () => {
          </label>
         </div>
         <div className="w-2/3 h-12 pl-5 pt-5">
-         <div className="text-white text-base font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
+         <div className="text-white font-14 font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
           John Doe
          </div>
         </div>
@@ -35,7 +35,7 @@ export const Profile: React.FC = () => {
          </label>
         </div>
         <div className="w-2/3 h-12 pl-5 pt-5">
-         <div className="text-white text-base font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
+         <div className="text-white font-14 font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
           {user.user.username}
          </div>
         </div>
@@ -47,7 +47,7 @@ export const Profile: React.FC = () => {
          </label>
         </div>
         <div className="w-2/3 h-12 pl-5 pt-5">
-         <div className="text-white text-base font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
+         <div className="text-white font-14 font-sans-main leading-none tracking-none focus:shadow-none active:shadow-none shadow-none font-normal">
           {user.user.email}
          </div>
         </div>
