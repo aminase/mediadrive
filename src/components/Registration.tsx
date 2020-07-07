@@ -8,7 +8,7 @@ export const Registration: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
 
- const [username, setUsername] = useState('@mediadrive')
+ const [username, setUsername] = useState('')
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
  const [confirmPassword, setConfirmPassword] = useState('')
@@ -35,8 +35,6 @@ export const Registration: React.FC = () => {
   }
  }, [password, confirmPassword])
 
- useEffect(() => {}, [])
-
  return (
   <div className="flex justify-center bg-field ml-12 mr-12 mt-6">
    <form className="w-full max-w-sm mt-2">
@@ -52,6 +50,7 @@ export const Registration: React.FC = () => {
       </div>
       <div className="w-2/3 pt-3 px-3">
        <input
+        autoFocus
         className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none shadow-none"
         type="text"
         value={username}

@@ -35,19 +35,18 @@ export const Login: React.FC = () => {
         Username
        </label>
       </div>
-      <div className="w-2/3 px-3 pt-3 login-field h-12">
-       <div className="flex block">
-        <input
-         className="w-full login-field text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
-         type="email"
-         value={`${username}@mediadrive`.trim()}
-         onChange={e => setUsername(e.target.value)}
-        />
-        {/* <input
+      <div className="w-2/3 px-3 pt-3">
+       <input
+        autoFocus
+        className="w-full align-center login-field placeholder-white text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
+        type="email"
+        value={`${username}`}
+        onChange={e => setUsername(e.target.value)}
+       />
+       {/* <input
          className="w-full login-field text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none "
          value={ghostUsername}
         /> */}
-       </div>
       </div>
      </div>
      <div className="flex items-center mb-3 login-field h-12">
