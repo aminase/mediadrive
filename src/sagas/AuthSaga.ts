@@ -1,6 +1,6 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
 import { AUTH_ACTIONS, IAllActions, doUserLogin } from '../actions/AuthActions'
-import { setUser, fetchUserAction } from '../actions/UserActions'
+import { setUser, fetchUserAction, getLoginError } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
@@ -28,6 +28,11 @@ const doRegistration = function*(action: any) {
   yield put(doUserLogin(action.payload))
 
   history.push('/upload')
+ }
+
+ if (saveUserCredentialsResponse.status == 422) {
+  yield put(saveUserCredentialsResponse.data)
+  console.log(saveUserCredentialsResponse.data, 'login error')
  }
 }
 

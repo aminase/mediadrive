@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { doUserRegistration } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
+import { getError } from '../selectors/UserSelector'
 
 export const Registration: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
 
- const [username, setUsername] = useState('')
+ const [username, setUsername] = useState('@mediadrive')
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
  const [confirmPassword, setConfirmPassword] = useState('')
@@ -34,6 +35,8 @@ export const Registration: React.FC = () => {
   }
  }, [password, confirmPassword])
 
+ useEffect(() => {}, [])
+
  return (
   <div className="flex justify-center bg-field ml-12 mr-12 mt-6">
    <form className="w-full max-w-sm mt-2">
@@ -51,7 +54,6 @@ export const Registration: React.FC = () => {
        <input
         className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none shadow-none"
         type="text"
-        placeholder="damian@mediadrive"
         value={username}
         onChange={e => setUsername(e.target.value)}
        />
@@ -67,7 +69,6 @@ export const Registration: React.FC = () => {
        <input
         className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none shadow-none"
         type="email"
-        placeholder="damian@mediadrive"
         value={email}
         onChange={e => setEmail(e.target.value)}
        />
@@ -83,7 +84,6 @@ export const Registration: React.FC = () => {
        <input
         className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none  active:login-field  active:shadow-none  shadow-none"
         type="password"
-        placeholder="***********"
         value={password}
         onChange={e => setPassword(e.target.value)}
        />
@@ -100,7 +100,6 @@ export const Registration: React.FC = () => {
        <input
         className="w-full login-field placeholder-white text-white font-14 text-xs focus:shadow-none active:shadow-none login-field  shadow-none"
         type="password"
-        placeholder="***********"
         value={confirmPassword}
         onChange={e => setConfirmPassword(e.target.value)}
        />

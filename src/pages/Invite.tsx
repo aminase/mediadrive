@@ -5,34 +5,25 @@ import add from '../commons/plus-small.svg'
 import _ from 'lodash'
 
 export const Invite: React.FC = () => {
- const [newUser, setNewUser] = useState([
-  {
-   id: '',
-   text: ' ',
-  },
- ])
+ const [newUser, setNewUser] = useState([{ id: _.uniqueId('_id'), text: '' }])
+ const [email, setEmail] = useState('')
+ const [sentEmail, setEmailSent] = useState('')
 
- const [email, setEmail] = useState()
+ //  const addInvitee = () => {
+ //   const newInput = {
+ //    id: _.uniqueId('_id'),
+ //    text: '',
+ //   }
+ //   setNewUser([...newUser, newInput])
+ //   if (email === '') {
+ //    setNewUser(newUser)
+ //   }
+ //  }
 
- const addInvitee = () => {
-  const newInput = {
-   id: _.uniqueId('_id'),
-   text: '',
-  }
-  setNewUser(newUser => [...newUser, newInput])
- }
-
- const handleInputValue = (e: any, text: any) => {
-  const userInvite = newUser
-  userInvite[text] = e.target.value
-  setNewUser([...userInvite])
-  console.log(userInvite, 'inivte')
- }
-
- const handleUserInvite = (e: any) => {
-  e.preventDefault()
-  const email = e.target.value
-  console.log(email, 'mail')
+ const handleUserInvite = () => {
+  // inviteUserAction(email);
+  setEmailSent(email)
+  setEmail('')
  }
 
  return (
@@ -40,60 +31,56 @@ export const Invite: React.FC = () => {
    <div className="text-white mb-4 ml-4 text-base font-sans-main leading-none tracking-tighter">
     Invite Users
    </div>
-   <div className="flex mb-2 bg-field text-white">
-    <div className="w-2/3 h-10 pl-4 mt-1">
-     <input
-      type="text"
-      placeholder="jane@mediadrive"
-      className="font-14 font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
-     />
+
+   {sentEmail && (
+    <div className="flex mb-2 bg-field text-white">
+     <div className="w-2/3 h-10">
+      <div className="font-sans-main font-14 p-5 readonly-color leading-none tracking-tighter text-normal focus:shadow-none active:shadow-none shadow-none">
+       {sentEmail}
+      </div>
+     </div>
+     <div className="border-r h-10 border-profile mt-1 mb-1" />
+     <div className="w-1/3">
+      <div className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent">
+       <img src={sign} className="h-4 pr-4 pt-1" alt="sent-sign" />
+       Sent
+      </div>
+     </div>
     </div>
-    <div className="border-r h-10 border-profile mt-1 mb-1" />
-    <div className="w-1/3">
-     <button
-      className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent"
-      onClick={() => console.log('sent')}
-     >
-      <img src={sign} className="h-4 pr-4 pt-1" alt="sent-sign" />
-      Sent
-     </button>
-    </div>
-   </div>
-   {newUser.map((user, id: any) => (
-    <>
-     <div className="flex mb-2 bg-field text-white" key={newUser.length}>
+   )}
+
+   {newUser.map((index: any) => (
+    <div key={`${index}`}>
+     <div className="flex mb-2 bg-field text-white">
       <div className="w-2/3 h-12 pl-4 mt-1">
        <input
         type="text"
         value={email}
         placeholder="Email Address"
         className="font-14 font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
-        onChange={e => handleInputValue(e, email)}
+        onChange={e => setEmail(e.target.value)}
        />
       </div>
       <div className="border-r h-12 border-profile mt-1 mb-1" />
       <div className="w-1/3">
        <button
         className="text-white flex inline text-sm p-4 focus:bg-transparent focus:outline-none"
-        onClick={e => handleUserInvite(e)}
+        onClick={() => handleUserInvite()}
        >
         <img src={add} className="h-4 pr-3 pt-1" alt="invite-sign" />
         Invite
        </button>
       </div>
      </div>
-    </>
+    </div>
    ))}
-   {newUser.length == 0 ? (
-    <button> disabled</button>
-   ) : (
-    <button
-     className="mt-4 focus:bg-transparent active:outline-none shadow-none"
-     onClick={() => addInvitee()}
-    >
-     <img src={plus} className="h-8" alt="add-sing" />
-    </button>
-   )}
+
+   {/* <button
+    className="mt-4 focus:bg-transparent active:outline-none shadow-none"
+    onClick={() => addInvitee()}
+   >
+    <img src={plus} className="h-8" alt="add-sign" />
+   </button> */}
   </div>
  )
 }

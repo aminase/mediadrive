@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
+import { getHeapCodeStatistics } from 'v8'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
  const [username, setUsername] = useState('')
+ const [ghostUsername, setGhostUsername] = useState('@mediadrive')
  const [password, setPassword] = useState('')
  const [errorMessage, setErrorMessage] = useState('')
 
@@ -33,14 +35,19 @@ export const Login: React.FC = () => {
         Username
        </label>
       </div>
-      <div className="w-2/3 px-3 pt-3">
-       <input
-        className="w-full login-field placeholder-white text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
-        type="email"
-        placeholder="damian@mediadrive"
-        value={username}
-        onChange={e => setUsername(e.target.value)}
-       />
+      <div className="w-2/3 px-3 pt-3 login-field h-12">
+       <div className="flex block">
+        <input
+         className="w-full login-field text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
+         type="email"
+         value={`${username}@mediadrive`.trim()}
+         onChange={e => setUsername(e.target.value)}
+        />
+        {/* <input
+         className="w-full login-field text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none "
+         value={ghostUsername}
+        /> */}
+       </div>
       </div>
      </div>
      <div className="flex items-center mb-3 login-field h-12">
@@ -53,7 +60,6 @@ export const Login: React.FC = () => {
        <input
         className="w-full align-center login-field placeholder-white text-white text-sm font-14 focus:shadow-none active:shadow-none shadow-none"
         type="password"
-        placeholder="***********"
         value={password}
         onChange={e => setPassword(e.target.value)}
        />

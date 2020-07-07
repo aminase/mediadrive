@@ -2,6 +2,7 @@ enum USER_ACTIONS {
  FETCH_USER = 'USER_ACTIONS:FETCH_USER',
  SET_USER = 'USER_ACTIONS::SET_USER',
  TOGGLE_LOADER = 'USER_ACTIONS.TOGGLE_LOADER',
+ GET_AUTH_ERROR = 'USER_ACTIONS.GET_AUTH_ERROR',
 }
 
 interface IFetchUser {
@@ -38,6 +39,16 @@ const toggleLoader = () => {
  return { type: USER_ACTIONS.TOGGLE_LOADER }
 }
 
-export type IAllActions = IFetchUser | ISetUser | IToggleLoader
+interface IGetLoginError {
+ type: typeof USER_ACTIONS.GET_AUTH_ERROR
+}
 
-export { fetchUserAction, setUser, toggleLoader, USER_ACTIONS }
+const getLoginError = () => {
+ return {
+  type: USER_ACTIONS.GET_AUTH_ERROR,
+ }
+}
+
+export type IAllActions = IFetchUser | ISetUser | IToggleLoader | IGetLoginError
+
+export { fetchUserAction, setUser, toggleLoader, getLoginError, USER_ACTIONS }

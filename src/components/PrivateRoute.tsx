@@ -31,7 +31,7 @@ export const PrivateRoute: React.FC<IPrivateRoute> = ({
   <Route
    {...rest}
    component={(props: any) =>
-    user || userLocalStorage ? <Component {...props} /> : <Redirect to="/" />
+    userLocalStorage ? <Component {...props} /> : <Redirect to="/" />
    }
   />
  )

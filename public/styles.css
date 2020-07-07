@@ -75,6 +75,10 @@ html {
  color: #001b2d !important;
 }
 
+.readonly-color {
+ color: #354055 !important;
+}
+
 .hover\:bg-gray-800:hover {
  background-color: #598392;
 }
@@ -148,8 +152,8 @@ html {
  border-style: none !important;
 }
 
-.font-14{
-   font-size: 14px !important;
+.font-14 {
+ font-size: 14px !important;
 }
 
 /* ------------------------------------------------------------- */
@@ -17927,8 +17931,8 @@ body {
  background-color: #001b2d !important;
 }
 
-.bg-body{
-   background-color: #001b2d !important;
+.bg-body {
+ background-color: #001b2d !important;
 }
 
 @media (min-width: 640px) {
