@@ -23,13 +23,13 @@ export const Send: React.FC = () => {
      </div>
      <div className="flex mb-4 mt-4 h-12">
       {' '}
-      <label className="w-2/3 bg-field text-center text-white p-3">
+      <label className="w-2/3 bg-field text-center  items-center text-white p-3">
        <div className="flex ml-2 justify-between">
         <input
-         className="bg-checkbox active:bg-checkbox-white "
+         className="bg-checkbox active:bg-checkbox-white"
          type="checkbox"
         />
-        <span className="w-1/3 text-center text-white p3 font-14">
+        <span className="w-1/3 text-center items-center text-white p3 font-14">
          {' '}
          File_01.mov
         </span>

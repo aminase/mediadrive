@@ -30,9 +30,12 @@ const doRegistration = function*(action: any) {
   history.push('/upload')
  }
 
- if (saveUserCredentialsResponse.status == 422) {
-  yield put(saveUserCredentialsResponse.data)
-  console.log(saveUserCredentialsResponse.data, 'login error')
+ if (
+  saveUserCredentialsResponse.status === 422 ||
+  saveUserCredentialsResponse.status === 401
+ ) {
+  yield put(getLoginError(action.payload))
+  console.log(getLoginError, 'login error')
  }
 }
 

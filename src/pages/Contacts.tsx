@@ -18,15 +18,15 @@ export const Contacts: React.FC = () => {
       <input
        type="text"
        placeholder="mark@mediadrive"
-       className="placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none"
+       className="placeholder-white font-14 focus:shadow-none active:shadow-none shadow-none"
       />{' '}
      </div>
     </div>
     <div className="border-r h-10 border-profile" />
     <div className="w-1/3">
      <div className="text-right flex block justify-around">
-      <div className="rounded-full bg-green-700 h-2 w-2 mt-3 mr-2 ml-3" />
-      <div className="mt-2 mr-20 text-white text-xs">Online</div>
+      <div className="rounded-full bg-green-700 h-2 w-2 mt-2 mr-2 ml-3" />
+      <div className="mt-2 mr-20 font-14 text-white">Online</div>
      </div>
     </div>
    </div>
@@ -39,15 +39,15 @@ export const Contacts: React.FC = () => {
       <input
        type="text"
        placeholder="john@mediadrive"
-       className="placeholder-white text-xs font-sans-main leading-none tracking-tighter focus:shadow-none active:shadow-none shadow-none  "
+       className="placeholder-white font-14 focus:shadow-none active:shadow-none shadow-none  "
       />
      </div>
     </div>{' '}
     <div className="border-r h-10 border-profile " />
     <div className="w-1/3">
      <div className="text-right flex block justify-around">
-      <span className="rounded-full bg-red-700 h-2 w-2  mt-3 mr-2 ml-3" />
-      <div className="mt-2 mr-20 text-white text-xs">Offline</div>
+      <span className="rounded-full bg-red-700 h-2 w-2  mt-2 mr-2 ml-3" />
+      <div className="mt-2 mr-20 font-14 text-white">Offline</div>
      </div>
     </div>
    </div>

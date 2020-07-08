@@ -21,20 +21,31 @@ import { Login } from './components/Login'
 import { PrivateRoute } from './components/PrivateRoute'
 import { Spinner } from './assets/Spinner'
 import { useSelector } from 'react-redux'
-import { getLoadingStatus } from './selectors/UserSelector'
+import { getLoadingStatus, getError } from './selectors/UserSelector'
 import { PrivateModalRoute } from './components/PrivateModalRoute'
+import { ErrorMessage } from './components/ErrorMessage'
 
 const App: React.FC = () => {
- const loading = useSelector(getLoadingStatus)
-
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
  const [isOpenModal, setIsOpenModal] = useState(false)
+ const [error, setError] = useState('')
 
  const openNotificationModal = () => setIsNotificationOpen(true)
  const closeNotificationModal = () => setIsNotificationOpen(false)
 
  const openModal = () => setIsOpenModal(true)
  const closeModal = () => setIsOpenModal(false)
+ const loading = useSelector(getLoadingStatus)
+
+ const serverError = useSelector(getError)
+
+ useEffect(() => {
+  if (serverError) {
+   setError(error)
+  }
+ }, [])
+
+ console.log('Error happend', serverError)
 
  return (
   <BrowserRouter>

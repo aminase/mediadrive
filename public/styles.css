@@ -75,8 +75,8 @@ html {
  color: #001b2d !important;
 }
 
-.readonly-color {
- color: #354055 !important;
+.extension-color {
+ color: #9e9e9e !important;
 }
 
 .hover\:bg-gray-800:hover {
@@ -154,6 +154,11 @@ html {
 
 .font-14 {
  font-size: 14px !important;
+ font-weight: normal !important;
+ font-stretch: normal !important;
+ font-style: normal !important;
+ line-height: 1 !important;
+ letter-spacing: -0.64px !important;
 }
 
 /* ------------------------------------------------------------- */
@@ -13197,6 +13202,7 @@ video {
 .shadow-none {
  box-shadow: none;
  border-bottom: 0 !important;
+ margin: 0 !important;
 }
 
 .hover\:shadow-xs:hover {

@@ -4,7 +4,7 @@ import IUser from '../types/User'
 interface IUserData {
  user: IUser | null
  loading: boolean
- error: null
+ error: any
 }
 
 const defaultState = {
@@ -30,7 +30,7 @@ export default (state: IUserData = defaultState, action: IAllActions) => {
   case USER_ACTIONS.GET_AUTH_ERROR:
    return {
     ...state,
-    error: state.error,
+    error: { ...state.error },
    }
   default:
    return state

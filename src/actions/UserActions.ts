@@ -31,22 +31,26 @@ const setUser = (user: any) => {
  }
 }
 
+interface IGetLoginError {
+ type: typeof USER_ACTIONS.GET_AUTH_ERROR
+ payload: any
+}
+
+const getLoginError = (error: any) => {
+ return {
+  type: USER_ACTIONS.GET_AUTH_ERROR,
+  payload: {
+   error,
+  },
+ }
+}
+
 interface IToggleLoader {
  type: typeof USER_ACTIONS.TOGGLE_LOADER
 }
 
 const toggleLoader = () => {
  return { type: USER_ACTIONS.TOGGLE_LOADER }
-}
-
-interface IGetLoginError {
- type: typeof USER_ACTIONS.GET_AUTH_ERROR
-}
-
-const getLoginError = () => {
- return {
-  type: USER_ACTIONS.GET_AUTH_ERROR,
- }
 }
 
 export type IAllActions = IFetchUser | ISetUser | IToggleLoader | IGetLoginError
