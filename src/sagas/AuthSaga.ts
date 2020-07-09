@@ -3,7 +3,7 @@ import {
  AUTH_ACTIONS,
  IAllActions,
  doUserLogin,
- getAuthError,
+ setAuthError,
 } from '../actions/AuthActions'
 import { setUser, fetchUserAction } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
@@ -32,11 +32,6 @@ const doRegistration = function*(action: any) {
  if (saveUserCredentialsResponse.status === 200) {
   yield put(doUserLogin(action.payload))
   history.push('/upload')
- }
-
- if (saveUserCredentialsResponse.status === 422) {
-  yield put(getAuthError(action.payload))
-  console.log(getAuthError, 'login error')
  }
 }
 
@@ -70,13 +65,10 @@ const doLogin = function*(action: any) {
    yield put(fetchUserAction(action.payload))
   }
  } catch (err) {
-  yield put(getAuthError(err))
-  console.log(err, err, 'message')
+  console.log(err.statusCode, err, 'message 1')
+  yield put(setAuthError(err))
+  console.log(setAuthError(err), 'message 2')
  }
- //  if (doAuthenticationResponse.status === 401) {
- //   yield put(getAuthError(action.payload))
- //   console.log(getAuthError, 'login error')
- //  }
 }
 
 export { AuthSaga }

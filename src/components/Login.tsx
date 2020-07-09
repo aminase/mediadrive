@@ -13,6 +13,8 @@ export const Login: React.FC = () => {
  const [password, setPassword] = useState('')
  const [error, setError] = useState('')
 
+ const serverError = useSelector(getErrorMessage)
+
  const doLogin = (e: any) => {
   e.preventDefault()
   dispatch(
@@ -21,12 +23,11 @@ export const Login: React.FC = () => {
   console.log(username, password, history, 'login')
  }
 
- const serverError = useSelector(getErrorMessage)
-
  useEffect(() => {
   if (serverError) {
    setError(serverError)
   }
+  console.log(serverError, 'serverError')
  }, [])
 
  const createAccount = () => {
@@ -68,7 +69,7 @@ export const Login: React.FC = () => {
        </div>
       </div>
      </div>
-     {setError && (
+     {error.length > 0 && (
       <ErrorMessage errorMessage="Error happend, enter correct email or password" />
      )}
 

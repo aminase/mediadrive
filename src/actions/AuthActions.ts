@@ -4,7 +4,7 @@ enum AUTH_ACTIONS {
  DO_USER_REGISTRATION = 'AUTH_ACTIONS::DO_USER_REGISTRATION',
  DO_USER_LOGIN = 'AUTH_ACTIONS::DO_USER_LOGIN',
  SET_USER = 'AUTH_ACTIONS::SET_USER',
- GET_AUTH_ERROR = 'AUTH_ACTIONS::GET_AUTH_ERROR',
+ SET_AUTH_ERROR = 'AUTH_ACTIONS::SET_AUTH_ERROR',
 }
 
 type IUserRegistration = Pick<IUser, 'username' | 'email' | 'password'>
@@ -34,20 +34,20 @@ const doUserLogin = (user: IUserLogin & { history: any }) => {
  }
 }
 
-interface IGetAuthError {
- type: typeof AUTH_ACTIONS.GET_AUTH_ERROR
+interface ISetAuthError {
+ type: typeof AUTH_ACTIONS.SET_AUTH_ERROR
  payload: any
 }
 
-const getAuthError = (error: any) => {
+const setAuthError = (error: any) => {
  return {
-  type: AUTH_ACTIONS.GET_AUTH_ERROR,
+  type: AUTH_ACTIONS.SET_AUTH_ERROR,
   payload: {
    error,
   },
  }
 }
 
-export type IAllActions = IDoUserRegistration | IDoUserLogin | IGetAuthError
+export type IAllActions = IDoUserRegistration | IDoUserLogin | ISetAuthError
 
-export { doUserRegistration, doUserLogin, getAuthError, AUTH_ACTIONS }
+export { doUserRegistration, doUserLogin, setAuthError, AUTH_ACTIONS }

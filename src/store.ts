@@ -9,7 +9,7 @@ const sagaMiddleware = createSagaMiddleware()
 /* Create root reducer, containing all features of the application */
 const rootReducer = combineReducers({
  user: UserReducer,
- error: ErrorReducer,
+ authError: ErrorReducer,
 })
 
 declare global {
