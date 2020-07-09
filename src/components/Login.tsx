@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
-import { getHeapCodeStatistics } from 'v8'
-import { getErrorMessage } from '../selectors/UserSelector'
+import { getErrorMessage, getUser } from '../selectors/UserSelector'
 import { ErrorMessage } from './ErrorMessage'
 
 export const Login: React.FC = () => {
@@ -12,6 +11,7 @@ export const Login: React.FC = () => {
  const [username, setUsername] = useState('')
  const [password, setPassword] = useState('')
  const [error, setError] = useState('')
+ const [emptyFieldError, setEmptyFieldError] = useState('')
 
  const serverError = useSelector(getErrorMessage)
 
@@ -20,19 +20,25 @@ export const Login: React.FC = () => {
   dispatch(
    doUserLogin({ username: `${username}@mediadrive`, password, history })
   )
-  console.log(username, password, history, 'login')
  }
-
- useEffect(() => {
-  if (serverError) {
-   setError(serverError)
-  }
-  console.log(serverError, 'serverError')
- }, [])
 
  const createAccount = () => {
   history.push('/registration')
  }
+
+ useEffect(() => {}, [username])
+
+ useEffect(() => {
+  username == '' && password == ''
+   ? setEmptyFieldError('Please enter empty fields')
+   : setEmptyFieldError('')
+ }, [username, password])
+
+ useEffect(() => {
+  serverError && username !== ''
+   ? setError('Incorrect email or password')
+   : setError(error)
+ }, [serverError])
 
  return (
   <>
@@ -68,11 +74,13 @@ export const Login: React.FC = () => {
         />
        </div>
       </div>
+      {error.length > 0 && (
+       <ErrorMessage errorMessage="Incorrect email or password" />
+      )}
+      {emptyFieldError !== '' && (
+       <ErrorMessage errorMessage="Please enter empty fields" />
+      )}
      </div>
-     {serverError.length > 0 && (
-      <ErrorMessage errorMessage="Error happend, enter correct email or password" />
-     )}
-
      <div className="text-center ml-10 mr-10 m-5">
       <button
        type="submit"

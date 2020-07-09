@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { doUserRegistration } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
+import { getErrorMessage } from '../selectors/UserSelector'
+import { ErrorMessage } from '../components/ErrorMessage'
 
 export const Registration: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
+
+ const serverMessage = useSelector(getErrorMessage)
 
  const [username, setUsername] = useState('')
  const [email, setEmail] = useState('')
  const [password, setPassword] = useState('')
  const [confirmPassword, setConfirmPassword] = useState('')
  const [errorMessage, setErrorMessage] = useState('')
+ const [emptyFieldError, setEmptyFieldError] = useState('')
+ const [filedContent, setFieldContent] = useState('')
 
  const doRegistration = (e: any) => {
   e.preventDefault()
@@ -24,24 +30,27 @@ export const Registration: React.FC = () => {
    })
   )
  }
-
- console.log(username, 'username')
-
  const alreadyHasAccount = () => {
   history.push('/')
  }
 
  useEffect(() => {
-  if (
-   password !== '' &&
-   confirmPassword !== '' &&
-   password !== confirmPassword
-  ) {
-   setErrorMessage("Password don't match")
-  } else {
-   setErrorMessage('')
-  }
+  username == '' && email == '' && password == '' && confirmPassword == ''
+   ? setEmptyFieldError('Please enter empty fields')
+   : setEmptyFieldError('')
+ }, [username, email, password, confirmPassword])
+
+ useEffect(() => {
+  password !== '' && confirmPassword !== '' && password !== confirmPassword
+   ? setErrorMessage("Passwords don't match")
+   : setErrorMessage('')
  }, [password, confirmPassword])
+
+ useEffect(() => {
+  serverMessage &&
+   username !== '' &&
+   setFieldContent('All fields must be filled')
+ }, [serverMessage])
 
  return (
   <div className="flex justify-center bg-field ml-12 mr-12 mt-6">
@@ -104,15 +113,16 @@ export const Registration: React.FC = () => {
        />
       </div>
      </div>
+     {emptyFieldError !== '' && (
+      <ErrorMessage errorMessage="Please enter empty fields" />
+     )}
+     {errorMessage !== '' && (
+      <ErrorMessage errorMessage="Entered passwords do not match" />
+     )}
+     {filedContent !== '' && (
+      <ErrorMessage errorMessage="All fields must be filled" />
+     )}
     </div>
-    {errorMessage !== '' && (
-     <div
-      className="bg-red-100 text-red-700 px-4 py-3 rounded relative"
-      role="alert"
-     >
-      <strong className="font-bold">Passwords do not match!</strong>
-     </div>
-    )}
     <div className="text-center ml-10 mr-10 m-5">
      <button
       className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10"

@@ -7,11 +7,8 @@ interface IErrorMessage {
 export const ErrorMessage: React.FC<IErrorMessage> = ({ errorMessage }) => {
  return (
   <div>
-   <div
-    className="bg-red-100 text-red-700 px-5 pt-1 rounded relative"
-    role="alert"
-   >
-    <strong className="block sm:inline font-bold text-sm">
+   <div className="bg-red-100 text-red-700 pt-2 rounded relative" role="alert">
+    <strong className="block sm:inline font-bold font-14">
      {errorMessage}
     </strong>
     <span className="absolute top-0 bottom-0 right-0 px-4 py-3">

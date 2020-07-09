@@ -21,17 +21,20 @@ const AuthSaga = function*() {
 
 const doRegistration = function*(action: any) {
  const { email, username, password, history } = action.payload
-
- const saveUserCredentialsResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/api/Accounts`, {
-   email,
-   password,
-   username,
-  })
- )
- if (saveUserCredentialsResponse.status === 200) {
-  yield put(doUserLogin(action.payload))
-  history.push('/upload')
+ try {
+  const saveUserCredentialsResponse: IAxiosResponse = yield call(() =>
+   axios.post(`${API_ROOT}/api/Accounts`, {
+    email,
+    password,
+    username,
+   })
+  )
+  if (saveUserCredentialsResponse.status === 200) {
+   yield put(doUserLogin(action.payload))
+   history.push('/upload')
+  }
+ } catch (err) {
+  yield put(setAuthError(err))
  }
 }
 
@@ -44,7 +47,6 @@ const doLogin = function*(action: any) {
     password,
    })
   )
-
   if (doAuthenticationResponse.status === 200) {
    yield put(
     setUser({
@@ -54,7 +56,6 @@ const doLogin = function*(action: any) {
      username: doAuthenticationResponse.data.username,
     })
    )
-
    const localStorageUser = {
     id: doAuthenticationResponse.data.id,
     userId: doAuthenticationResponse.data.userId,
@@ -65,9 +66,7 @@ const doLogin = function*(action: any) {
    yield put(fetchUserAction(action.payload))
   }
  } catch (err) {
-  console.log(err.statusCode, err, 'message 1')
   yield put(setAuthError(err))
-  console.log(setAuthError(err), 'message 2')
  }
 }
 
