@@ -69,7 +69,7 @@ export const Login: React.FC = () => {
        </div>
       </div>
      </div>
-     {error.length > 0 && (
+     {serverError.length > 0 && (
       <ErrorMessage errorMessage="Error happend, enter correct email or password" />
      )}
 
