@@ -19,7 +19,7 @@ export const Send: React.FC = () => {
    {!contacts && (
     <>
      <div className="md:w-1/3 flex flex-row">
-      <div className="text-sm text-white pl-2">Select Files</div>
+      <div className="font-14 text-white pl-2">Select Files</div>
      </div>
      <div className="flex mb-4 mt-4 h-12">
       {' '}
@@ -29,10 +29,7 @@ export const Send: React.FC = () => {
          className="bg-checkbox active:bg-checkbox-white"
          type="checkbox"
         />
-        <span className="w-1/3 text-center items-center text-white p3 font-14">
-         {' '}
-         File_01.mov
-        </span>
+        <span className="w-1/3 text-white p-2 font-14"> File_01.mov</span>
        </div>
       </label>
       <div className="w-1/3 bg-field-remove text-white text-center text-xs pt-4">
@@ -47,10 +44,7 @@ export const Send: React.FC = () => {
          className="bg-checkbox active:bg-checkbox-white "
          type="checkbox"
         />
-        <span className="w-1/3 text-center text-white font-14">
-         {' '}
-         File_01.mov
-        </span>
+        <span className="w-1/3 text-white p-2 font-14"> File_01.mov</span>
        </div>
       </label>
       <div className="w-1/3 bg-field-remove text-white text-center text-xs pt-4">
@@ -70,7 +64,7 @@ export const Send: React.FC = () => {
    )}
    {contacts && (
     <>
-     <div className="text-sm text-white pl-2">Select Contacts</div>
+     <div className="font-14 text-white pl-2">Select Contacts</div>
      <div className="flex mb-4 mt-4 h-12 bg-field">
       {' '}
       <label className="w-2/3 bg-field text-center text-white self-center ">

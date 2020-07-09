@@ -26,7 +26,7 @@ export const Contacts: React.FC = () => {
     <div className="w-1/3">
      <div className="text-right flex block justify-around">
       <div className="rounded-full bg-green-700 h-2 w-2 mt-2 mr-2 ml-3" />
-      <div className="mt-2 mr-20 font-14 text-white">Online</div>
+      <div className="m-1 mr-20 text-sm text-white">Online</div>
      </div>
     </div>
    </div>
@@ -47,7 +47,7 @@ export const Contacts: React.FC = () => {
     <div className="w-1/3">
      <div className="text-right flex block justify-around">
       <span className="rounded-full bg-red-700 h-2 w-2  mt-2 mr-2 ml-3" />
-      <div className="mt-2 mr-20 font-14 text-white">Offline</div>
+      <div className="m-1 mr-20 text-sm text-white">Offline</div>
      </div>
     </div>
    </div>

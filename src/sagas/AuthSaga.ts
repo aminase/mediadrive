@@ -1,6 +1,11 @@
 import { takeEvery, all, call, put } from 'redux-saga/effects'
-import { AUTH_ACTIONS, IAllActions, doUserLogin } from '../actions/AuthActions'
-import { setUser, fetchUserAction, getLoginError } from '../actions/UserActions'
+import {
+ AUTH_ACTIONS,
+ IAllActions,
+ doUserLogin,
+ getAuthError,
+} from '../actions/AuthActions'
+import { setUser, fetchUserAction } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
@@ -26,48 +31,52 @@ const doRegistration = function*(action: any) {
  )
  if (saveUserCredentialsResponse.status === 200) {
   yield put(doUserLogin(action.payload))
-
   history.push('/upload')
  }
 
- if (
-  saveUserCredentialsResponse.status === 422 ||
-  saveUserCredentialsResponse.status === 401
- ) {
-  yield put(getLoginError(action.payload))
-  console.log(getLoginError, 'login error')
+ if (saveUserCredentialsResponse.status === 422) {
+  yield put(getAuthError(action.payload))
+  console.log(getAuthError, 'login error')
  }
 }
 
 const doLogin = function*(action: any) {
  const { username, password, history } = action.payload
-
- const doAuthenticationResponse: IAxiosResponse = yield call(() =>
-  axios.post(`${API_ROOT}/api/Accounts/login`, {
-   username,
-   password,
-  })
- )
-
- if (doAuthenticationResponse.status === 200) {
-  yield put(
-   setUser({
-    ...action.payload,
-    id: doAuthenticationResponse.data.id,
-    userId: doAuthenticationResponse.data.userId,
-    username: doAuthenticationResponse.data.username,
+ try {
+  const doAuthenticationResponse: IAxiosResponse = yield call(() =>
+   axios.post(`${API_ROOT}/api/Accounts/login`, {
+    username,
+    password,
    })
   )
 
-  const localStorageUser = {
-   id: doAuthenticationResponse.data.id,
-   userId: doAuthenticationResponse.data.userId,
-  }
-  setLocalStorageUser(localStorageUser)
+  if (doAuthenticationResponse.status === 200) {
+   yield put(
+    setUser({
+     ...action.payload,
+     id: doAuthenticationResponse.data.id,
+     userId: doAuthenticationResponse.data.userId,
+     username: doAuthenticationResponse.data.username,
+    })
+   )
 
-  history.push('/upload')
-  yield put(fetchUserAction(action.payload))
+   const localStorageUser = {
+    id: doAuthenticationResponse.data.id,
+    userId: doAuthenticationResponse.data.userId,
+   }
+   setLocalStorageUser(localStorageUser)
+
+   history.push('/upload')
+   yield put(fetchUserAction(action.payload))
+  }
+ } catch (err) {
+  yield put(getAuthError(err))
+  console.log(err, err, 'message')
  }
+ //  if (doAuthenticationResponse.status === 401) {
+ //   yield put(getAuthError(action.payload))
+ //   console.log(getAuthError, 'login error')
+ //  }
 }
 
 export { AuthSaga }

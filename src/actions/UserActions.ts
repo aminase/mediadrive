@@ -2,7 +2,6 @@ enum USER_ACTIONS {
  FETCH_USER = 'USER_ACTIONS:FETCH_USER',
  SET_USER = 'USER_ACTIONS::SET_USER',
  TOGGLE_LOADER = 'USER_ACTIONS.TOGGLE_LOADER',
- GET_AUTH_ERROR = 'USER_ACTIONS.GET_AUTH_ERROR',
 }
 
 interface IFetchUser {
@@ -31,20 +30,6 @@ const setUser = (user: any) => {
  }
 }
 
-interface IGetLoginError {
- type: typeof USER_ACTIONS.GET_AUTH_ERROR
- payload: any
-}
-
-const getLoginError = (error: any) => {
- return {
-  type: USER_ACTIONS.GET_AUTH_ERROR,
-  payload: {
-   error,
-  },
- }
-}
-
 interface IToggleLoader {
  type: typeof USER_ACTIONS.TOGGLE_LOADER
 }
@@ -53,6 +38,6 @@ const toggleLoader = () => {
  return { type: USER_ACTIONS.TOGGLE_LOADER }
 }
 
-export type IAllActions = IFetchUser | ISetUser | IToggleLoader | IGetLoginError
+export type IAllActions = IFetchUser | ISetUser | IToggleLoader
 
-export { fetchUserAction, setUser, toggleLoader, getLoginError, USER_ACTIONS }
+export { fetchUserAction, setUser, toggleLoader, USER_ACTIONS }

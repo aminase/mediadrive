@@ -2,6 +2,6 @@ import { StoreState } from '../store'
 
 const getUser = (state: StoreState) => state.user.user
 const getLoadingStatus = (state: StoreState) => state.user.loading
-const getError = (state: StoreState) => state.user.error
+const getErrorMessage = (state: StoreState) => state.error.error
 
-export { getUser, getLoadingStatus, getError }
+export { getUser, getLoadingStatus, getErrorMessage }

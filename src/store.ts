@@ -2,12 +2,14 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 import UserReducer from './reducers/UserReducer'
+import ErrorReducer from './reducers/ErrorReducer'
 
 const sagaMiddleware = createSagaMiddleware()
 
 /* Create root reducer, containing all features of the application */
 const rootReducer = combineReducers({
  user: UserReducer,
+ error: ErrorReducer,
 })
 
 declare global {

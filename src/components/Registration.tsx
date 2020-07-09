@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { doUserRegistration } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
-import { getError } from '../selectors/UserSelector'
 
 export const Registration: React.FC = () => {
  const dispatch = useDispatch()
@@ -91,12 +90,12 @@ export const Registration: React.FC = () => {
       </div>
      </div>
      <div className="flex items-center mb-3 login-field h-12 p-2">
-      <div className="w-1/3">
+      <div className="w-2/4">
        <label className="block text-bg-btn-login pl-2 font-14">
         Confirm Password
        </label>
       </div>
-      <div className="w-2/3 pl-4">
+      <div className="w-2/4">
        <input
         className="w-full text-white font-14 focus:shadow-none active:shadow-none shadow-none "
         type="password"

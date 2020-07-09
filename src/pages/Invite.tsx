@@ -27,8 +27,8 @@ export const Invite: React.FC = () => {
       </div>
       <div className="border-r h-10 border-profile mt-1 mb-1" />
       <div className="w-1/3">
-       <div className="text-white flex inline text-sm p-4 focus:outline-none focus:bg-transparent">
-        <img src={sign} className="h-4 pr-4 pt-1" alt="sent-sign" />
+       <div className="text-white flex inline font-14 p-4 focus:outline-none focus:bg-transparent">
+        <img src={sign} className="h-3 pr-3" alt="sent-sign" />
         Sent
        </div>
       </div>
@@ -46,7 +46,7 @@ export const Invite: React.FC = () => {
        onChange={e => setNewUserEmail(e.target.value)}
       />
      </div>
-     <div className="border-r h-12 border-profile mt-1 mb-1" />
+     <div className="border-r h-10 border-profile mt-1 mb-1" />
      <button
       className="w-1/3 text-white flex inline font-14 p-4 focus:bg-options hover:bg-gray-600 focus:outline-none "
       onClick={() => handleUserInvite()}
