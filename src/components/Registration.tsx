@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserRegistration } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
-import { getErrorMessage } from '../selectors/UserSelector'
+import { getErrorMessage, getUser } from '../selectors/UserSelector'
 import { ErrorMessage } from '../components/ErrorMessage'
 
 export const Registration: React.FC = () => {
@@ -18,6 +18,7 @@ export const Registration: React.FC = () => {
  const [errorMessage, setErrorMessage] = useState('')
  const [emptyFieldError, setEmptyFieldError] = useState('')
  const [filedContent, setFieldContent] = useState('')
+ const [emailExists, setEmailExists] = useState('')
 
  const doRegistration = (e: any) => {
   e.preventDefault()
@@ -34,23 +35,34 @@ export const Registration: React.FC = () => {
   history.push('/')
  }
 
+ const user = useSelector(getUser)
+
  useEffect(() => {
-  username == '' && email == '' && password == '' && confirmPassword == ''
-   ? setEmptyFieldError('Please enter empty fields')
-   : setEmptyFieldError('')
+  {
+   password !== '' && confirmPassword !== '' && password !== confirmPassword
+    ? setErrorMessage("Passwords don't match")
+    : setErrorMessage('')
+  }
+  {
+   {
+    username == '' && email == '' && password == '' && confirmPassword == ''
+     ? setEmptyFieldError('Please enter empty fields')
+     : setEmptyFieldError('')
+   }
+  }
  }, [username, email, password, confirmPassword])
 
  useEffect(() => {
-  password !== '' && confirmPassword !== '' && password !== confirmPassword
-   ? setErrorMessage("Passwords don't match")
-   : setErrorMessage('')
- }, [password, confirmPassword])
-
- useEffect(() => {
   serverMessage &&
+   email !== '' &&
    username !== '' &&
-   setFieldContent('All fields must be filled')
+   setFieldContent('Username already exists or invalid email format"')
  }, [serverMessage])
+
+ //  useEffect(() => {
+ //   serverMessage && console.log(serverMessage[0], 'server msg')
+ //   username !== '' && setFieldContent('Username already exists')
+ //  }, [serverMessage, username])
 
  return (
   <div className="flex justify-center bg-field ml-12 mr-12 mt-6">
@@ -120,7 +132,7 @@ export const Registration: React.FC = () => {
       <ErrorMessage errorMessage="Entered passwords do not match" />
      )}
      {filedContent !== '' && (
-      <ErrorMessage errorMessage="All fields must be filled" />
+      <ErrorMessage errorMessage="Username/email already exists or invalid email format" />
      )}
     </div>
     <div className="text-center ml-10 mr-10 m-5">
