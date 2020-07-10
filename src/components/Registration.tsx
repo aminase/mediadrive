@@ -108,7 +108,7 @@ export const Registration: React.FC = () => {
       <ErrorMessage errorMessage="Entered passwords do not match" />
      )}
 
-     {serverMessage.error !== '' && (
+     {serverMessage.error && (
       <ErrorMessage errorMessage="Username/email already exists or invalid email format" />
      )}
     </div>
