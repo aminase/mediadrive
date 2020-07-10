@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { doUserLogin } from '../actions/AuthActions'
+import { doUserLogin, setAuthError } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
 import { getErrorMessage, getUser } from '../selectors/UserSelector'
 import { ErrorMessage } from './ErrorMessage'
@@ -10,9 +10,6 @@ export const Login: React.FC = () => {
  const history = useHistory()
  const [username, setUsername] = useState('')
  const [password, setPassword] = useState('')
- const [error, setError] = useState('')
- const [emptyFieldError, setEmptyFieldError] = useState('')
-
  const serverError = useSelector(getErrorMessage)
 
  const doLogin = (e: any) => {
@@ -29,16 +26,10 @@ export const Login: React.FC = () => {
  useEffect(() => {}, [username])
 
  useEffect(() => {
-  username == '' && password == ''
-   ? setEmptyFieldError('Please enter empty fields')
-   : setEmptyFieldError('')
+  dispatch(setAuthError(undefined))
  }, [username, password])
 
- useEffect(() => {
-  serverError && username !== ''
-   ? setError('Incorrect email or password')
-   : setError(error)
- }, [serverError])
+ console.info('---', serverError)
 
  return (
   <>
@@ -74,11 +65,8 @@ export const Login: React.FC = () => {
         />
        </div>
       </div>
-      {error.length > 0 && (
+      {serverError.error && (
        <ErrorMessage errorMessage="Incorrect email or password" />
-      )}
-      {emptyFieldError !== '' && (
-       <ErrorMessage errorMessage="Please enter empty fields" />
       )}
      </div>
      <div className="text-center ml-10 mr-10 m-5">
@@ -86,6 +74,7 @@ export const Login: React.FC = () => {
        type="submit"
        className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10"
        onClick={e => doLogin(e)}
+       disabled={!(username && password)}
       >
        Sign In
       </button>

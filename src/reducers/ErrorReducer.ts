@@ -5,7 +5,9 @@ interface IErrorData {
 }
 
 const defaultState = {
- error: [],
+ error: {
+  message: '',
+ },
 }
 
 export default (state: IErrorData = defaultState, action: IAllActions) => {
@@ -13,7 +15,7 @@ export default (state: IErrorData = defaultState, action: IAllActions) => {
   case AUTH_ACTIONS.SET_AUTH_ERROR:
    return {
     ...state,
-    error: [...state.error, action.payload],
+    error: { ...state.error.message, ...action.payload },
    }
   default:
    return state
