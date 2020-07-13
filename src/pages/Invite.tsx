@@ -23,7 +23,7 @@ export const Invite: React.FC = () => {
     <div>
      <div className="flex items-center mb-2 bg-field text-white">
       <div className="w-2/3 h-12 pl-4 pt-4">
-       <div className="font-14">{email}</div>
+       <div className="font-14 text-blue-200">{email}</div>
       </div>
       <div className="border-r h-10 border-profile mt-1 mb-1" />
       <div className="w-1/3">
@@ -41,7 +41,7 @@ export const Invite: React.FC = () => {
       <input
        type="text"
        value={newUserEmail}
-       placeholder="Email Address"
+       placeholder="Enter Email Address"
        className="font-14 focus:shadow-none active:shadow-none shadow-none"
        onChange={e => setNewUserEmail(e.target.value)}
       />

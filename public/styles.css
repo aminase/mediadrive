@@ -90,7 +90,7 @@ html {
 
 .focus\:shadow-none:focus {
  box-shadow: none !important;
- border-bottom-width: 0 !important;
+ /* border-bottom-width: 0 !important; */
 }
 
 .bg-progress-file {
@@ -105,6 +105,10 @@ html {
 .hover\:bg-current-gray:hover {
  background-color: #354a64;
 }
+
+.focus\:bg-current-gray:hover {
+   background-color: #354a64;
+  }
 
 .focus\:bg-transparent:focus {
  background-color: inherit !important;

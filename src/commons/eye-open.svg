@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="13px" viewBox="0 0 16 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54.1 (76490) - https://sketchapp.com -->
+    <title>499E920B-0440-459C-BCD1-126ABDFF80CB@1.00x</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Final-screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="0.3-Login-screen---shown-pass" transform="translate(-1189.000000, -431.000000)" stroke="#8798AD">
+            <g id="Group-4" transform="translate(1128.000000, 429.000000)">
+                <g id="Group-2">
+                    <g id="hide_password_1-copy" transform="translate(61.000000, 2.000000)">
+                        <g id="Group" stroke-linecap="round">
+                            <path d="M15.5,7.1 C14.36,4.393 11.545,2.475 8.25,2.475 C4.955,2.475 2.14,4.393 1,7.1 M5.723,2.471 L5.108,0.78 M2.28,4.882 L0.903,3.724" id="Shape"></path>
+                            <path d="M10.777,2.471 L11.392,0.78 M14.22,4.882 L15.598,3.724" id="Shape"></path>
+                        </g>
+                        <path d="M8.25,5.5 C7.38763943,5.49867022 6.56021637,5.84065291 5.95043464,6.45043464 C5.34065291,7.06021637 4.99867022,7.88763943 5,8.75 C4.99867022,9.61236057 5.34065291,10.4397836 5.95043464,11.0495654 C6.56021637,11.6593471 7.38763943,12.0013298 8.25,12 C9.11236057,12.0013298 9.93978363,11.6593471 10.5495654,11.0495654 C11.1593471,10.4397836 11.5013298,9.61236057 11.5,8.75 C11.5013298,7.88763943 11.1593471,7.06021637 10.5495654,6.45043464 C9.93978363,5.84065291 9.11236057,5.49867022 8.25,5.5 Z" id="Path"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

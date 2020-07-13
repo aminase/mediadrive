@@ -1,17 +1,18 @@
-import { takeEvery, all, call, put } from 'redux-saga/effects'
+import { takeEvery, all, call, put, delay } from 'redux-saga/effects'
 import {
  AUTH_ACTIONS,
  IAllActions,
  doUserLogin,
  setAuthError,
 } from '../actions/AuthActions'
-import { setUser, fetchUserAction } from '../actions/UserActions'
+import { setUser, fetchUserAction, toggleLoader } from '../actions/UserActions'
 import IAxiosResponse from '../types/AxiosResponse'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
 import { setLocalStorageUser } from '../utils/setLocalStorageUser'
 import { useHistory } from 'react-router'
 import { createDispatchHook } from 'react-redux'
+import { getLoadingStatus } from '../selectors/UserSelector'
 
 const AuthSaga = function*() {
  //WATCHER SAGA
@@ -29,12 +30,15 @@ const doRegistration = function*(action: any) {
     username,
    })
   )
+  //   yield put(toggleLoader())
+
   if (saveUserCredentialsResponse.status === 200) {
    yield put(doUserLogin(action.payload))
+
    history.push('/upload')
   }
  } catch (err) {
-  yield put(setAuthError(err))
+  yield put(setAuthError(err.response.data.error.message))
  }
 }
 
@@ -66,7 +70,9 @@ const doLogin = function*(action: any) {
    yield put(fetchUserAction(action.payload))
   }
  } catch (err) {
+  console.log(err, 'error 1')
   yield put(setAuthError(err))
+  console.log(err.response.data.error.message, 'error from saga')
  }
 }
 

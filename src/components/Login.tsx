@@ -4,12 +4,15 @@ import { doUserLogin, setAuthError } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
 import { getErrorMessage, getUser } from '../selectors/UserSelector'
 import { ErrorMessage } from './ErrorMessage'
+import exposed from '../commons/eye-open.svg'
+import hidden from '../commons/eye-closed.svg'
 
 export const Login: React.FC = () => {
  const dispatch = useDispatch()
  const history = useHistory()
  const [username, setUsername] = useState('')
  const [password, setPassword] = useState('')
+ const [isPasswordVisible, setIsPasswordVisible] = useState(false)
  const serverError = useSelector(getErrorMessage)
 
  const doLogin = (e: any) => {
@@ -23,13 +26,17 @@ export const Login: React.FC = () => {
   history.push('/registration')
  }
 
- useEffect(() => {}, [username])
-
  useEffect(() => {
   dispatch(setAuthError(undefined))
  }, [username, password])
 
  console.info('---', serverError)
+
+ const togglePasswordVisability = (e: any) => {
+  e.preventDefault()
+  setIsPasswordVisible(!isPasswordVisible ? true : false)
+ }
+ console.log('password shown')
 
  return (
   <>
@@ -49,26 +56,37 @@ export const Login: React.FC = () => {
          value={username}
          onChange={e => setUsername(e.target.value)}
         />
-        <div className="extension-color font-14 pr-10">@mediadrive</div>
+        <div className="extension-color font-14 pr-3">@mediadrive</div>
        </div>
       </div>
       <div className="flex items-center mb-3 login-field h-12 p-2">
        <div className="w-1/3">
         <label className="block text-bg-btn-login pl-2 font-14">Password</label>
        </div>
-       <div className="w-2/3">
+       <div className="w-2/3 items-center inline-flex">
         <input
          className="w-full text-white font-14 focus:shadow-none active:shadow-none shadow-none "
-         type="password"
+         type={isPasswordVisible ? 'text' : 'password'}
          value={password}
          onChange={e => setPassword(e.target.value)}
         />
+        <button
+         onClick={togglePasswordVisability}
+         className="pr-5 focus:outline-none focus:bg-transparent"
+        >
+         {!isPasswordVisible ? (
+          <img src={exposed} alt="eye-opened" className="h-4" />
+         ) : (
+          <img src={hidden} alt="eye-closed" className="h-2" />
+         )}
+        </button>
        </div>
       </div>
       {serverError.error && (
        <ErrorMessage errorMessage="Incorrect email or password" />
       )}
      </div>
+
      <div className="text-center ml-10 mr-10 m-5">
       <button
        type="submit"
