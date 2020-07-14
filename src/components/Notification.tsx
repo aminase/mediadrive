@@ -4,27 +4,26 @@ import { Modal } from '../components/Modal'
 
 interface INotification {
  closeNotificationModal: () => void
- openNotificationModal: () => void
 }
 
 const notifications = [
  {
+  id: 1,
   text: 'Your file has been sent to mark@mediadrive',
  },
  {
-  text: 'Mark has shared a file with you, please accept .',
+  id: 2,
+  text: 'Mark has shared a file with you, please accept.',
  },
+ { id: 3, text: 'John has shared a file with you, please accept.' },
  {
-  text: 'John has shared a file with you, please accept .',
- },
- {
+  id: 4,
   text: 'Your file has been sent to mark@mediadrive',
  },
 ]
 
 export const Notification: React.FC<INotification> = ({
  closeNotificationModal,
- openNotificationModal,
 }) => {
  return (
   <div>
@@ -35,9 +34,12 @@ export const Notification: React.FC<INotification> = ({
     <div className="border-b-4 border-profile" />
     {notifications.map(message => (
      <>
-      <div className="flex block m-6" key={notifications.length}>
+      <div className="flex block m-6">
        <img src={notification} alt="notification" className="h-4" />
-       <p className="ml-2 m-1 text-base leading-none tracking-tighter">
+       <p
+        className="ml-2 m-1 text-base leading-none tracking-tighter"
+        key={message.id}
+       >
         {message.text}
        </p>
       </div>

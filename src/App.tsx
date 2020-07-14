@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom'
 import { Upload } from './pages/Upload'
 import { Contacts } from './pages/Contacts'
@@ -21,50 +21,52 @@ import { Login } from './components/Login'
 import { PrivateRoute } from './components/PrivateRoute'
 import { Spinner } from './assets/Spinner'
 import { useSelector } from 'react-redux'
-import { getLoadingStatus, getErrorMessage } from './selectors/UserSelector'
-import { PrivateModalRoute } from './components/PrivateModalRoute'
+import { getLoadingStatus } from './selectors/UserSelector'
 
 const App: React.FC = () => {
  const [isNotificationOpen, setIsNotificationOpen] = useState(false)
  const [isOpenModal, setIsOpenModal] = useState(false)
- const [error, setError] = useState('')
 
- const openNotificationModal = () => setIsNotificationOpen(true)
  const closeNotificationModal = () => setIsNotificationOpen(false)
 
- const openModal = () => setIsOpenModal(true)
  const closeModal = () => setIsOpenModal(false)
  const loading = useSelector(getLoadingStatus)
 
+ const userLocalStorageString = localStorage.getItem('user')
+
  return (
   <BrowserRouter>
-   <div className="flex justify-between m-2">
+   <div className="flex justify-between my-5 mx-8">
     {' '}
-    <NavLink to="/" className="focus:outline-none lg">
-     <img src={mediadrive} alt="mediadrive" className="ml-5 mt-3 mb-3 h-4" />
+    <NavLink to="/upload" className="focus:outline-none lg">
+     <img src={mediadrive} alt="mediadrive" className="h-5" />
     </NavLink>
-    <div className="mt-3 mr-5 flex-shrink-0 position-absolute">
+    <div className="flex justify-end">
      <button
       className="focus:outline-gray focus:bg-transparent mr-6"
-      onClick={() => openNotificationModal()}
+      onClick={() => setIsNotificationOpen(true)}
      >
       <img src={notification} alt="notification" className="h-5" />
      </button>
      <button
       className="focus:outline-none focus:bg-transparent"
-      onClick={() => openModal()}
+      onClick={() => setIsOpenModal(true)}
      >
       <img src={settings} alt="settings" className="h-5" />
      </button>
     </div>
    </div>
-   {isNotificationOpen && (
-    <Notification
-     closeNotificationModal={closeNotificationModal}
-     openNotificationModal={openNotificationModal}
-    />
+   {userLocalStorageString && isNotificationOpen && (
+    <Notification closeNotificationModal={closeNotificationModal} />
    )}
-   {isOpenModal && <Settings closeModal={closeModal} openModal={openModal} />}
+   {loading && (
+    <div className="flex fixed  column bg-white justify-center align-center opacity-75 z-40 left-0 right-0 bottom-0 top-50 w-full h-full">
+     <Spinner className="bg-white-file" />
+    </div>
+   )}
+   {userLocalStorageString && isOpenModal && (
+    <Settings closeModal={closeModal} />
+   )}
    <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
     <NavLink
      to="/upload"
@@ -106,11 +108,6 @@ const App: React.FC = () => {
       Profile
      </div>
     </NavLink>
-    {loading && (
-     <div className="flex fixed  column bg-white justify-center align-center opacity-75 z-40 left-0 right-0 bottom-0 top-50 w-full h-full">
-      <Spinner className="bg-white-file" />
-     </div>
-    )}
    </div>
    <div className="flex bg-options mr-8 ml-8 rounded-md text-white text-center h-10 font-sans-main">
     <NavLink
@@ -150,8 +147,6 @@ const App: React.FC = () => {
     <PrivateRoute path="/files" component={Files} />
     <PrivateRoute path="/send" component={Send} />
     <PrivateRoute path="/progress" component={Progress} />
-    <PrivateModalRoute path="#" component={Notification} />
-    <PrivateModalRoute path="/settings" component={Settings} /> */}
    </Switch>
    <div className="flex justify-center absolute inset-x-0 bottom-0 bg-white text-center mr-8 ml-8 bg-options rounded-md mb-4 font-sans-main h-10">
     <button className="text-white text-center text-sm font-sans-main leading-none tracking-tighter self-center focus:bg-update">

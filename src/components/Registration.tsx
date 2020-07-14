@@ -16,8 +16,8 @@ export const Registration: React.FC = () => {
  const [confirmPassword, setConfirmPassword] = useState('')
  const [errorMessage, setErrorMessage] = useState('')
  const [isPasswordVisible, setIsPasswordVisible] = useState(false)
+ const [passwordLengthError, setPasswordLengthError] = useState('')
  const serverMessage = useSelector(getErrorMessage)
- console.log(serverMessage, 'error')
 
  const doRegistration = (e: any) => {
   e.preventDefault()
@@ -40,13 +40,17 @@ export const Registration: React.FC = () => {
     ? setErrorMessage("Passwords don't match")
     : setErrorMessage('')
   }
- }, [username, email, password, confirmPassword])
+  {
+   password.length <= 5 && password !== confirmPassword
+    ? setPasswordLengthError('Password must be at least 6 characters long')
+    : setPasswordLengthError('')
+  }
+ }, [password, confirmPassword])
 
  const togglePasswordVisability = (e: any) => {
   e.preventDefault()
   setIsPasswordVisible(!isPasswordVisible ? true : false)
  }
- console.log('password shown')
 
  useEffect(() => {
   dispatch(setAuthError(undefined))
@@ -133,14 +137,18 @@ export const Registration: React.FC = () => {
        </button>
       </div>
      </div>
+     {errorMessage && <ErrorMessage errorMessage="Passwords don't match" />}
 
      {serverMessage.error && (
       <ErrorMessage errorMessage="Username or email already exists or invalid email format" />
      )}
+     {passwordLengthError.length !== 0 && (
+      <ErrorMessage errorMessage="Password must be at least 6 characters long" />
+     )}
     </div>
     <div className="text-center ml-10 mr-10 m-5">
      <button
-      className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10 disabled:opacity-50 bg-gray-500"
+      className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10 disabled:opacity-100 bg-blue-500"
       onClick={e => doRegistration(e)}
       disabled={!(username && password && password && confirmPassword)}
      >

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import sign from '../commons/sent-sign.svg'
-import plus from '../commons/plus-large.svg'
+// import plus from '../commons/plus-large.svg'
 import add from '../commons/plus-small.svg'
 import _ from 'lodash'
 

@@ -5,9 +5,21 @@ module.exports = {
    '270': '270deg',
   },
  },
- variants: {
-  outline: ['responsive', 'focus'],
-  opacity: ['responsive', 'hover', 'focus', 'disabled'],
- },
+ variants: [
+  'responsive',
+  'group-hover',
+  'group-focus',
+  'focus-within',
+  'first',
+  'last',
+  'odd',
+  'even',
+  'hover',
+  'focus',
+  'active',
+  'visited',
+  'disabled',
+ ],
+
  plugins: [require('tailwind')],
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { doUserLogin, setAuthError } from '../actions/AuthActions'
 import { useHistory } from 'react-router'
-import { getErrorMessage, getUser } from '../selectors/UserSelector'
+import { getErrorMessage } from '../selectors/UserSelector'
 import { ErrorMessage } from './ErrorMessage'
 import exposed from '../commons/eye-open.svg'
 import hidden from '../commons/eye-closed.svg'
@@ -30,13 +30,10 @@ export const Login: React.FC = () => {
   dispatch(setAuthError(undefined))
  }, [username, password])
 
- console.info('---', serverError)
-
  const togglePasswordVisability = (e: any) => {
   e.preventDefault()
   setIsPasswordVisible(!isPasswordVisible ? true : false)
  }
- console.log('password shown')
 
  return (
   <>

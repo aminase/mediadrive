@@ -3,11 +3,10 @@ import { useHistory } from 'react-router'
 import { Modal } from './Modal'
 
 interface ISettings {
- openModal: () => void
  closeModal: () => void
 }
 
-export const Settings: React.FC<ISettings> = ({ openModal, closeModal }) => {
+export const Settings: React.FC<ISettings> = ({ closeModal }) => {
  const history = useHistory()
 
  const doLogOut = () => {
