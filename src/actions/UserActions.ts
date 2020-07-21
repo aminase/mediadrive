@@ -3,6 +3,8 @@ enum USER_ACTIONS {
  SET_USER = 'USER_ACTIONS::SET_USER',
  TOGGLE_LOADER = 'USER_ACTIONS.TOGGLE_LOADER',
  INVITE_USER = 'USER_ACTIONS.INVITE_USER',
+ FETCH_USER_INVITEE = 'USER_ACTIONS.FETCH_USER_INVITEE',
+ SET_USER_INVITEE = 'USER_ACTIONS.SET_USER_INVITEE',
 }
 
 interface IFetchUser {
@@ -31,6 +33,30 @@ const setUser = (user: any) => {
  }
 }
 
+interface IFetchUserInvitee {
+ type: typeof USER_ACTIONS.FETCH_USER_INVITEE
+ payload: string
+}
+
+const fetchUserInvitee = (userId: any) => {
+ return {
+  type: USER_ACTIONS.FETCH_USER_INVITEE,
+  payload: userId,
+ }
+}
+
+interface ISetUserInvitee {
+ type: typeof USER_ACTIONS.SET_USER_INVITEE
+ payload: any
+}
+
+const setUserInvitee = (invitedUser: any) => {
+ return {
+  type: USER_ACTIONS.SET_USER_INVITEE,
+  payload: invitedUser,
+ }
+}
+
 interface IToggleLoader {
  type: typeof USER_ACTIONS.TOGGLE_LOADER
 }
@@ -52,12 +78,21 @@ const inviteUserAction = (email: any) => {
   },
  }
 }
-export type IAllActions = IFetchUser | ISetUser | IToggleLoader | IInviteUser
+
+export type IAllActions =
+ | IFetchUser
+ | ISetUser
+ | IToggleLoader
+ | IInviteUser
+ | IFetchUserInvitee
+ | ISetUserInvitee
 
 export {
  fetchUserAction,
  setUser,
  toggleLoader,
  inviteUserAction,
+ fetchUserInvitee,
+ setUserInvitee,
  USER_ACTIONS,
 }

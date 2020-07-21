@@ -5,6 +5,7 @@ import { getUser } from '../selectors/UserSelector'
 
 export const Profile: React.FC = () => {
  const user = useSelector(getUser)
+ console.log(user, 'user')
 
  return (
   <div>

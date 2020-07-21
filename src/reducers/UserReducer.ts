@@ -5,12 +5,14 @@ interface IUserData {
  user: IUser | null
  loading: boolean
  email: any
+ invitedUser: any
 }
 
 const defaultState = {
  user: null,
  loading: false,
  email: null,
+ invitedUser: null,
 }
 
 export default (state: IUserData = defaultState, action: IAllActions) => {
@@ -31,6 +33,11 @@ export default (state: IUserData = defaultState, action: IAllActions) => {
     ...state,
     email: state.email,
     ...action.payload,
+   }
+  case USER_ACTIONS.SET_USER_INVITEE:
+   return {
+    ...state,
+    invitedUser: { ...state.invitedUser, ...action.payload },
    }
 
   default:

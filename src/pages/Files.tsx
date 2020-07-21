@@ -26,39 +26,38 @@ export const Files: React.FC = () => {
     </label>
    </div>
    {share && (
-    <div className="flex mt-3 h-12">
-     {' '}
-     <div className="w-1/3 bg-field text-center start text-white text-sm pt-4">
-      {' '}
-      File_01.mov
-     </div>
-     <div className="w-1/3 bg-field text-center text-white text-xs pt-4">
-      {' '}
-      12 GB
-     </div>
-     <button className="w-1/3 bg-field-remove text-center text-white text-xs focus:bg-current">
-      {' '}
-      Accept{' '}
-     </button>
-    </div>
+    <File fileName="File_01.mov" size="12 GB">
+     Accept
+    </File>
    )}
    {!files && (
-    <div className="flex mt-2 h-12">
-     {' '}
-     <div className="w-1/3 bg-field text-center start text-white text-sm pt-4">
-      {' '}
-      File_01.mov
-     </div>
-     <div className="w-1/3 bg-field text-center text-white text-xs pt-4">
-      {' '}
-      12 GB
-     </div>
-     <button className="w-1/3 bg-field-remove text-center text-white text-xs focus:bg-current">
-      {' '}
-      Remove{' '}
-     </button>
-    </div>
+    <File fileName="File_01.mov" size="12 GB">
+     Remove
+    </File>
    )}
+  </div>
+ )
+}
+
+const File = ({ fileName, size, onClick, children }: any) => {
+ return (
+  <div className="flex mt-2 h-12">
+   {' '}
+   <div className="w-1/3 bg-field text-center start text-white text-sm pt-4">
+    {' '}
+    {fileName}{' '}
+   </div>
+   <div className="w-1/3 bg-field text-center text-white text-xs pt-4">
+    {' '}
+    {size}{' '}
+   </div>
+   <button
+    className="w-1/3 bg-field-remove text-center text-white text-xs focus:bg-current"
+    onClick={onClick}
+   >
+    {' '}
+    {children}{' '}
+   </button>
   </div>
  )
 }
