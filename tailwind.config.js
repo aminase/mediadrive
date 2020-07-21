@@ -5,21 +5,9 @@ module.exports = {
    '270': '270deg',
   },
  },
- variants: [
-  'responsive',
-  'group-hover',
-  'group-focus',
-  'focus-within',
-  'first',
-  'last',
-  'odd',
-  'even',
-  'hover',
-  'focus',
-  'active',
-  'visited',
-  'disabled',
- ],
+ variants: {
+  opacity: ['responsive', 'hover', 'focus', 'disabled'],
+ },
 
  plugins: [require('tailwind')],
 }

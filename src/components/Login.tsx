@@ -27,7 +27,9 @@ export const Login: React.FC = () => {
  }
 
  useEffect(() => {
-  dispatch(setAuthError(undefined))
+  {
+   dispatch(setAuthError(undefined))
+  }
  }, [username, password])
 
  const togglePasswordVisability = (e: any) => {
@@ -87,9 +89,9 @@ export const Login: React.FC = () => {
      <div className="text-center ml-10 mr-10 m-5">
       <button
        type="submit"
-       className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10"
-       onClick={e => doLogin(e)}
        disabled={!(username && password)}
+       className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10 active:cursor-text"
+       onClick={e => doLogin(e)}
       >
        Sign In
       </button>

@@ -4,11 +4,13 @@ import IUser from '../types/User'
 interface IUserData {
  user: IUser | null
  loading: boolean
+ email: any
 }
 
 const defaultState = {
  user: null,
  loading: false,
+ email: null,
 }
 
 export default (state: IUserData = defaultState, action: IAllActions) => {
@@ -24,6 +26,13 @@ export default (state: IUserData = defaultState, action: IAllActions) => {
     ...state,
     loading: !state.loading,
    }
+  case USER_ACTIONS.INVITE_USER:
+   return {
+    ...state,
+    email: state.email,
+    ...action.payload,
+   }
+
   default:
    return state
  }

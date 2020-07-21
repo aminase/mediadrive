@@ -32,7 +32,7 @@ const App: React.FC = () => {
  const closeModal = () => setIsOpenModal(false)
  const loading = useSelector(getLoadingStatus)
 
- const userLocalStorageString = localStorage.getItem('user')
+ const userLocalStorage = localStorage.getItem('user')
 
  return (
   <BrowserRouter>
@@ -56,7 +56,7 @@ const App: React.FC = () => {
      </button>
     </div>
    </div>
-   {userLocalStorageString && isNotificationOpen && (
+   {userLocalStorage && isNotificationOpen && (
     <Notification closeNotificationModal={closeNotificationModal} />
    )}
    {loading && (
@@ -64,9 +64,7 @@ const App: React.FC = () => {
      <Spinner className="bg-white-file" />
     </div>
    )}
-   {userLocalStorageString && isOpenModal && (
-    <Settings closeModal={closeModal} />
-   )}
+   {userLocalStorage && isOpenModal && <Settings closeModal={closeModal} />}
    <div className="flex mb-3 bg-navgray active:bg-current-gray h-20 font-sans-main z-0">
     <NavLink
      to="/upload"

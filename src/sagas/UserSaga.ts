@@ -11,6 +11,7 @@ import IAxiosResponse from '../types/AxiosResponse'
 
 const UserSaga = function*() {
  yield all([takeEvery(USER_ACTIONS.FETCH_USER, fetchUser)])
+ yield all([takeEvery(USER_ACTIONS.INVITE_USER, sendInvite)])
 }
 
 const fetchUser = function*() {
@@ -27,6 +28,25 @@ const fetchUser = function*() {
  //  yield put(toggleLoader())
 
  yield put(setUser(saveUser.data))
+}
+
+const sendInvite = function*(action: any) {
+ let user: any
+ const userLocalStorage = localStorage.getItem('user')
+ if (userLocalStorage) {
+  user = JSON.parse(userLocalStorage)
+ }
+
+ const { email } = action.payload
+ const sendInvite: IAxiosResponse = yield call(() =>
+  axios.post(`${API_ROOT}/api/contacts/sendInvite?access_token=${user.id}`, {
+   email,
+  })
+ )
+
+ if (sendInvite.status === 200) {
+  console.log('success')
+ }
 }
 
 export { UserSaga }

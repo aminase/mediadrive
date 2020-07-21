@@ -70,7 +70,6 @@ const doLogin = function*(action: any) {
    yield put(fetchUserAction(action.payload))
   }
  } catch (err) {
-  console.log(err, 'error 1')
   yield put(setAuthError(err))
   console.log(err.response.data.error.message, 'error from saga')
  }

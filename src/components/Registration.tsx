@@ -148,7 +148,7 @@ export const Registration: React.FC = () => {
     </div>
     <div className="text-center ml-10 mr-10 m-5">
      <button
-      className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10 disabled:opacity-100 bg-blue-500"
+      className="w-3/4 bg-options font-14 focus:outline-none text-white rounded h-10"
       onClick={e => doRegistration(e)}
       disabled={!(username && password && password && confirmPassword)}
      >
