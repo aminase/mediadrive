@@ -14,8 +14,8 @@ export const Invite: React.FC = () => {
  const handleUserInvite = () => {
   dispatch(inviteUserAction(email))
   console.log('email', email)
-  setEmail('')
   setInvitedUsers([...invitedUsers, email])
+  setEmail('')
  }
 
  return (
@@ -24,7 +24,7 @@ export const Invite: React.FC = () => {
     Invite Users
    </div>
    {invitedUsers.map((email: any, id: any) => (
-    <div key={email.id}>
+    <div key={_.uniqueId('_id')}>
      <div className="flex items-center mb-2 bg-field text-white">
       <div className="w-2/3 h-12 pl-4 pt-4">
        <div className="font-14 text-blue-200">{email}</div>
@@ -52,7 +52,7 @@ export const Invite: React.FC = () => {
      </div>
      <div className="border-r h-10 border-profile mt-1 mb-1" />
      <button
-      className="w-1/3 text-white flex inline font-14 p-4 focus:bg-options hover:bg-gray-600 focus:outline-none "
+      className="w-1/3 text-white flex inline font-14 p-4 focus:bg-options hover:bg-gray-600 focus:outline-none"
       onClick={() => handleUserInvite()}
       disabled={!email}
      >
