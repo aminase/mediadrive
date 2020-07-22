@@ -1,11 +1,12 @@
-import { takeEvery, all, call, put } from 'redux-saga/effects'
+import { takeEvery, all, call, put, delay } from 'redux-saga/effects'
 import {
  USER_ACTIONS,
  IAllActions,
  setUser,
  toggleLoader,
- setUserInvitee,
+ setUserContacts,
  fetchUserAction,
+ setUserInvitation,
 } from '../actions/UserActions'
 import axios from 'axios'
 import { API_ROOT } from '../constants/index'
@@ -13,8 +14,11 @@ import IAxiosResponse from '../types/AxiosResponse'
 
 const UserSaga = function*() {
  yield all([takeEvery(USER_ACTIONS.FETCH_USER, fetchUser)])
- yield all([takeEvery(USER_ACTIONS.INVITE_USER, sendInvite)])
- yield all([takeEvery(USER_ACTIONS.FETCH_USER_INVITEE, fetchUserInvitee)])
+ yield all([takeEvery(USER_ACTIONS.USER_INVITATION, sendInvite)])
+ yield all([takeEvery(USER_ACTIONS.FETCH_USER_CONTACTS, getUserContacts)])
+ yield all([
+  takeEvery(USER_ACTIONS.FETCH_USER_INVITATION, fetchUserInvitations),
+ ])
 }
 
 const fetchUser = function*() {
@@ -45,31 +49,41 @@ const sendInvite = function*(action: any) {
    email,
   })
  )
-
  if (sendInvite.status === 200) {
   console.log('success')
  }
 }
 
-const fetchUserInvitee = function*() {
+const getUserContacts = function*() {
  let user: any
  const userLocalStorage = localStorage.getItem('user')
  if (userLocalStorage) {
   user = JSON.parse(userLocalStorage)
  }
- console.log(user, 'user')
+ const filter = encodeURIComponent(
+  JSON.stringify({ where: { userId: user.userId } })
+ )
+ const saveUserContacts: IAxiosResponse = yield call(() =>
+  axios.get(`${API_ROOT}/api/contacts?filter=${filter}&access_token=${user.id}`)
+ )
 
- const filter = { where: { userId: user.userId } }
+ yield put(setUserContacts(saveUserContacts.data))
+}
 
- const saveUserInvitee: IAxiosResponse = yield call(() =>
-  axios.get(
-   `${API_ROOT}/api/contacts?filter=${user.userId}&access_token=${user.id}`,
-   {}
-  )
+const fetchUserInvitations = function*() {
+ let user: any
+ const userLocalStorage = localStorage.getItem('user')
+ if (userLocalStorage) {
+  user = JSON.parse(userLocalStorage)
+ }
+ const filter = encodeURIComponent(
+  JSON.stringify({ where: { userId: user.userId } })
+ )
+ const saveUserInvitation: IAxiosResponse = yield call(() =>
+  axios.get(`${API_ROOT}/api/invites?filter=${filter}&access_token=${user.id}`)
  )
  //  yield put(toggleLoader())
- console.log(saveUserInvitee, 'invitee')
- yield put(setUserInvitee(saveUserInvitee.data))
+
+ yield put(setUserInvitation(saveUserInvitation.data))
 }
-console.log(fetchUserInvitee, 'fetch')
 export { UserSaga }

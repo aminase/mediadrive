@@ -4,15 +4,17 @@ import IUser from '../types/User'
 interface IUserData {
  user: IUser | null
  loading: boolean
- email: any
+ invite: any
+ contacts: any
  invitedUser: any
 }
 
 const defaultState = {
  user: null,
  loading: false,
- email: null,
- invitedUser: null,
+ invite: null,
+ contacts: [],
+ invitedUser: [],
 }
 
 export default (state: IUserData = defaultState, action: IAllActions) => {
@@ -28,17 +30,11 @@ export default (state: IUserData = defaultState, action: IAllActions) => {
     ...state,
     loading: !state.loading,
    }
-  case USER_ACTIONS.INVITE_USER:
-   return {
-    ...state,
-    email: state.email,
-    ...action.payload,
-   }
-  case USER_ACTIONS.SET_USER_INVITEE:
-   return {
-    ...state,
-    invitedUser: { ...state.invitedUser, ...action.payload },
-   }
+  case USER_ACTIONS.SET_USER_INVITATION:
+   return { ...state, invitedUser: action.payload }
+
+  case USER_ACTIONS.SET_USER_CONTACTS:
+   return { ...state, contacts: action.payload }
 
   default:
    return state

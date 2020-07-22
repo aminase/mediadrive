@@ -2,9 +2,11 @@ enum USER_ACTIONS {
  FETCH_USER = 'USER_ACTIONS:FETCH_USER',
  SET_USER = 'USER_ACTIONS::SET_USER',
  TOGGLE_LOADER = 'USER_ACTIONS.TOGGLE_LOADER',
- INVITE_USER = 'USER_ACTIONS.INVITE_USER',
- FETCH_USER_INVITEE = 'USER_ACTIONS.FETCH_USER_INVITEE',
- SET_USER_INVITEE = 'USER_ACTIONS.SET_USER_INVITEE',
+ USER_INVITATION = 'USER_ACTIONS.USER_INVITATION',
+ FETCH_USER_INVITATION = 'USER_ACTIONS.FETCH_USER_INVITATION',
+ SET_USER_INVITATION = 'USER_ACTIONS.SET_USER_INVITATION',
+ FETCH_USER_CONTACTS = 'USER_ACTIONS.FETCH_USER_CONTACTS',
+ SET_USER_CONTACTS = 'USER_ACTIONS.SET_USER_CONTACTS',
 }
 
 interface IFetchUser {
@@ -34,25 +36,23 @@ const setUser = (user: any) => {
 }
 
 interface IFetchUserInvitee {
- type: typeof USER_ACTIONS.FETCH_USER_INVITEE
- payload: string
+ type: typeof USER_ACTIONS.FETCH_USER_CONTACTS
 }
 
-const fetchUserInvitee = (userId: any) => {
+const fetchUserContacts = () => {
  return {
-  type: USER_ACTIONS.FETCH_USER_INVITEE,
-  payload: userId,
+  type: USER_ACTIONS.FETCH_USER_CONTACTS,
  }
 }
 
 interface ISetUserInvitee {
- type: typeof USER_ACTIONS.SET_USER_INVITEE
+ type: typeof USER_ACTIONS.SET_USER_CONTACTS
  payload: any
 }
 
-const setUserInvitee = (invitedUser: any) => {
+const setUserContacts = (invitedUser: any) => {
  return {
-  type: USER_ACTIONS.SET_USER_INVITEE,
+  type: USER_ACTIONS.SET_USER_CONTACTS,
   payload: invitedUser,
  }
 }
@@ -65,17 +65,39 @@ const toggleLoader = () => {
  return { type: USER_ACTIONS.TOGGLE_LOADER }
 }
 
-interface IInviteUser {
- type: typeof USER_ACTIONS.INVITE_USER
+interface IUserInvite {
+ type: typeof USER_ACTIONS.USER_INVITATION
  payload: any
 }
 
-const inviteUserAction = (email: any) => {
+const userInviteAction = (email: any) => {
  return {
-  type: USER_ACTIONS.INVITE_USER,
+  type: USER_ACTIONS.USER_INVITATION,
   payload: {
    email,
   },
+ }
+}
+interface IFetchUserInvitation {
+ type: typeof USER_ACTIONS.FETCH_USER_INVITATION
+ payload: any
+}
+
+const fetchUserInvitation = () => {
+ return {
+  type: USER_ACTIONS.FETCH_USER_INVITATION,
+ }
+}
+
+interface ISetUserInvitation {
+ type: typeof USER_ACTIONS.SET_USER_INVITATION
+ payload: any
+}
+
+const setUserInvitation = (invite: any) => {
+ return {
+  type: USER_ACTIONS.SET_USER_INVITATION,
+  payload: invite,
  }
 }
 
@@ -83,7 +105,9 @@ export type IAllActions =
  | IFetchUser
  | ISetUser
  | IToggleLoader
- | IInviteUser
+ | IUserInvite
+ | IFetchUserInvitation
+ | ISetUserInvitation
  | IFetchUserInvitee
  | ISetUserInvitee
 
@@ -91,8 +115,10 @@ export {
  fetchUserAction,
  setUser,
  toggleLoader,
- inviteUserAction,
- fetchUserInvitee,
- setUserInvitee,
+ userInviteAction,
+ fetchUserInvitation,
+ setUserInvitation,
+ fetchUserContacts,
+ setUserContacts,
  USER_ACTIONS,
 }

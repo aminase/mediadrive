@@ -1,18 +1,32 @@
 import React, { useEffect } from 'react'
 import user from '../commons/user.svg'
 import avatar from '../commons/avatar.svg'
-import { useSelector } from 'react-redux'
-import { getIniviteesList } from '../selectors/UserSelector'
+import { useSelector, useDispatch } from 'react-redux'
+import { getContactList } from '../selectors/UserSelector'
+import { fetchUserContacts } from '../actions/UserActions'
 
 export const Contacts: React.FC = () => {
- const invitedUsers = useSelector(getIniviteesList)
+ const dispatch = useDispatch()
+ useEffect(() => {
+  dispatch(fetchUserContacts())
+ }, [])
 
- console.log(invitedUsers, 'list of invited users')
+ const contactList = useSelector(getContactList)
+
+ console.log(contactList, 'list of contacts')
 
  return (
   <div className="mr-8 ml-8 mt-8">
-   <Contact email="john@mediadrive">Online</Contact>
-   <Contact email="mark@mediadrive">Offline</Contact>
+   {contactList == '' ? (
+    <div className="text-white center">
+     {' '}
+     You have no contact so far. Please go to Invite section and add some.
+    </div>
+   ) : (
+    contactList.map((contact: any) => (
+     <Contact email={contact.email}>Online</Contact>
+    ))
+   )}
   </div>
  )
 }
@@ -21,7 +35,7 @@ const Contact = ({ email, children }: any) => {
  return (
   <div className="flex items-center mb-2 bg-field h-12">
    <div className="pr-2 pl-2">
-    <img src={user} className="rounded-full h-8" alt="user" />
+    <img src={avatar} className="rounded-full h-8" alt="user" />
    </div>
    <div className="w-2/3">
     <div className="text-white font-14">{email}</div>

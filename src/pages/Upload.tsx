@@ -9,9 +9,6 @@ export const Upload: React.FC = () => {
  //   //console.log('heey', getClient, subscribe)
  //  }, [])
 
- const userLocalStorage = localStorage.getItem('user')
- console.log(userLocalStorage, 'storage')
-
  return (
   <div>
    <DragNDrop />
