@@ -39,7 +39,7 @@ export const DragNDrop: React.FC = () => {
         <div className="flex block bg-field h-14 justify-between items-center p-2 mb-2 px-5">
          <div className="w-1/8 text-white text-sm h-12 pt-3">{file.name}</div>
          <div className="w-6/8 text-white">-----------</div>
-         <div className="w-1/8 text-white text-sm">60%</div>
+         <div className="w-1/8 text-white text-sm">70%</div>
         </div>
        </div>
       ))}
