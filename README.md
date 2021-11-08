@@ -1,5 +1,7 @@
 # A quick start - Media Drive App
 
+Application developed using ReactJS, TypeScript, TailwindCSS, Redux-Saga
+
 In the project directory just hit 
 
 npm start
