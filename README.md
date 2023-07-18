@@ -1,7 +1,7 @@
 # A quick start - Media Drive App
 
-Application developed using ReactJS, TypeScript, TailwindCSS, Redux-Saga. 
-In order to run project locally just hit `npm start` command and app will run in development mode. Open http://localhost:3000 to view it in the browser.
+Application developed using React.js, TypeScript, TailwindCSS, Redux-Saga. 
+In order to run the project locally hit `npm start` command and the app will run in development mode. Open http://localhost:3000 to view it in the browser.
 
 
 <img width="1277" alt="Screenshot 2021-11-08 at 17 21 20" src="https://user-images.githubusercontent.com/35095429/140796866-569bf55e-a1b2-4417-b05f-c6eafd334257.png">
